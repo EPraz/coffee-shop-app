@@ -4,6 +4,8 @@ import AxeBuilder from "@axe-core/playwright";
 const languages = [
   {
     code: "en",
+    menu: "Open menu",
+    closeMenu: "Close menu",
     title: "Find your daily ritual.",
     flavour: "Chocolate & nuts",
     intensity: "Intense",
@@ -19,6 +21,8 @@ const languages = [
   },
   {
     code: "es",
+    menu: "Abrir menú",
+    closeMenu: "Cerrar menú",
     title: "Encuentra tu ritual diario.",
     flavour: "Chocolate y frutos secos",
     intensity: "Intenso",
@@ -34,6 +38,8 @@ const languages = [
   },
   {
     code: "pt",
+    menu: "Abrir menu",
+    closeMenu: "Fechar menu",
     title: "Encontre seu ritual diário.",
     flavour: "Chocolate e castanhas",
     intensity: "Intenso",
@@ -65,7 +71,7 @@ for (const language of languages)
       page.on("pageerror", (error) => errors.push(error.message));
       await page.goto("/find-your-coffee");
       await page
-        .locator(".language-control select")
+        .getByRole("combobox", { name: "Language", exact: true })
         .selectOption(language.code);
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(
         language.title,
@@ -120,13 +126,17 @@ for (const language of languages)
             .getByRole("link", { name: language.nav, exact: true }),
         ).toBeVisible();
       else {
-        await page.locator(".mobile-menu-toggle").click();
+        await page
+          .getByRole("button", { name: language.menu, exact: true })
+          .click();
         await expect(
           page
-            .locator("#mobile-navigation")
+            .getByRole("navigation")
             .getByRole("link", { name: language.nav, exact: true }),
         ).toBeVisible();
-        await page.locator(".mobile-menu-toggle").click();
+        await page
+          .getByRole("button", { name: language.closeMenu, exact: true })
+          .click();
       }
       await noOverflow(page);
       await page
