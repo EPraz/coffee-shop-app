@@ -1,0 +1,45 @@
+.coupon-form {
+  padding: 1.5rem 0 0.5rem;
+  margin-top: 1.5rem;
+  border-block: 1px solid var(--line);
+}
+.coupon-form > label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.coupon-input-row {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.coupon-input-row input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.875rem;
+  font-size: 0.75rem;
+}
+.coupon-input-row button {
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: var(--accent);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.coupon-form > p {
+  min-height: 2rem;
+  font-size: 0.6875rem;
+  padding-top: 0.5rem;
+}
+.coupon-success,
+.discount-row dd {
+  color: var(--accent);
+}

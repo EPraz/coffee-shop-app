@@ -1,0 +1,26 @@
+:root {
+  color-scheme: dark;
+  --bg: #151a16;
+  --surface: #20261f;
+  --surface-raised: #282f27;
+  --text: #f2efe5;
+  --muted: #b4b9ad;
+  --subtle: #929b8b;
+  --accent: #d0ddb0;
+  --accent-hover: #e3edc9;
+  --ink: #20271c;
+  --line: #3c4438;
+  --danger: #f5afa0;
+  --success: #d0ddb0;
+  --body: "DM Sans", sans-serif;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --radius: 0.25rem;
+}

@@ -1,0 +1,42 @@
+.payment-options {
+  border: 0;
+  padding: 1rem 0 0;
+  margin: 1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.payment-options legend {
+  float: left;
+  width: 100%;
+  padding: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.6875rem;
+}
+.payment-options > div {
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.payment-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+.payment-options input {
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+  margin: 0.125rem;
+}
+.payment-error {
+  border: 1px solid #f5afa050;
+  background: #f5afa008;
+  padding: 1rem;
+  color: var(--danger);
+  font-size: 0.8125rem;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+}

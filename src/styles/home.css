@@ -1,0 +1,355 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 3rem;
+  padding-block: 2.5rem 3rem;
+  align-items: center;
+}
+.hero-copy {
+  padding-block: 2.5rem 0;
+}
+.hero-copy .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.625rem;
+}
+.live-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.hero h1 {
+  font-size: clamp(3.5rem, 6.7vw, 7rem);
+  margin: 2rem 0;
+}
+.hero h1 em {
+  display: block;
+  line-height: 0.95;
+  margin-top: 0.25rem;
+  max-width: 8em;
+}
+.hero-intro {
+  max-width: 23rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
+.hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 4rem;
+  color: var(--muted);
+  font-size: 0.625rem;
+}
+.thin-line {
+  width: 2rem;
+  border-top: 1px solid var(--line);
+}
+.hero-bottom > svg {
+  margin-left: auto;
+}
+.hero-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 4.6;
+}
+.hero-photo > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 60% 0 0;
+  background: linear-gradient(transparent, #11180fe6);
+  pointer-events: none;
+}
+.hero-photo-caption {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.4375rem;
+  color: #e5e8da;
+  letter-spacing: 0.12em;
+}
+.origin-stamp {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid #d0ddb080;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  color: var(--accent);
+  transform: rotate(12deg);
+  font-size: 0.4rem;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(8px);
+}
+.origin-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-block: 1px solid var(--line);
+  padding-block: 1.25rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.origin-ribbon > i {
+  color: var(--accent);
+  font-style: normal;
+  font-size: 1rem;
+}
+.home-selection {
+  padding-block: 5rem;
+}
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.section-heading h2 {
+  font-size: clamp(2.75rem, 4.5vw, 4.5rem);
+  margin-top: 1rem;
+}
+.section-heading-aside {
+  max-width: 18rem;
+  font-size: 0.8125rem;
+}
+.section-heading-aside > p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.home-coffee-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.philosophy {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  padding-block: 4rem 6rem;
+  border-top: 1px solid var(--line);
+}
+.philosophy h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  margin: 1.5rem 0;
+}
+.philosophy h2 em {
+  display: block;
+}
+.philosophy-copy > p:last-child {
+  color: var(--muted);
+  max-width: 30rem;
+  font-size: 0.875rem;
+}
+.principle {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.principle:first-child {
+  padding-top: 0;
+}
+.principle > svg {
+  color: var(--accent);
+  margin-top: 0.125rem;
+}
+.principle p {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+.principle-number {
+  margin-left: auto;
+  font-size: 0.5625rem;
+  color: var(--subtle);
+}
+@keyframes arrive {
+  from {
+    transform: translateY(12px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.hero-copy,
+.hero-photo {
+  animation: arrive 0.8s ease-out both;
+}
+.hero-photo {
+  animation-delay: 0.1s;
+}
+@media (max-width: 1024px) {
+  .hero {
+    gap: 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 6.9vw, 5rem);
+  }
+  .hero-bottom {
+    margin-top: 2rem;
+  }
+  .hero-photo {
+    aspect-ratio: 3 / 4;
+  }
+  .philosophy {
+    gap: 3rem;
+  }
+  .hero-photo-caption {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 1rem;
+  }
+  .hero-copy {
+    padding-top: 2rem;
+  }
+  .hero h1 {
+    font-size: clamp(3.75rem, 12vw, 6.5rem);
+    margin: 1.5rem 0;
+  }
+  .hero h1 em {
+    max-width: 11em;
+  }
+  .hero-intro {
+    max-width: 28rem;
+  }
+  .hero-bottom {
+    display: none;
+  }
+  .hero-photo {
+    aspect-ratio: 4 / 3;
+  }
+  .hero-photo > img {
+    object-position: center 32%;
+  }
+  .hero-photo-caption {
+    flex-direction: row;
+  }
+  .origin-ribbon {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.5rem;
+  }
+  .origin-ribbon > span:last-child {
+    display: none;
+  }
+  .origin-ribbon > i:last-of-type {
+    display: none;
+  }
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .section-heading-aside {
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+  }
+  .section-heading-aside > p {
+    max-width: 20rem;
+    margin: 0;
+  }
+  .home-coffee-grid {
+    gap: 1rem;
+  }
+  .philosophy {
+    grid-template-columns: 1fr;
+    padding-block: 3rem 4rem;
+  }
+  .principle {
+    padding-block: 1.25rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(3.25rem, 14vw, 5.25rem);
+  }
+  .hero-copy .eyebrow {
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+  .hero-photo {
+    aspect-ratio: 1 / 1;
+  }
+  .hero-photo-caption {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 0.375rem;
+  }
+  .origin-stamp {
+    width: 4.5rem;
+    height: 4.5rem;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.3rem;
+  }
+  .origin-stamp svg {
+    height: 1.5rem;
+  }
+  .home-selection {
+    padding-block: 3rem;
+  }
+  .section-heading-aside {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .section-heading-aside .text-link {
+    align-self: flex-start;
+  }
+  .home-coffee-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .home-coffee-grid .coffee-card-heading h2 {
+    font-size: 1.5rem;
+  }
+  .home-coffee-grid .bag-wordmark {
+    font-size: 2rem;
+  }
+  .home-coffee-grid .bag-name {
+    font-size: 0.625rem;
+  }
+  .home-coffee-grid .bag-country {
+    font-size: 0.5rem;
+  }
+  .home-coffee-grid .bag-weight {
+    font-size: 0.45rem;
+  }
+}
