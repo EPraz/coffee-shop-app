@@ -5,5 +5,7 @@ playwright-report/
 test-results/
 *.tsbuildinfo
 .scratch/qa/
+.scratch/walkthrough/
+.vercel/
 .env*
 !.env.example
