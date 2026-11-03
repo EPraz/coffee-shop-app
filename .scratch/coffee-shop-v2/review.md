@@ -27,7 +27,14 @@ the corrections without modifying files or sharing the browser-test server.
   same-document navigation, respecting session-only persistence limits.
   Both public two-tab regressions pass; the reviewer confirms no remaining
   implementation findings.
+- **P3, resolved:** localized player format copy still displayed the V1
+  duration. It now interpolates the shared chapter duration in all three
+  languages; visible format labels are checked in the player regressions.
 
-Totals: Standards 1 finding (worst P3), Spec 2 findings (worst P2); all resolved.
+Totals: Standards 1 finding (worst P3), Spec 3 findings (worst P2); all resolved.
 The final production video, media verification and ticket closure are tracked
 separately in the delivery record.
+
+## Final regression review
+
+The full suite exposed intermittent search character loss under load. A constrained-device browser case reproduced it reliably (Panama became a). The installed router deferred URL-driven controlled input updates in a transition. The application now opts out of router transitions, preserving one URL source of truth. The constrained-device case passes three repetitions; both independent reviewers confirm no remaining findings in this correction or the final media metadata.

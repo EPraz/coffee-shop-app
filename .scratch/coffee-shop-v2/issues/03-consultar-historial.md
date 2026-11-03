@@ -4,12 +4,16 @@
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** resolved
 
-- [ ] Compra aprobada guardada una vez con fecha, snapshot de productos e importes.
-- [ ] Pago rechazado no crea un pedido; checkout conserva su funcionamiento.
-- [ ] Últimos veinte pedidos, sin datos personales, persistentes en el mismo navegador.
-- [ ] Navegación al historial y detalle; importes/nombres históricos independientes del catálogo.
-- [ ] Vacío con catálogo y dos ejemplos identificados que no sobrescriben pedidos.
-- [ ] Borrar requiere confirmación; datos corruptos o almacenamiento bloqueado tienen recuperación honesta.
-- [ ] Recorridos de compra, recarga/reapertura, ejemplos, borrado y fallos en Playwright.
+- [x] Compra aprobada guardada una vez con fecha, snapshot de productos e importes.
+- [x] Pago rechazado no crea un pedido; checkout conserva su funcionamiento.
+- [x] Últimos veinte pedidos, sin datos personales, persistentes en el mismo navegador.
+- [x] Navegación al historial y detalle; importes/nombres históricos independientes del catálogo.
+- [x] Vacío con catálogo y dos ejemplos identificados que no sobrescriben pedidos.
+- [x] Borrar requiere confirmación; datos corruptos o almacenamiento bloqueado tienen recuperación honesta.
+- [x] Recorridos de compra, recarga/reapertura, ejemplos, borrado y fallos en Playwright.
+
+## Comments
+
+Public browser tests 14, 15 and 18 pass, including twenty-one purchases, persistence failures, intentional deletion and two-tab recovery. See the [independent review](../review.md); no remaining implementation findings.

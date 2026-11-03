@@ -4,11 +4,15 @@
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** resolved
 
-- [ ] Métodos, dosis y pasos basados en las referencias de la especificación.
-- [ ] Validación 250–500 ml con paso 50 y cálculo a 0,1 g.
-- [ ] Cantidades dinámicas y tiempos indicativos, con fuentes visibles.
-- [ ] Método y cantidad se conservan al cambiar de idioma.
-- [ ] Entrada desde producto y confirmación, accesible y adaptable.
-- [ ] Prueba pública con V60 500 ml = 30,0 g y prensa francesa 500 ml = 33,3 g.
+- [x] Métodos, dosis y pasos basados en las referencias de la especificación.
+- [x] Validación 250–500 ml con paso 50 y cálculo a 0,1 g.
+- [x] Cantidades dinámicas y tiempos indicativos, con fuentes visibles.
+- [x] Método y cantidad se conservan al cambiar de idioma.
+- [x] Entrada desde producto y confirmación, accesible y adaptable.
+- [x] Prueba pública con V60 500 ml = 30,0 g y prensa francesa 500 ml = 33,3 g.
+
+## Comments
+
+Public browser tests 13 and V2 matrix pass; dose, invalid input, localization, sources and coherent steps verified. See the [independent review](../review.md); no remaining implementation findings.

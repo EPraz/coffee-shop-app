@@ -15,3 +15,10 @@
 - First complete suite: 62/63 passed; only failure was the V1 keyboard test assuming search immediately after skip navigation. V2 legitimately adds the finder link before search. Updated the test to assert both stops in order; targeted verification follows. Format and build pass; no source TS/TSX over 200 lines.
 - Corrected catalogue keyboard test passes. Independent review: Standards P3 (CSS selectors bypass accessible names in matrix) corrected to named controls; reviewer confirms resolved. Spec P2 (stale tabs overwrite saved orders/examples) reproduced and corrected using persisted reconciliation and storage events. Combined failed-write/deletion regression reproduced; only genuinely unsaved receipts now merge back on recovery. Spec reviewer confirms no remaining implementation findings; browser regression being verified with same-visit SPA navigation.
 - TDD red evidence: missing finder entry, missing brewing entry, missing My orders entry observed before each implementation.
+
+- Final media exported and fully decoded: 73s1080p25fps,5923263bytes SHA7a28bdfbe73d23ca1597101f2c642bf2818e1699520b0db07b8d77f59f7e018e. All4 review sheets and fullresposter inspected; local390/1440 playback, seek66, actualdownload andHTTP206 pass.
+- Final65-test run:64pass; existing rapid-typing regression exposed dropped characters under load (Panama became aama). Investigated installed BrowserRouter7.18.5: default startTransition delays URL-driven controlled input updates. Official React/Router docs confirm input state must update synchronously; preparing constrained-CPU red regression and router sync opt-out. Media reviewer also found localized1:12 label; replaced with shared duration metadata interpolation.
+
+## Completed delivery
+
+All66 browser tests pass in the final complete run; typecheck, lint, format and build pass. Standards and Spec reviewers rechecked all corrections with no findings remaining. Production video73s(66s mobile+7s desktop), public routes/player/download/ranges and full hash match pass. Public GitHub README/poster match reviewed assets. All six tickets resolved; delivery.md contains the release proof.

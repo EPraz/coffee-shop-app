@@ -1,8 +1,10 @@
 # Bruma V2 discovery
 
-Status: interview complete. The owner confirmed Q1–Q14, including feature rules
-and delivery. This is the agreed discovery record, not an implementation spec;
-no V2 implementation has started.
+Status: interview complete and implementation delivered. The owner confirmed
+Q1–Q14, including feature rules and delivery. This remains the discovery record;
+the approved [specification](../.scratch/coffee-shop-v2/spec.md), six
+[tickets](../.scratch/coffee-shop-v2/issues/) and independent
+[review](../.scratch/coffee-shop-v2/review.md) track implementation and validation.
 
 ## Confirmed direction
 
