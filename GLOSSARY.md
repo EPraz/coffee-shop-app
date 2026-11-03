@@ -46,3 +46,28 @@ Selección de variantes de un pedido anterior para añadirlas al carrito actual,
 
 **Pedido de ejemplo**:
 Pedido de demostración precargado e identificado como ejemplo para explorar el historial y la recompra.
+
+**Catálogo**:
+Conjunto de bolsas de café que ofrece la tienda, con sus variantes, precios y disponibilidad.
+
+**Existencias**:
+Cantidad de bolsas de café disponibles para vender de una variante.
+_Evitar_: Límite del carrito.
+
+**Administrador de tienda**:
+Persona autorizada para gestionar el catálogo, las existencias y los pedidos de la tienda.
+
+**Estado del pedido**:
+Etapa de atención de un pedido: confirmado, en preparación, enviado, entregado o cancelado.
+
+**Tienda de demostración**:
+Tienda con datos de ejemplo compartidos por los visitantes para explorar compras y administración.
+
+**Ventas de demostración**:
+Importe de los productos de pedidos de demostración no cancelados, después de descuentos y sin incluir el envío.
+
+**Promedio por pedido**:
+Ventas de demostración divididas por la cantidad de pedidos no cancelados del período consultado.
+
+**Cuenta de demostración**:
+Identidad de ejemplo que permite acceder a la administración de una tienda de demostración con permisos limitados a sus datos.
