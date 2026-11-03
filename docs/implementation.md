@@ -22,8 +22,10 @@ No TypeScript or TSX source file exceeds 200 lines at the implementation checkpo
 
 ## Dependencies
 
-The development dependency tree uses a minimatch override at 11.0.1 or newer to address the advisory reported by npm. Lint, typechecking, build and browser behavior are verified with the resulting lockfile. The full npm audit was clean after the override.
+The development dependency tree uses a minimatch override at 11.0.1 or newer to address the advisory reported by npm. Lint, typechecking, build and browser behavior are verified with the resulting lockfile. The full npm audit was clean after the override. The [upstream advisory](https://github.com/advisories/GHSA-g3hv-75wg-m249) identifies 11.0.1 as the patched release.
 
 ## Delivery record
 
-The eight approved vertical slices are implemented. Final verification and the two-axis code review are recorded at completion below.
+The eight approved vertical slices are implemented and resolved, with all 97 acceptance criteria marked. The final browser suite passed all 32 tests, including 12 complete purchase scenarios across three languages and four widths. Typechecking, lint, formatting, production build and the full dependency audit passed.
+
+The independent Standards and Spec reviews identified three distinct P2 issues: search focus on query updates, repeated live announcements, and missing per-bag cart prices. Each was reproduced in a failing browser regression, corrected and re-checked by the reviewers. No actionable findings remain. See the delivery review in the project records.

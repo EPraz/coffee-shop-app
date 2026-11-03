@@ -4,7 +4,7 @@
 
 **Blocked by:** 04: Preparar el carrito con variantes y cantidades.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,15 +20,19 @@
 
 ## Acceptance criteria
 
-- [ ] El carrito permite introducir BRUMA15 y muestra que el cupón válido ha quedado aplicado.
-- [ ] El descuento es el 15 % del subtotal de productos, redondeado una sola vez al centavo más cercano; no descuenta el envío.
-- [ ] Se presentan por separado subtotal, descuento, envío de USD 5 y total; el total es subtotal menos descuento más envío.
-- [ ] Aplicar repetidamente el mismo cupón no acumula descuentos ni crea importes negativos.
-- [ ] Un cupón inválido muestra un mensaje comprensible, conserva las líneas y no modifica los importes ni elimina un descuento válido ya aplicado.
-- [ ] Aumentar, reducir o eliminar líneas recalcula el descuento y el total sobre el subtotal actual, sin alterar las cantidades seleccionadas.
-- [ ] El carrito vacío conserva un estado coherente y no permite pagar ni tratar el envío como importe pagadero.
-- [ ] Los cálculos usan centavos y datos de las variantes; el formato localizado no se convierte en una fuente de valores numéricos.
-- [ ] El cupón, sus estados y el desglose se entienden en los tres idiomas; cambiar de idioma conserva descuento y valores en USD.
-- [ ] Las pruebas de navegador verifican cupón válido, inválido, reaplicación, recálculo tras edición del carrito, redondeo y exclusión del envío del descuento.
-- [ ] Las pruebas comprueban resultados visibles con precios controlados y cubren un caso que requiera redondeo al centavo.
-- [ ] La revisión visual y por teclado cubre entrada del cupón, mensajes y resumen en los cuatro anchos; pasan tipos y compilación.
+- [x] El carrito permite introducir BRUMA15 y muestra que el cupón válido ha quedado aplicado.
+- [x] El descuento es el 15 % del subtotal de productos, redondeado una sola vez al centavo más cercano; no descuenta el envío.
+- [x] Se presentan por separado subtotal, descuento, envío de USD 5 y total; el total es subtotal menos descuento más envío.
+- [x] Aplicar repetidamente el mismo cupón no acumula descuentos ni crea importes negativos.
+- [x] Un cupón inválido muestra un mensaje comprensible, conserva las líneas y no modifica los importes ni elimina un descuento válido ya aplicado.
+- [x] Aumentar, reducir o eliminar líneas recalcula el descuento y el total sobre el subtotal actual, sin alterar las cantidades seleccionadas.
+- [x] El carrito vacío conserva un estado coherente y no permite pagar ni tratar el envío como importe pagadero.
+- [x] Los cálculos usan centavos y datos de las variantes; el formato localizado no se convierte en una fuente de valores numéricos.
+- [x] El cupón, sus estados y el desglose se entienden en los tres idiomas; cambiar de idioma conserva descuento y valores en USD.
+- [x] Las pruebas de navegador verifican cupón válido, inválido, reaplicación, recálculo tras edición del carrito, redondeo y exclusión del envío del descuento.
+- [x] Las pruebas comprueban resultados visibles con precios controlados y cubren un caso que requiera redondeo al centavo.
+- [x] La revisión visual y por teclado cubre entrada del cupón, mensajes y resumen en los cuatro anchos; pasan tipos y compilación.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

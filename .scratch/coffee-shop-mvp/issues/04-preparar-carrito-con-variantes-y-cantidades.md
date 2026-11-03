@@ -4,7 +4,7 @@
 
 **Blocked by:** 02: Consultar un café y elegir su variante.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,16 +20,20 @@
 
 ## Acceptance criteria
 
-- [ ] Desde el detalle de un café disponible se añade la combinación de café, peso y preparación seleccionada y se comunica el resultado mediante un mensaje accesible.
-- [ ] Añadir la misma combinación aumenta su cantidad en una sola línea; elegir otra combinación crea otra línea, incluso si corresponde al mismo café.
-- [ ] Cada línea identifica café, peso, preparación, cantidad, precio e importe. Las imágenes y etiquetas corresponden al producto seleccionado.
-- [ ] Se pueden aumentar y reducir cantidades entre una y nueve bolsas por variante, y eliminar una línea mediante una acción explícita.
-- [ ] El límite de nueve también se aplica al añadir repetidamente desde el detalle. Un intento de superarlo no altera las cantidades válidas y ofrece información comprensible.
-- [ ] El café agotado no puede añadirse por ninguno de los controles disponibles.
-- [ ] El subtotal suma los precios por sus cantidades; se muestra el envío fijo de USD 5 y el total de la compra con productos, usando cálculos exactos en centavos.
-- [ ] Un carrito vacío muestra una invitación a volver al catálogo, no presenta envío como cantidad pagadera y no permite iniciar una compra.
-- [ ] Cambiar el idioma conserva las líneas y cantidades; los nombres y formatos se actualizan sin duplicar las variantes ni convertir USD.
-- [ ] Las acciones y mensajes del carrito están completos en los tres idiomas y se pueden operar con teclado.
-- [ ] Las pruebas de navegador recorren detalle → añadir → carrito; verifican agrupación, separación de variantes, precios por peso, cantidad, límite desde ambos puntos de entrada, eliminación y estado vacío.
-- [ ] La persistencia del carrito entre visitas y el cupón se incorporan en sus tickets específicos; esta entrega no los exige por adelantado.
-- [ ] La revisión visual cubre carrito con varias líneas y estado vacío en los cuatro anchos; pasan tipos y compilación.
+- [x] Desde el detalle de un café disponible se añade la combinación de café, peso y preparación seleccionada y se comunica el resultado mediante un mensaje accesible.
+- [x] Añadir la misma combinación aumenta su cantidad en una sola línea; elegir otra combinación crea otra línea, incluso si corresponde al mismo café.
+- [x] Cada línea identifica café, peso, preparación, cantidad, precio e importe. Las imágenes y etiquetas corresponden al producto seleccionado.
+- [x] Se pueden aumentar y reducir cantidades entre una y nueve bolsas por variante, y eliminar una línea mediante una acción explícita.
+- [x] El límite de nueve también se aplica al añadir repetidamente desde el detalle. Un intento de superarlo no altera las cantidades válidas y ofrece información comprensible.
+- [x] El café agotado no puede añadirse por ninguno de los controles disponibles.
+- [x] El subtotal suma los precios por sus cantidades; se muestra el envío fijo de USD 5 y el total de la compra con productos, usando cálculos exactos en centavos.
+- [x] Un carrito vacío muestra una invitación a volver al catálogo, no presenta envío como cantidad pagadera y no permite iniciar una compra.
+- [x] Cambiar el idioma conserva las líneas y cantidades; los nombres y formatos se actualizan sin duplicar las variantes ni convertir USD.
+- [x] Las acciones y mensajes del carrito están completos en los tres idiomas y se pueden operar con teclado.
+- [x] Las pruebas de navegador recorren detalle → añadir → carrito; verifican agrupación, separación de variantes, precios por peso, cantidad, límite desde ambos puntos de entrada, eliminación y estado vacío.
+- [x] La persistencia del carrito entre visitas y el cupón se incorporan en sus tickets específicos; esta entrega no los exige por adelantado.
+- [x] La revisión visual cubre carrito con varias líneas y estado vacío en los cuatro anchos; pasan tipos y compilación.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

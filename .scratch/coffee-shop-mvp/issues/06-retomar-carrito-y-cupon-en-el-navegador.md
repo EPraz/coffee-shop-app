@@ -4,7 +4,7 @@
 
 **Blocked by:** 05: Aplicar BRUMA15 y revisar el total.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,15 +20,19 @@
 
 ## Acceptance criteria
 
-- [ ] Recargar conserva las líneas del carrito, sus variantes y sus cantidades, y restaura el cupón válido aplicado.
-- [ ] Volver a abrir la aplicación en el mismo navegador con el almacenamiento conservado restaura la compra y el idioma elegido.
-- [ ] Una elección de idioma recordada sigue teniendo prioridad sobre el idioma del navegador; se conserva el comportamiento inicial y la alternativa inglesa del ticket 01.
-- [ ] Restaurar y después cambiar de idioma no duplica productos, no modifica cantidades y no cambia el valor de los importes en USD.
-- [ ] Tras restaurar, los precios, la disponibilidad y los cálculos se obtienen del catálogo vigente y las reglas de la aplicación; los textos traducidos no se usan como identificadores.
-- [ ] Una compra restaurada no permite añadir o conservar un producto desconocido, agotado ni una cantidad fuera del intervalo válido como contenido pagadero.
-- [ ] Una entrada ilegible de almacenamiento no bloquea la aplicación y permite continuar con una compra válida o un carrito vacío recuperable.
-- [ ] Editar o eliminar líneas y volver a recargar refleja los cambios; vaciar el carrito no hace reaparecer productos antiguos en la siguiente apertura.
-- [ ] El formulario del cliente y un historial de pedidos no se añaden a la persistencia entre visitas.
-- [ ] Las pruebas usan recargas y reaperturas reales del navegador para comprobar restauración, edición, cambio de idioma y eliminación.
-- [ ] Los casos de recuperación usan un entorno de navegador aislado; las aserciones se hacen sobre lo que la persona ve y puede comprar.
-- [ ] La revisión de la experiencia restaurada cubre los cuatro anchos y los tres idiomas; pasan tipos y compilación.
+- [x] Recargar conserva las líneas del carrito, sus variantes y sus cantidades, y restaura el cupón válido aplicado.
+- [x] Volver a abrir la aplicación en el mismo navegador con el almacenamiento conservado restaura la compra y el idioma elegido.
+- [x] Una elección de idioma recordada sigue teniendo prioridad sobre el idioma del navegador; se conserva el comportamiento inicial y la alternativa inglesa del ticket 01.
+- [x] Restaurar y después cambiar de idioma no duplica productos, no modifica cantidades y no cambia el valor de los importes en USD.
+- [x] Tras restaurar, los precios, la disponibilidad y los cálculos se obtienen del catálogo vigente y las reglas de la aplicación; los textos traducidos no se usan como identificadores.
+- [x] Una compra restaurada no permite añadir o conservar un producto desconocido, agotado ni una cantidad fuera del intervalo válido como contenido pagadero.
+- [x] Una entrada ilegible de almacenamiento no bloquea la aplicación y permite continuar con una compra válida o un carrito vacío recuperable.
+- [x] Editar o eliminar líneas y volver a recargar refleja los cambios; vaciar el carrito no hace reaparecer productos antiguos en la siguiente apertura.
+- [x] El formulario del cliente y un historial de pedidos no se añaden a la persistencia entre visitas.
+- [x] Las pruebas usan recargas y reaperturas reales del navegador para comprobar restauración, edición, cambio de idioma y eliminación.
+- [x] Los casos de recuperación usan un entorno de navegador aislado; las aserciones se hacen sobre lo que la persona ve y puede comprar.
+- [x] La revisión de la experiencia restaurada cubre los cuatro anchos y los tres idiomas; pasan tipos y compilación.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

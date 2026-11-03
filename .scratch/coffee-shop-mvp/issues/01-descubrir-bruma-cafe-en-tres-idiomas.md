@@ -4,7 +4,7 @@
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,14 +20,18 @@
 
 ## Acceptance criteria
 
-- [ ] La aplicación puede arrancarse y compilarse con la base aprobada; hay navegación real entre inicio y catálogo, incluido volver atrás desde el navegador.
-- [ ] La portada presenta Bruma Café, su propuesta y una acción visible hacia el catálogo, con composición móvil y de escritorio siguiendo la referencia visual.
-- [ ] El catálogo contiene exactamente cinco cafés: dos de Panamá, uno de Brasil, uno de Colombia y uno de Etiopía; cada uno tiene identidad estable, nombre, imagen, origen, notas de sabor, tueste y precio ficticio de 250 g en USD.
-- [ ] Se definen precios ficticios por peso para 250 g y 500 g, junto con la preparación en grano o molido sin recargo. La identidad de los cafés y variantes es independiente de los textos traducidos.
-- [ ] Cuatro cafés figuran como disponibles y uno como agotado mediante texto. La selección de imágenes es coherente y tiene alternativas comprensibles cuando un recurso no esté disponible.
-- [ ] El selector visible permite recorrer portada y catálogo en portugués de Brasil, español latinoamericano e inglés estadounidense, sin claves de traducción expuestas.
-- [ ] En una primera visita se usa el idioma compatible del navegador o inglés como alternativa. La elección explícita se recuerda al recargar o volver a abrir y prevalece sobre el idioma del navegador.
-- [ ] Los precios cambian de formato con el idioma sin cambiar su valor ni la moneda USD. La condición de demostración se comunica con claridad.
-- [ ] Las dos pantallas funcionan con teclado, foco visible, controles con nombre accesible, jerarquía de encabezados y contraste suficiente.
-- [ ] Hay pruebas de navegador que recorren inicio y catálogo, verifican cantidad y orígenes de los cafés y comprueban selección, alternativa y persistencia del idioma.
-- [ ] La revisión visual cubre ambos tamaños de composición y los cuatro anchos acordados, incluyendo textos de los tres idiomas; tipos y compilación pasan.
+- [x] La aplicación puede arrancarse y compilarse con la base aprobada; hay navegación real entre inicio y catálogo, incluido volver atrás desde el navegador.
+- [x] La portada presenta Bruma Café, su propuesta y una acción visible hacia el catálogo, con composición móvil y de escritorio siguiendo la referencia visual.
+- [x] El catálogo contiene exactamente cinco cafés: dos de Panamá, uno de Brasil, uno de Colombia y uno de Etiopía; cada uno tiene identidad estable, nombre, imagen, origen, notas de sabor, tueste y precio ficticio de 250 g en USD.
+- [x] Se definen precios ficticios por peso para 250 g y 500 g, junto con la preparación en grano o molido sin recargo. La identidad de los cafés y variantes es independiente de los textos traducidos.
+- [x] Cuatro cafés figuran como disponibles y uno como agotado mediante texto. La selección de imágenes es coherente y tiene alternativas comprensibles cuando un recurso no esté disponible.
+- [x] El selector visible permite recorrer portada y catálogo en portugués de Brasil, español latinoamericano e inglés estadounidense, sin claves de traducción expuestas.
+- [x] En una primera visita se usa el idioma compatible del navegador o inglés como alternativa. La elección explícita se recuerda al recargar o volver a abrir y prevalece sobre el idioma del navegador.
+- [x] Los precios cambian de formato con el idioma sin cambiar su valor ni la moneda USD. La condición de demostración se comunica con claridad.
+- [x] Las dos pantallas funcionan con teclado, foco visible, controles con nombre accesible, jerarquía de encabezados y contraste suficiente.
+- [x] Hay pruebas de navegador que recorren inicio y catálogo, verifican cantidad y orígenes de los cafés y comprueban selección, alternativa y persistencia del idioma.
+- [x] La revisión visual cubre ambos tamaños de composición y los cuatro anchos acordados, incluyendo textos de los tres idiomas; tipos y compilación pasan.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

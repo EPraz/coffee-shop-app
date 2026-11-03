@@ -4,7 +4,7 @@
 
 **Blocked by:** 01: Descubrir Bruma Café en tres idiomas.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,14 +20,18 @@
 
 ## Acceptance criteria
 
-- [ ] La búsqueda encuentra cafés por nombre u origen dentro del catálogo de cinco productos.
-- [ ] El filtro permite seleccionar niveles de tueste de forma comprensible y muestra únicamente los cafés correspondientes.
-- [ ] Búsqueda y filtro se pueden combinar sin que uno borre el otro; el orden se aplica al resultado combinado.
-- [ ] Se puede ordenar por precio ascendente y descendente usando siempre la bolsa de 250 g, independientemente de selecciones hechas en el detalle.
-- [ ] El estado sin resultados explica lo ocurrido y permite limpiar la búsqueda y el filtro para recuperar el catálogo.
-- [ ] El café agotado sigue siendo consultable y se distingue de un resultado inexistente; el filtro no modifica la disponibilidad de los productos.
-- [ ] Los controles, sus opciones y el estado vacío se presentan en los tres idiomas y se operan con teclado.
-- [ ] Las pruebas de navegador verifican búsqueda por nombre y origen, filtro por tueste, combinación, orden ascendente y descendente y recuperación del resultado vacío.
-- [ ] Las pruebas usan el catálogo y los precios controlados de demostración, sin afirmar el orden a partir del formato textual de una moneda.
-- [ ] El comportamiento se integra con la navegación del catálogo ya disponible; no depende de que el detalle o el carrito estén terminados.
-- [ ] La revisión visual cubre controles y resultados en los cuatro anchos acordados y textos largos; pasan tipos y compilación.
+- [x] La búsqueda encuentra cafés por nombre u origen dentro del catálogo de cinco productos.
+- [x] El filtro permite seleccionar niveles de tueste de forma comprensible y muestra únicamente los cafés correspondientes.
+- [x] Búsqueda y filtro se pueden combinar sin que uno borre el otro; el orden se aplica al resultado combinado.
+- [x] Se puede ordenar por precio ascendente y descendente usando siempre la bolsa de 250 g, independientemente de selecciones hechas en el detalle.
+- [x] El estado sin resultados explica lo ocurrido y permite limpiar la búsqueda y el filtro para recuperar el catálogo.
+- [x] El café agotado sigue siendo consultable y se distingue de un resultado inexistente; el filtro no modifica la disponibilidad de los productos.
+- [x] Los controles, sus opciones y el estado vacío se presentan en los tres idiomas y se operan con teclado.
+- [x] Las pruebas de navegador verifican búsqueda por nombre y origen, filtro por tueste, combinación, orden ascendente y descendente y recuperación del resultado vacío.
+- [x] Las pruebas usan el catálogo y los precios controlados de demostración, sin afirmar el orden a partir del formato textual de una moneda.
+- [x] El comportamiento se integra con la navegación del catálogo ya disponible; no depende de que el detalle o el carrito estén terminados.
+- [x] La revisión visual cubre controles y resultados en los cuatro anchos acordados y textos largos; pasan tipos y compilación.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

@@ -4,7 +4,7 @@
 
 **Blocked by:** 05: Aplicar BRUMA15 y revisar el total.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 **Especificación:** Bruma Café — especificación del MVP, publicada y aprobada.
 
@@ -20,19 +20,23 @@
 
 ## Acceptance criteria
 
-- [ ] La compra como invitado muestra los productos, variantes, cantidades, subtotal, cupón si existe, envío y total coherentes con el carrito.
-- [ ] El formulario solicita nombre, correo, dirección, ciudad, código postal y país; valida campos obligatorios y formato del correo sin afirmar verificar direcciones reales.
-- [ ] Los errores aparecen asociados a sus campos, se comunican de forma accesible y permiten corregir valores sin perder los demás datos.
-- [ ] El botón «Llenar demo», traducido según el idioma activo, completa los campos con datos ficticios válidos; los valores se pueden editar y siguen sujetos a las mismas validaciones.
-- [ ] Un carrito vacío o un formulario inválido impiden crear un pedido aprobado. El acceso con carrito vacío ofrece una salida al catálogo.
-- [ ] La acción de compra se identifica como pago simulado y no solicita tarjeta ni llama a una pasarela de cobro.
-- [ ] El resultado aprobado se puede completar de forma reproducible; el procesamiento informa del progreso y evita envíos duplicados.
-- [ ] La aprobación crea una sola confirmación con número de pedido y resumen de variantes, cantidades e importes.
-- [ ] Antes de vaciar carrito y cupón se conserva el resumen del pedido; la pantalla de confirmación no lo recalcula a partir del carrito vacío.
-- [ ] Tras la aprobación, el carrito y el cupón quedan vacíos en el estado de la aplicación. Si la persistencia del ticket 06 ya está incorporada, los cambios siguen la misma vía de actualización y no reaparecen al recargar.
-- [ ] La confirmación permite volver al catálogo. Un acceso sin pedido disponible presenta una salida útil, sin inventar un pedido.
-- [ ] Formulario, validaciones, autocompletado, procesamiento y confirmación están completos en los tres idiomas y son operables con teclado.
-- [ ] Las pruebas de navegador cubren errores de campos, correo inválido, autocompletado editable, intento con carrito vacío, pago aprobado y prevención de duplicados.
-- [ ] Una prueba completa desde el carrito aplica BRUMA15, compra como invitado y comprueba que el número y los importes de confirmación se mantienen visibles después de vaciar carrito y cupón.
-- [ ] El rechazo y su selector de resultado se incorporan en el ticket 08 sobre este flujo de aprobación ya verificable.
-- [ ] La revisión visual incluye formulario, errores, procesamiento y confirmación en los cuatro anchos; pasan tipos y compilación.
+- [x] La compra como invitado muestra los productos, variantes, cantidades, subtotal, cupón si existe, envío y total coherentes con el carrito.
+- [x] El formulario solicita nombre, correo, dirección, ciudad, código postal y país; valida campos obligatorios y formato del correo sin afirmar verificar direcciones reales.
+- [x] Los errores aparecen asociados a sus campos, se comunican de forma accesible y permiten corregir valores sin perder los demás datos.
+- [x] El botón «Llenar demo», traducido según el idioma activo, completa los campos con datos ficticios válidos; los valores se pueden editar y siguen sujetos a las mismas validaciones.
+- [x] Un carrito vacío o un formulario inválido impiden crear un pedido aprobado. El acceso con carrito vacío ofrece una salida al catálogo.
+- [x] La acción de compra se identifica como pago simulado y no solicita tarjeta ni llama a una pasarela de cobro.
+- [x] El resultado aprobado se puede completar de forma reproducible; el procesamiento informa del progreso y evita envíos duplicados.
+- [x] La aprobación crea una sola confirmación con número de pedido y resumen de variantes, cantidades e importes.
+- [x] Antes de vaciar carrito y cupón se conserva el resumen del pedido; la pantalla de confirmación no lo recalcula a partir del carrito vacío.
+- [x] Tras la aprobación, el carrito y el cupón quedan vacíos en el estado de la aplicación. Si la persistencia del ticket 06 ya está incorporada, los cambios siguen la misma vía de actualización y no reaparecen al recargar.
+- [x] La confirmación permite volver al catálogo. Un acceso sin pedido disponible presenta una salida útil, sin inventar un pedido.
+- [x] Formulario, validaciones, autocompletado, procesamiento y confirmación están completos en los tres idiomas y son operables con teclado.
+- [x] Las pruebas de navegador cubren errores de campos, correo inválido, autocompletado editable, intento con carrito vacío, pago aprobado y prevención de duplicados.
+- [x] Una prueba completa desde el carrito aplica BRUMA15, compra como invitado y comprueba que el número y los importes de confirmación se mantienen visibles después de vaciar carrito y cupón.
+- [x] El rechazo y su selector de resultado se incorporan en el ticket 08 sobre este flujo de aprobación ya verificable.
+- [x] La revisión visual incluye formulario, errores, procesamiento y confirmación en los cuatro anchos; pasan tipos y compilación.
+
+## Comments
+
+Implementación completada y verificada. Los criterios se comprobaron con el comportamiento implementado, pruebas de navegador y revisión de código en los ejes Standards y Spec. La suite final tiene 32 pruebas aprobadas, incluidos tres casos de regresión surgidos de la revisión. La revisión final no deja hallazgos abiertos.

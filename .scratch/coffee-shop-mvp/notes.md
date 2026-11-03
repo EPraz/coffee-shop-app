@@ -38,7 +38,7 @@
 
 - MVP aprobado explícitamente por el usuario, incluyendo el catálogo de cinco cafés y cuatro disponibles para comprar.
 - Entrevista cerrada: alcance compartido confirmado.
-- No se ha iniciado la implementación de la aplicación.
+- La aplicación está implementada y verificada; los ocho tickets están resueltos.
 
 ## Especificación
 
@@ -49,10 +49,12 @@
 
 ## Tickets
 
-- Desglose de ocho tickets aprobado expresamente por el usuario: granularidad y dependencias aceptadas.
-- Publicados ocho archivos individuales en `.scratch/coffee-shop-mvp/issues/`, numerados del 01 al 08 y con `Status: ready-for-agent`.
-- Las 66 historias de usuario tienen cobertura en 97 criterios de aceptación del desglose.
-- Dependencias verificadas: grafo sin ciclos y numeración con bloqueadores primero.
-- Frontera inicial: ticket 01. Tras el ticket 01 pueden avanzar 02 y 03; tras el ticket 05, 06 y 07.
-- Los borradores se conservan como antecedentes; las fuentes vigentes son los tickets publicados en `issues/`.
-- No se ha iniciado la implementación de la aplicación.
+- Ocho tickets implementados y verificados en `.scratch/coffee-shop-mvp/issues/`.
+- Estado terminal: `resolved`; los 97 criterios de aceptación están marcados.
+- Cobertura de las 66 historias de usuario de la especificación.
+- Pruebas de navegador: 32 aprobadas en la ejecución completa final.
+- Compra verificada en tres idiomas y cuatro anchos de pantalla.
+- Revisión independiente Standards y Spec completada sin observaciones pendientes; informe en `.scratch/coffee-shop-mvp/review.md`.
+- Typecheck, lint, formato, compilación de producción y auditoría de dependencias aprobados.
+- Vista local disponible en `http://127.0.0.1:43174`.
+- Los borradores se conservan como antecedentes; las fuentes vigentes son la especificación y los tickets publicados.
