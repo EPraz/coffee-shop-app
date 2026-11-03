@@ -81,3 +81,8 @@ tests and verify public playback and byte-range responses after deployment.
 - Source recording: public production build from application commit
   `ed386b24e3e2fecf51ed96dbf0e0f433c227f06d`. The recorded session has no browser
   errors and verifies the USD 42.40 order total.
+- Final production verification passes at the public domain: desktop and mobile
+  playback, seeking to the desktop chapter, actual MP4 downloads, transcript,
+  no browser errors, and HTTP 206 ranges. The production file's size and SHA-256
+  match the reviewed export above. Direct entry to the home page, product, bag
+  and `/walkthrough` returns HTTP 200; the README poster is public on GitHub.

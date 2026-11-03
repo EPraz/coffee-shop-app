@@ -1,8 +1,7 @@
 # Publication and product walkthrough
 
-Status: demo published; video recorded and reviewed. Final player publication
-and verification in progress. Automatic Git deployments need the repository's
-Vercel GitHub integration to be enabled by the owner.
+Status: demo, video, player and README published and verified. Automatic Git
+deployments need the repository's Vercel GitHub integration enabled by the owner.
 
 ## Confirmed decisions
 
@@ -54,6 +53,11 @@ publication discussion so far.
 - Public production demo: https://coffee-shop-app-nine-lilac.vercel.app.
 - The initial CLI production deployment completed successfully. The production
   domain responds without authentication.
+- The final application deployment is ready at the same production domain:
+  `dpl_A162R2AXJwWhTGQVZUfxWtSHbp6A`, application commit `edbdca9`.
+- Public playback, chapter seeking, transcript and actual MP4 download pass at
+  390 px and 1440 px. HTTP 206 ranges pass and the downloaded video's SHA-256
+  matches the reviewed local export. The README poster loads from public GitHub.
 - Vercel rejected Git linking with: “To link a GitHub repository, you need to
   install the GitHub integration first.” Automatic deployment is pending, not
   enabled. Existing GitHub CLI authentication cannot manage app installations.
