@@ -28,3 +28,21 @@ Una variante de un café seleccionada para la compra, junto con su cantidad de b
 
 **Pedido**:
 Compra confirmada con un número identificador y un resumen de las bolsas de café, sus cantidades y los importes. En este proyecto, los pedidos son de demostración.
+
+**Recomendación de café**:
+Sugerencia de una bolsa de café basada en las preferencias del visitante, acompañada de una explicación de su elección.
+
+**Historial de pedidos**:
+Conjunto de pedidos de demostración confirmados que el cliente puede consultar posteriormente.
+
+**Método de elaboración**:
+Técnica utilizada para elaborar la bebida de café, como V60 o prensa francesa.
+
+**Receta de café**:
+Proporción de café y agua y secuencia de pasos para elaborar la bebida con un método determinado.
+
+**Recompra**:
+Selección de variantes de un pedido anterior para añadirlas al carrito actual, según sus precios y disponibilidad vigentes.
+
+**Pedido de ejemplo**:
+Pedido de demostración precargado e identificado como ejemplo para explorar el historial y la recompra.
