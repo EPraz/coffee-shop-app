@@ -1,0 +1,116 @@
+.walkthrough-screen {
+  padding-block: 2.5rem 5rem;
+}
+.walkthrough-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+.walkthrough-heading h1 {
+  font-size: 2rem;
+  margin-block: 0.75rem;
+}
+.walkthrough-heading > div > p:last-child {
+  color: var(--muted);
+  max-width: 42rem;
+}
+.walkthrough-heading > a {
+  flex-shrink: 0;
+}
+.walkthrough-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.walkthrough-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-block: 1rem 2rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.walkthrough-meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  color: var(--text);
+}
+.walkthrough-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+.walkthrough-details h2,
+.walkthrough-transcript summary {
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.walkthrough-chapters {
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+.walkthrough-chapters button {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.75rem 0.25rem;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.875rem;
+}
+.walkthrough-chapters button:hover {
+  color: var(--accent);
+  background: var(--surface);
+}
+.walkthrough-chapters span,
+.walkthrough-transcript h3 span {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.walkthrough-transcript summary {
+  padding-block: 0.5rem;
+  cursor: pointer;
+}
+.walkthrough-transcript ol {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+.walkthrough-transcript li {
+  margin-bottom: 1.5rem;
+}
+.walkthrough-transcript h3 {
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+}
+.walkthrough-transcript p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+@media (max-width: 768px) {
+  .walkthrough-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .walkthrough-details {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

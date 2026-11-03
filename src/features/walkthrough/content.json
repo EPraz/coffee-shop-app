@@ -1,0 +1,54 @@
+{
+  "duration": 72,
+  "durationLabel": "1:12",
+  "chapters": [
+    {
+      "id": "discover",
+      "title": "Good coffee. A sense of place.",
+      "start": 0,
+      "caption": "Meet Bruma: an origin-led coffee store, made for your everyday ritual."
+    },
+    {
+      "id": "collection",
+      "title": "Five coffees. Four origins.",
+      "start": 7,
+      "caption": "Explore the collection and find a coffee with a story."
+    },
+    {
+      "id": "variant",
+      "title": "Your coffee. Your way.",
+      "start": 14,
+      "caption": "Choose Niebla Geisha from Panama, then 500 g and ground coffee."
+    },
+    {
+      "id": "bag",
+      "title": "A little something extra.",
+      "start": 28,
+      "caption": "Review your bag and apply BRUMA15 for 15% off the coffee subtotal."
+    },
+    {
+      "id": "checkout",
+      "title": "One step closer to your ritual.",
+      "start": 40,
+      "caption": "Fill fictional demo details and complete a fully simulated purchase."
+    },
+    {
+      "id": "confirmed",
+      "title": "A good moment, confirmed.",
+      "start": 52,
+      "caption": "A clear confirmation and receipt. No real payment or delivery."
+    },
+    {
+      "id": "languages",
+      "title": "Three languages. One experience.",
+      "start": 58,
+      "caption": "English, Spanish and Portuguese, with prices in USD throughout."
+    },
+    {
+      "id": "desktop",
+      "title": "Made slowly. Enjoyed fully.",
+      "start": 65,
+      "caption": "The same considered experience on desktop. Explore the live demo."
+    }
+  ]
+}

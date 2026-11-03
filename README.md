@@ -2,6 +2,12 @@
 
 A complete, responsive coffee-store portfolio built with React and TypeScript. Five coffees, four origins, three languages, and a carefully simulated checkout.
 
+[Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the 72-second walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough) · [Download MP4](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough/bruma-walkthrough.mp4)
+
+[![Bruma walkthrough: a real mobile shopping journey with English explanatory text](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+
+The silent, 1080p walkthrough follows a complete purchase on a real mobile viewport and ends with a brief desktop view. The player includes chapters, English captions and a transcript. [Recording and verification notes](docs/walkthrough.md).
+
 ## Run locally
 
 Requires Node.js 24.13 or newer.
@@ -50,3 +56,13 @@ Feature-owned screens, UI and workflow hooks live together. Domain calculations 
 - [Original image assets and prompts](docs/assets.md)
 
 For a production preview, run `npm run build` and `npm run preview`. A hosting service must route application URLs to the entry document for client-side navigation.
+
+## Deployment
+
+The demo is hosted on Vercel. `vercel.json` configures the Vite build and direct-entry routing. To publish manually from a linked checkout:
+
+```sh
+npx vercel --prod
+```
+
+Automatic deployments from `main` are pending authorization of the Vercel GitHub integration for this repository. [Publication record](docs/publication-and-walkthrough.md).

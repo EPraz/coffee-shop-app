@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./Layout";
 import { HomeScreen } from "../features/home/HomeScreen";
 import { CatalogScreen } from "../features/catalog/CatalogScreen";
+import { WalkthroughScreen } from "../features/walkthrough/WalkthroughScreen";
 export function App() {
   return (
     <CartProvider>
@@ -19,6 +20,7 @@ export function App() {
             <Route path="bag" element={<CartScreen />} />
             <Route path="checkout" element={<CheckoutScreen />} />
             <Route path="confirmation" element={<ConfirmationScreen />} />
+            <Route path="walkthrough" element={<WalkthroughScreen />} />
             <Route path="*" element={<Navigate to="/coffees" replace />} />
           </Route>
         </Routes>

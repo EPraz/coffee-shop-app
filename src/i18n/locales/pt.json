@@ -183,5 +183,14 @@
     "outcome": "Resultado do pagamento simulado",
     "retryMessage": "O pagamento de demonstração foi recusado. Sua sacola e seus dados foram mantidos. Escolha Aprovado para tentar novamente.",
     "successLabel": "OBRIGADO POR EXPLORAR A BRUMA"
+  },
+  "walkthrough": {
+    "title": "Um ritual de café, em movimento.",
+    "intro": "Um breve passeio pela Bruma, do primeiro café até um pedido demo confirmado.",
+    "explore": "Explorar a demo",
+    "download": "Baixar MP4",
+    "format": "1:12 · 1080p · Vídeo sem áudio · Textos em inglês · Compra simulada",
+    "chapters": "Capítulos",
+    "transcript": "Ler a transcrição em inglês"
   }
 }

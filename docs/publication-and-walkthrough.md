@@ -1,6 +1,8 @@
 # Publication and product walkthrough
 
-Status: scope confirmed. Publication and recording in progress.
+Status: demo published; video recorded and reviewed. Final player publication
+and verification in progress. Automatic Git deployments need the repository's
+Vercel GitHub integration to be enabled by the owner.
 
 ## Confirmed decisions
 
@@ -45,6 +47,21 @@ USD prices. Its README already explains that no real payments or deliveries occu
 
 No new domain terms or architecture decisions have been established by this
 publication discussion so far.
+
+## Publication state
+
+- Public repository: https://github.com/EPraz/coffee-shop-app.
+- Public production demo: https://coffee-shop-app-nine-lilac.vercel.app.
+- The initial CLI production deployment completed successfully. The production
+  domain responds without authentication.
+- Vercel rejected Git linking with: “To link a GitHub repository, you need to
+  install the GitHub integration first.” Automatic deployment is pending, not
+  enabled. Existing GitHub CLI authentication cannot manage app installations.
+- Complete access at https://github.com/apps/vercel, selecting only
+  `EPraz/coffee-shop-app`, then connect it under the Vercel project's Git settings.
+- A browser automation attempt to select an unrelated existing Chrome window
+  was rejected by automatic approval review for possible exposure of private
+  content. No interaction with that window followed the rejection.
 
 Deployment references: [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite)
 and [Vercel for GitHub](https://vercel.com/docs/git/vercel-for-github).

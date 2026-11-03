@@ -183,5 +183,14 @@
     "outcome": "Simulated payment result",
     "retryMessage": "The demo payment was declined. Your bag and details are safe. Choose Approved to try again.",
     "successLabel": "THANK YOU FOR EXPLORING BRUMA"
+  },
+  "walkthrough": {
+    "title": "A coffee ritual, in motion.",
+    "intro": "A short tour of Bruma, from your first coffee to a confirmed demo order.",
+    "explore": "Explore the live demo",
+    "download": "Download MP4",
+    "format": "1:12 · 1080p · Silent video · English text · Simulated purchase",
+    "chapters": "Chapters",
+    "transcript": "Read the English transcript"
   }
 }

@@ -12,7 +12,10 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "format": "prettier --write src e2e",
-    "format:check": "prettier --check src e2e"
+    "format:check": "prettier --check src e2e",
+    "walkthrough:rehearse": "node scripts/walkthrough/record.mjs --rehearsal",
+    "walkthrough:record": "node scripts/walkthrough/record.mjs",
+    "walkthrough:render": "python scripts/walkthrough/render.py"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
