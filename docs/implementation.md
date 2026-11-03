@@ -6,6 +6,8 @@ The agreed stack is React, TypeScript, Vite, React Router and react-i18next. Sty
 
 The catalogue is a small, controlled demonstration dataset. A variant is identified by coffee, weight and preparation, independently of translated labels. Money stays in integer cents; the discount is rounded once on the subtotal before adding shipping.
 
+Router state updates stay synchronous (`useTransitions={false}`) because the catalogue's controlled search reads URL state. Deferring those updates can overwrite recently typed characters while rendering is busy. The browser regression types three origin names rapidly with sixfold CPU throttling and verifies input, focus, results, URL and reload. This follows the [React controlled-input guidance](https://react.dev/reference/react/useTransition#updating-an-input-in-a-transition-doesnt-work) and the router's [documented transition opt-out](https://reactrouter.com/explanation/react-transitions).
+
 Cart state belongs to a dedicated provider. Its browser adapter stores only versioned product identities, weights, preparation, quantities and the coupon; it validates restored content against available catalogue data. Language preferences have a separate brand-scoped key. Checkout field values remain in memory and are not part of cart persistence.
 
 The checkout hook owns validation, pending state, duplicate-submit prevention and the controlled payment result. Approval captures an independent order snapshot before clearing the cart and coupon. Rejection preserves form and purchase data. The confirmation receives the completed order through navigation state; V2 also saves its receipt in browser-local history.

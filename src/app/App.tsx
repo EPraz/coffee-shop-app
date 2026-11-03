@@ -18,7 +18,7 @@ export function App() {
   return (
     <OrderHistoryProvider>
       <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter useTransitions={false}>
           <Routes>
             <Route element={<Layout />}>
               <Route index element={<HomeScreen />} />

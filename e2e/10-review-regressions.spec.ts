@@ -1,5 +1,34 @@
 import { test, expect } from "@playwright/test";
 
+test("rapid origin typing preserves every character and URL on a constrained device", async ({
+  page,
+}) => {
+  test.setTimeout(60000);
+  const device = await page.context().newCDPSession(page);
+  await device.send("Emulation.setCPUThrottlingRate", { rate: 6 });
+  await page.goto("/coffees");
+  const search = page.getByRole("searchbox", {
+    name: "Search by name or origin",
+    exact: true,
+  });
+  for (const [term, count] of [
+    ["Panama", 2],
+    ["Colombia", 1],
+    ["Brazil", 1],
+  ] as const) {
+    await search.fill("");
+    await search.pressSequentially(term, { delay: 5 });
+    await expect(search).toHaveValue(term);
+    await expect(search).toBeFocused();
+    await expect(page.getByTestId("coffee-card")).toHaveCount(count);
+    await expect(page).toHaveURL(new RegExp(`q=${term}`));
+  }
+  await page.reload();
+  await expect(search).toHaveValue("Brazil");
+  await expect(page.getByTestId("coffee-card")).toHaveCount(1);
+  await device.detach();
+});
+
 test("typing an origin character by character keeps keyboard focus", async ({
   page,
 }) => {
