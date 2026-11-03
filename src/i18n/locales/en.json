@@ -145,7 +145,10 @@
     "apply": "Apply",
     "couponApplied": "BRUMA15 applied. A little thank-you.",
     "invalidCoupon": "That code isn't valid. Try BRUMA15.",
-    "checkout": "Continue to checkout"
+    "checkout": "Continue to checkout",
+    "count_one": "{{count}} bag",
+    "count_other": "{{count}} bags",
+    "perBag": "per bag"
   },
   "checkout": {
     "eyebrow": "ONE STEP CLOSER TO YOUR RITUAL.",

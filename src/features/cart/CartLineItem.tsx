@@ -31,6 +31,12 @@ export function CartLineItem({ line, coffee, onChange, onRemove }: Props) {
           {t("country." + coffee.country)} · {line.weight} g ·{" "}
           {t("product." + line.preparation)}
         </p>
+        <p className="cart-unit-price">
+          <span data-testid="cart-unit-price">
+            <Price cents={coffee.prices[line.weight]} />
+          </span>{" "}
+          {t("cart.perBag")}
+        </p>
         <div className="quantity-control">
           <button
             type="button"

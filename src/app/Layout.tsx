@@ -1,5 +1,5 @@
 import { CartNavLink } from "../features/cart/CartNavLink";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, Menu, ShoppingBag, X } from "lucide-react";
@@ -93,19 +93,24 @@ function Footer() {
 export function Layout() {
   const { t } = useTranslation();
   const location = useLocation();
+  const previousPath = useRef(location.pathname);
   useEffect(() => {
+    const pageChanged = previousPath.current !== location.pathname;
+    previousPath.current = location.pathname;
     if (location.hash) {
       requestAnimationFrame(() =>
-        document
-          .getElementById(location.hash.slice(1))
-          ?.scrollIntoView({ behavior: "smooth" }),
+        document.getElementById(location.hash.slice(1))?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        }),
       );
-    } else {
+    } else if (pageChanged) {
       window.scrollTo(0, 0);
-      if (location.key !== "default")
-        document
-          .querySelector<HTMLElement>("main")
-          ?.focus({ preventScroll: true });
+      document
+        .querySelector<HTMLElement>("main")
+        ?.focus({ preventScroll: true });
     }
   }, [location.pathname, location.hash, location.key]);
   return (

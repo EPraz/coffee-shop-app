@@ -112,6 +112,7 @@ function ProductScreen({ coffee }: { coffee: Coffee }) {
           </div>
           {coffee.available && (
             <AddToBag
+              key={coffee.id + ":" + weight + ":" + preparation}
               coffee={coffee}
               weight={weight}
               preparation={preparation}

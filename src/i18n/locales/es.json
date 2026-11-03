@@ -145,7 +145,10 @@
     "apply": "Aplicar",
     "couponApplied": "BRUMA15 aplicado. Un pequeño agradecimiento.",
     "invalidCoupon": "Ese código no es válido. Prueba BRUMA15.",
-    "checkout": "Continuar con la compra"
+    "checkout": "Continuar con la compra",
+    "count_one": "{{count}} bolsa",
+    "count_other": "{{count}} bolsas",
+    "perBag": "por bolsa"
   },
   "checkout": {
     "eyebrow": "UN PASO MÁS CERCA DE TU RITUAL.",

@@ -1,3 +1,4 @@
+import { lineKey } from "../cart/cart-model";
 import { useState } from "react";
 import { Plus, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -13,7 +14,12 @@ export function AddToBag({
   preparation: Preparation;
 }) {
   const { t } = useTranslation();
-  const { add } = useCart();
+  const { add, lines } = useCart();
+  const quantity =
+    lines.find(
+      (line) =>
+        lineKey(line) === lineKey({ coffeeId: coffee.id, weight, preparation }),
+    )?.quantity ?? 0;
   const [message, setMessage] = useState("");
   return (
     <div className="add-to-bag">
@@ -27,6 +33,9 @@ export function AddToBag({
       </button>
       <p className="inline-message" role="status">
         {message ? t("cart." + message) : ""}
+        {message === "added"
+          ? " " + t("cart.count", { count: quantity }) + "."
+          : ""}
       </p>
     </div>
   );
