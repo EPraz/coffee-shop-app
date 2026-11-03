@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, Check, Leaf } from "lucide-react";
-import type { Order } from "./checkout-model";
+import type { Order } from "../orders/order-model";
+import { HistoryStorageNotice } from "../orders/HistoryStorageNotice";
 import { CheckoutSelection } from "./CheckoutSelection";
 import { OrderSummary } from "../cart/OrderSummary";
 export function ConfirmationScreen() {
@@ -42,9 +43,21 @@ export function ConfirmationScreen() {
             {t("checkout.return")}
             <ArrowUpRight size={18} />
           </Link>
+          <Link
+            className="text-link brew-entry"
+            to={`/brew?coffee=${order.items[0]?.coffeeId ?? ""}`}
+          >
+            {t("brew.entry")}
+            <ArrowUpRight size={18} />
+          </Link>
         </div>
         <OrderSummary {...order.amounts} />
       </div>
+      <HistoryStorageNotice />
+      <Link to="/orders" className="text-link history-back">
+        {t("history.nav")}
+        <ArrowUpRight size={18} />
+      </Link>
     </section>
   );
 }

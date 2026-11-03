@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Search, ArrowUpRight } from "lucide-react";
 import { CoffeeCard } from "./CoffeeCard";
 import { useCatalog } from "./useCatalog";
@@ -11,6 +12,10 @@ export function CatalogScreen() {
         <p className="eyebrow">{t("catalog.eyebrow")}</p>
         <h1>{t("catalog.title")}</h1>
         <p>{t("catalog.intro")}</p>
+        <Link to="/find-your-coffee" className="text-link discovery-link">
+          {t("finder.entry")}
+          <ArrowUpRight size={18} />
+        </Link>
       </header>
       <div className="catalog-controls">
         <label className="catalog-search">

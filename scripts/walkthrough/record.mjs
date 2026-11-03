@@ -82,39 +82,45 @@ try {
   await scene(
     "discover",
     "Good coffee.\nA sense of place.",
-    7,
+    5,
     "Meet Bruma: an origin-led coffee store, made for your everyday ritual.",
     async () => {
-      await c.pause(1700);
-      await c.scroll(350);
-      await c.pause(1000);
-      await c.scroll(0);
-    },
-  );
-  await scene(
-    "collection",
-    "Five coffees.\nFour origins.",
-    7,
-    "Explore the collection and find a coffee with a story.",
-    async () => {
+      await c.pause(500);
       await c.click(
         page.getByRole("link", { name: "Explore the coffees", exact: true }),
       );
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        "Coffee with a story.",
+      await c.click(
+        page.getByRole("link", { name: "Find your coffee", exact: true }),
       );
-      await c.reveal(
-        page.getByRole("link", {
-          name: "Discover this coffee: Niebla Geisha",
-          exact: true,
-        }),
-      );
+    },
+  );
+  await scene(
+    "finder",
+    "A coffee that\nfeels like you.",
+    13,
+    "Three preferences, two available coffees, and clear reasons for each match.",
+    async () => {
+      for (const choice of ["Floral", "Gentle", "Black"]) {
+        await c.click(page.getByRole("radio", { name: choice, exact: true }));
+        await c.click(
+          page.getByRole("button", {
+            name: choice === "Black" ? "Find my coffee" : "Continue",
+            exact: true,
+          }),
+        );
+      }
+      const match = page.getByRole("region", {
+        name: "Your match",
+        exact: true,
+      });
+      await expect(match).toContainText("Niebla Geisha");
+      await c.reveal(match.getByRole("link"));
     },
   );
   await scene(
     "variant",
     "Your coffee.\nYour way.",
-    14,
+    8,
     "Choose Niebla Geisha from Panama, then 500 g and ground coffee.",
     async () => {
       await c.click(
@@ -123,32 +129,25 @@ try {
           exact: true,
         }),
       );
-      await c.pause(1400);
-      await c.reveal(
-        page.getByRole("heading", { name: "Niebla Geisha", exact: true }),
-      );
-      await c.pause(1300);
       await c.click(page.getByRole("button", { name: "500 g", exact: true }));
       await c.click(page.getByRole("button", { name: "Ground", exact: true }));
       await c.click(
         page.getByRole("button", { name: "Add to bag", exact: true }),
       );
       await expect(page.getByTestId("variant-price")).toContainText("44.00");
-      await c.pause(700);
       await c.scroll(0);
     },
   );
   await scene(
     "bag",
     "A little\nsomething extra.",
-    12,
+    8,
     "Review your bag and apply BRUMA15 for 15% off the coffee subtotal.",
     async () => {
       await c.click(page.getByRole("link", { name: "Your bag", exact: true }));
       await expect(
         page.getByRole("heading", { name: "Your bag.", exact: true }),
       ).toBeVisible();
-      await c.pause(1200);
       const input = page.getByRole("textbox", {
         name: "Promo code",
         exact: true,
@@ -166,13 +165,12 @@ try {
   await scene(
     "checkout",
     "One step closer\nto your ritual.",
-    12,
-    "Fill fictional demo details and complete a fully simulated purchase.",
+    9,
+    "Fill fictional details and confirm a demo order. No real payment or delivery.",
     async () => {
       await c.click(
         page.getByRole("link", { name: "Continue to checkout", exact: true }),
       );
-      await c.pause(700);
       await c.click(
         page.getByRole("button", { name: "Fill demo details", exact: true }),
       );
@@ -180,7 +178,6 @@ try {
         page.getByRole("textbox", { name: "Full name", exact: true }),
       ).toHaveValue("Alex Rivera");
       await c.reveal(page.getByRole("textbox", { name: "City", exact: true }));
-      await c.pause(1200);
       await c.click(
         page.getByRole("button", { name: "Place demo order", exact: true }),
       );
@@ -190,20 +187,54 @@ try {
     },
   );
   await scene(
-    "confirmed",
-    "A good moment,\nconfirmed.",
-    6,
-    "A clear confirmation and receipt. No real payment or delivery.",
+    "brew",
+    "Make the\nritual yours.",
+    8,
+    "V60 or French press: adjust the water and get a measured, step-by-step recipe.",
     async () => {
       await expect(page.getByTestId("order-number")).toContainText("BR-");
-      await c.pause(1700);
-      await c.scroll(420);
+      await c.click(
+        page.getByRole("link", { name: "Brew this coffee", exact: true }),
+      );
+      await expect(page.getByTestId("coffee-dose")).toContainText("30.0 g");
+      await c.click(
+        page.getByRole("radio", { name: "French press", exact: true }),
+      );
+      await c.reveal(page.getByRole("spinbutton"));
+      await page.getByRole("spinbutton").fill("250");
+      await expect(page.getByTestId("coffee-dose")).toContainText("16.7 g");
+      await c.reveal(page.getByTestId("brew-steps"));
+    },
+  );
+  await scene(
+    "history",
+    "Remember it.\nEnjoy it again.",
+    10,
+    "Open your browser-local receipt, review current prices, then confirm a reorder.",
+    async () => {
+      await c.scroll(0);
+      await c.click(page.locator(".mobile-menu-toggle"));
+      await c.click(
+        page
+          .locator("#mobile-navigation")
+          .getByRole("link", { name: "My orders", exact: true }),
+      );
+      await expect(page.getByTestId("history-order")).toHaveCount(1);
+      await c.click(page.getByTestId("history-order").getByRole("link"));
+      await c.click(
+        page.getByRole("link", { name: "Order again", exact: true }),
+      );
+      await expect(page.getByTestId("reorder-line")).toContainText("Adding: 1");
+      await c.click(
+        page.getByRole("button", { name: "Add to my bag", exact: true }),
+      );
+      await expect(page.getByTestId("cart-total")).toContainText("49.00");
     },
   );
   await scene(
     "languages",
     "Three languages.\nOne experience.",
-    7,
+    5,
     "English, Spanish and Portuguese, with prices in USD throughout.",
     async () => {
       await c.scroll(0);
@@ -211,9 +242,9 @@ try {
         page.getByRole("link", { name: "Bruma Café", exact: true }).first(),
       );
       await page.locator(".language-control select").selectOption("es");
-      await c.pause(1700);
+      await c.pause(500);
       await page.locator(".language-control select").selectOption("pt");
-      await c.pause(1700);
+      await c.pause(500);
       await page.locator(".language-control select").selectOption("en");
     },
   );

@@ -192,5 +192,147 @@
     "format": "1:12 · 1080p · Vídeo sem áudio · Textos em inglês · Compra simulada",
     "chapters": "Capítulos",
     "transcript": "Ler a transcrição em inglês"
+  },
+  "finder": {
+    "entry": "Encontre seu café",
+    "eyebrow": "UM POUCO DE CURIOSIDADE. UMA BOA XÍCARA.",
+    "title": "Encontre seu ritual diário.",
+    "intro": "Três pequenas perguntas. Um café que combina um pouco mais com você.",
+    "progress": "Etapa {{current}} de 3",
+    "choose": "Escolha a opção que mais combina com seu gosto.",
+    "next": "Continuar",
+    "back": "Voltar",
+    "submit": "Encontrar meu café",
+    "restart": "Começar de novo",
+    "results": "Um bom ponto de partida.",
+    "match": "Sua recomendação",
+    "alternative": "Outra boa escolha",
+    "exact": "Uma combinação com suas preferências.",
+    "near": "Uma opção próxima, com algo mais para descobrir.",
+    "empty": "Nenhum café disponível no momento.",
+    "journal": "Um sabor de origem. Um momento só seu.",
+    "journalCopy": "Cinco cafés, quatro origens. Deixe seu gosto guiar o caminho.",
+    "question": {
+      "flavour": "Quais sabores chamam sua atenção?",
+      "intensity": "Como você gosta do seu café?",
+      "serving": "Como você costuma tomar?"
+    },
+    "option": {
+      "chocolate": "Chocolate e castanhas",
+      "fruit": "Frutado",
+      "floral": "Floral",
+      "gentle": "Suave",
+      "balanced": "Equilibrado",
+      "intense": "Intenso",
+      "black": "Puro",
+      "milk": "Com leite"
+    },
+    "copy": {
+      "chocolate": "Cacau, amêndoa e um dulçor acolhedor.",
+      "fruit": "Pêssego, frutas vermelhas e um final vivo.",
+      "floral": "Jasmim, bergamota e aromas delicados.",
+      "gentle": "Leve e delicado, com espaço para nuances.",
+      "balanced": "Redondo, com um pouco de tudo.",
+      "intense": "Uma torra mais profunda e caráter marcante.",
+      "black": "Só café, sem adicionar nada.",
+      "milk": "Um pouco de leite, um latte ou um cappuccino."
+    }
+  },
+  "brew": {
+    "entry": "Prepare este café",
+    "eyebrow": "UM RITUAL SEM PRESSA",
+    "title": "Reserve um momento para o café.",
+    "intro": "Escolha um método, meça um pouco e aproveite o preparo.",
+    "forCoffee": "Uma receita base para {{name}}. Faça o ritual do seu jeito.",
+    "chooseMethod": "Método de preparo",
+    "method": {
+      "v60": "V60",
+      "press": "Prensa francesa"
+    },
+    "water": "Quantidade de água (ml)",
+    "range": "250–500 ml, em incrementos de 50 ml.",
+    "invalid": "Insira 250–500 ml em incrementos de 50 ml.",
+    "coffee": "Dose de café",
+    "adjust": "Um pequeno ajuste.",
+    "grind": {
+      "v60": "Moagem média fina · Receita base 30 g / 500 ml",
+      "press": "Moagem grossa · Proporção base 1:15"
+    },
+    "stepsLabel": "SEU CAFÉ, PASSO A PASSO",
+    "stepTitle": {
+      "0": "Prepare",
+      "1": "Adicione água",
+      "2": "Deixe desenvolver",
+      "3": "Finalize e aproveite"
+    },
+    "v60Steps": {
+      "0": "Enxágue o filtro. Adicione {{coffee}} g de café de moagem média fina.",
+      "1": "Umedeça com {{bloom}} ml. Agite suavemente e deixe florescer por cerca de 45 segundos.",
+      "2": "Despeje até {{firstPour}} ml no total, depois até {{water}} ml no total.",
+      "3": "Mexa suavemente e deixe filtrar. Referência: cerca de 3½ minutos para 500 ml."
+    },
+    "pressSteps": {
+      "0": "Meça {{coffee}} g de café de moagem grossa.",
+      "1": "Adicione {{water}} ml de água quente e mexa.",
+      "2": "Tampe e deixe em infusão por cerca de 4 minutos.",
+      "3": "Pressione lentamente por cerca de 20 segundos e sirva."
+    },
+    "note": "Estas são receitas de partida. O tempo varia com quantidade, moagem e equipamento. Confira a capacidade da sua cafeteira e ajuste ao seu gosto.",
+    "source": {
+      "v60": "Receita de referência Hario V60",
+      "press": "Guia de preparo ESPRO"
+    },
+    "backCoffee": "Voltar a este café"
+  },
+  "history": {
+    "nav": "Meus pedidos",
+    "eyebrow": "BONS MOMENTOS, GUARDADOS",
+    "title": "Seu café, para lembrar.",
+    "intro": "Seus últimos pedidos demo, guardados para outro bom momento.",
+    "empty": "Sua história ainda está sendo preparada.",
+    "emptyCopy": "Conclua uma compra demo para ver o recibo aqui ou explore a coleção.",
+    "bags_one": "{{count}} sacola",
+    "bags_other": "{{count}} sacolas",
+    "view": "Ver pedido {{number}}",
+    "receipt": "Recibo do pedido",
+    "example": "Pedido de exemplo",
+    "local": "Salvo apenas neste navegador. Seus últimos 20 pedidos demo ficam aqui até você limpar os dados do site ou este histórico.",
+    "missing": "Pedido não encontrado.",
+    "missingCopy": "Este recibo não está no histórico deste navegador. Seu próximo café espera na coleção.",
+    "back": "Voltar aos meus pedidos",
+    "snapshot": "Este é o recibo original. Um novo pedido usa os preços e a disponibilidade atuais.",
+    "unavailableCoffee": "Café indisponível",
+    "recovered": "Não foi possível ler parte do histórico salvo. Você pode continuar explorando; sua sacola não mudou.",
+    "unavailable": "O armazenamento do navegador está indisponível. As alterações do histórico ficam apenas nesta visita e podem se perder ao recarregar.",
+    "loadExamples": "Carregar pedidos de exemplo",
+    "clear": "Limpar histórico",
+    "clearTitle": "Limpar os pedidos salvos?",
+    "clearCopy": "Isso remove os recibos demo salvos neste navegador. Sua sacola atual permanece igual.",
+    "cancel": "Cancelar",
+    "delete": "Excluir pedidos salvos",
+    "orderCount_one": "{{count}} pedido salvo",
+    "orderCount_other": "{{count}} pedidos salvos"
+  },
+  "reorder": {
+    "entry": "Pedir novamente",
+    "eyebrow": "UM NOVO MOMENTO / {{number}}",
+    "title": "Seus favoritos, mais uma vez.",
+    "intro": "Confira os preços atuais e o que pode ser adicionado à sua sacola.",
+    "previous": "Preço unitário anterior",
+    "current": "Preço unitário atual",
+    "requested": "Solicitado: {{count}}",
+    "adding": "A adicionar: {{count}}",
+    "priceChanged": "O preço mudou desde este pedido.",
+    "reason": {
+      "missing": "Este café não faz mais parte da coleção.",
+      "unavailable": "Esgotado. Este produto não será adicionado.",
+      "limit": "Sua sacola comporta até 9 pacotes desta variante."
+    },
+    "cancel": "Voltar ao recibo",
+    "summaryCopy": "Sua sacola após adicionar esta seleção, incluindo os itens atuais.",
+    "couponKept": "Seu cupom BRUMA15 atual continua aplicado.",
+    "couponNone": "O desconto do pedido anterior não é aplicado a esta sacola.",
+    "empty": "Nenhum produto pode ser adicionado. Explore a coleção ou libere espaço na sacola.",
+    "confirm": "Adicionar à minha sacola"
   }
 }

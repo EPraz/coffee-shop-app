@@ -157,5 +157,9 @@ test("keyboard user can skip navigation and focus the catalogue search", async (
   await page.keyboard.press("Enter");
   await expect(page.locator("main")).toBeFocused();
   await page.keyboard.press("Tab");
+  await expect(
+    page.getByRole("link", { name: "Find your coffee", exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press("Tab");
   await expect(page.getByRole("searchbox")).toBeFocused();
 });

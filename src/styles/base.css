@@ -163,6 +163,19 @@ main:focus {
   max-width: 60rem;
   padding: 4rem 0 3rem;
 }
+.functional-heading {
+  padding: 2rem 0;
+}
+.functional-heading h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0.75rem 0;
+  letter-spacing: -0.035em;
+}
+.functional-heading > p:last-child {
+  color: var(--muted);
+  max-width: 42rem;
+}
 .page-heading h1 {
   font-size: clamp(2.75rem, 5.6vw, 5.5rem);
   margin: 1.25rem 0;
@@ -203,6 +216,9 @@ main:focus {
   }
 }
 @media (max-width: 600px) {
+  .functional-heading {
+    padding-block: 1.5rem;
+  }
   .section-shell {
     width: calc(100% - 2.5rem);
   }

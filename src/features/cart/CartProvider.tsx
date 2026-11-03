@@ -2,7 +2,7 @@ import { persistCart, restoreCart } from "./cart-storage";
 import { useEffect, useState, type ReactNode } from "react";
 import { findCoffee, type Weight, type Preparation } from "../catalog/coffee";
 import { CartContext } from "./cart-context";
-import { lineKey, type CartLine } from "./cart-model";
+import { lineKey, planCartAddition, type CartLine } from "./cart-model";
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>(() => restoreCart().lines);
   const [couponApplied, setCouponApplied] = useState(
@@ -57,6 +57,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
   const remove = (key: string) =>
     setLines((current) => current.filter((line) => lineKey(line) !== key));
+  const addMany = (requested: CartLine[]) =>
+    setLines((current) => planCartAddition(current, requested).lines);
   return (
     <CartContext.Provider
       value={{
@@ -64,6 +66,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         couponApplied,
         applyCoupon,
         add,
+        addMany,
         changeQuantity,
         remove,
         clear,

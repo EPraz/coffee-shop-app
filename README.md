@@ -1,6 +1,6 @@
 # Bruma Café
 
-A complete, responsive coffee-store portfolio built with React and TypeScript. Five coffees, four origins, three languages, and a carefully simulated checkout.
+A complete, responsive coffee-store portfolio built with React and TypeScript. Find a coffee for your taste, prepare it with a measured guide, and revisit your demo orders. Five coffees, four origins and three languages.
 
 [Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the 72-second walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough) · [Download MP4](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough/bruma-walkthrough.mp4)
 
@@ -42,15 +42,22 @@ Browser tests start an isolated server on port 43173. They cover public user jou
 - Apply **BRUMA15** for 15% off products. Demo shipping is USD 5.
 - Use **Fill demo details / Llenar demo / Preencher demo** at checkout.
 - Select **Rejected** to test recovery, then **Approved** to complete the demo order.
+- Answer three questions in **Find your coffee** for an available recommendation and an alternative, with clear matching reasons.
+- Open **Brew this coffee** from a product or confirmation. Choose V60 or French press and 250–500 ml of water for measured doses and steps, with reference sources.
+- Open **My orders** for the last twenty demo receipts. With empty history, load two clearly marked examples to explore historical prices and unavailable products.
+- Use **Order again** to review current prices and addable quantities before merging into your bag. Its current coupon is preserved; old discounts are not restored.
 
 This is a fictional portfolio brand. No payments, card collection, actual orders or deliveries are involved. Checkout details are not sent to a service.
+
+Order history is saved only in this browser and can be cleared with confirmation. It contains product snapshots and amounts, without customer names, email or addresses. There are no accounts, remote database or cross-device synchronization. If browser storage fails, the interface reports that changes last only for the current visit.
 
 ## Structure and project records
 
 Feature-owned screens, UI and workflow hooks live together. Domain calculations and browser persistence stay outside presentation components. Route composition stays in the application shell.
 
-- [Approved specification](.scratch/coffee-shop-mvp/spec.md)
-- [Implementation tickets](.scratch/coffee-shop-mvp/issues/)
+- [Approved V2 specification](.scratch/coffee-shop-v2/spec.md)
+- [V2 implementation tickets](.scratch/coffee-shop-v2/issues/)
+- [Original MVP specification](.scratch/coffee-shop-mvp/spec.md)
 - [Domain glossary](GLOSSARY.md)
 - [Architecture and verification notes](docs/implementation.md)
 - [Original image assets and prompts](docs/assets.md)

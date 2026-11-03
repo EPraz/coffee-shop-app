@@ -192,5 +192,147 @@
     "format": "1:12 · 1080p · Silent video · English text · Simulated purchase",
     "chapters": "Chapters",
     "transcript": "Read the English transcript"
+  },
+  "finder": {
+    "entry": "Find your coffee",
+    "eyebrow": "A LITTLE CURIOSITY. A GOOD CUP.",
+    "title": "Find your daily ritual.",
+    "intro": "Three small questions. A coffee that feels a little more like you.",
+    "progress": "Step {{current}} of 3",
+    "choose": "Choose the option that feels closest to your taste.",
+    "next": "Continue",
+    "back": "Back",
+    "submit": "Find my coffee",
+    "restart": "Start again",
+    "results": "A good place to start.",
+    "match": "Your match",
+    "alternative": "Another good choice",
+    "exact": "A match for your preferences.",
+    "near": "A close match, with a little room to explore.",
+    "empty": "No coffees available right now.",
+    "journal": "A taste of somewhere. A moment of your own.",
+    "journalCopy": "Five coffees, four origins. Let your preferences lead the way.",
+    "question": {
+      "flavour": "What flavours draw you in?",
+      "intensity": "How do you like your coffee?",
+      "serving": "How do you usually drink it?"
+    },
+    "option": {
+      "chocolate": "Chocolate & nuts",
+      "fruit": "Fruity",
+      "floral": "Floral",
+      "gentle": "Gentle",
+      "balanced": "Balanced",
+      "intense": "Intense",
+      "black": "Black",
+      "milk": "With milk"
+    },
+    "copy": {
+      "chocolate": "Cocoa, almond and comforting sweetness.",
+      "fruit": "Peach, berries and a bright finish.",
+      "floral": "Jasmine, bergamot and delicate aromas.",
+      "gentle": "Light and delicate, with room for nuance.",
+      "balanced": "Rounded, with a little of everything.",
+      "intense": "A deeper roast and a bold character.",
+      "black": "Just coffee, with nothing added.",
+      "milk": "A little milk, a latte or a cappuccino."
+    }
+  },
+  "brew": {
+    "entry": "Brew this coffee",
+    "eyebrow": "A SLOWER KIND OF RITUAL",
+    "title": "Make a little time for coffee.",
+    "intro": "Choose a method, measure a little, and enjoy the making.",
+    "forCoffee": "A starting recipe for {{name}}. Make the ritual yours.",
+    "chooseMethod": "Brewing method",
+    "method": {
+      "v60": "V60",
+      "press": "French press"
+    },
+    "water": "Water quantity (ml)",
+    "range": "250–500 ml, in steps of 50 ml.",
+    "invalid": "Enter 250–500 ml in steps of 50 ml.",
+    "coffee": "Coffee dose",
+    "adjust": "A little adjustment.",
+    "grind": {
+      "v60": "Medium-fine grind · Base recipe 30 g / 500 ml",
+      "press": "Coarse grind · Base ratio 1:15"
+    },
+    "stepsLabel": "YOUR BREW, STEP BY STEP",
+    "stepTitle": {
+      "0": "Prepare",
+      "1": "Add water",
+      "2": "Let it develop",
+      "3": "Finish and enjoy"
+    },
+    "v60Steps": {
+      "0": "Rinse the filter. Add {{coffee}} g of medium-fine coffee.",
+      "1": "Wet with {{bloom}} ml. Swirl and bloom for about 45 seconds.",
+      "2": "Pour to {{firstPour}} ml total, then to {{water}} ml total.",
+      "3": "Stir gently and let drain. Reference time: about 3½ minutes at 500 ml."
+    },
+    "pressSteps": {
+      "0": "Measure {{coffee}} g of coarse coffee.",
+      "1": "Add {{water}} ml of hot water and stir.",
+      "2": "Cover and steep for about 4 minutes.",
+      "3": "Press slowly for about 20 seconds, then serve."
+    },
+    "note": "These are starting recipes. Timing varies with quantity, grind and equipment. Check your brewer's capacity and adjust to your taste.",
+    "source": {
+      "v60": "Hario V60 reference recipe",
+      "press": "ESPRO brewing guide"
+    },
+    "backCoffee": "Back to this coffee"
+  },
+  "history": {
+    "nav": "My orders",
+    "eyebrow": "GOOD MOMENTS, REMEMBERED",
+    "title": "Your coffee, remembered.",
+    "intro": "Your latest demo orders, kept here for another good moment.",
+    "empty": "Your story is still brewing.",
+    "emptyCopy": "Complete a demo purchase to see its receipt here, or explore the collection.",
+    "bags_one": "{{count}} bag",
+    "bags_other": "{{count}} bags",
+    "view": "View order {{number}}",
+    "receipt": "Order receipt",
+    "example": "Example order",
+    "local": "Saved only in this browser. Your last 20 demo orders stay here until you clear site data or this history.",
+    "missing": "Order not found.",
+    "missingCopy": "This receipt is not in this browser's history. Your next coffee is waiting in the collection.",
+    "back": "Back to my orders",
+    "snapshot": "This is your original receipt. A new order uses current prices and availability.",
+    "unavailableCoffee": "Unavailable coffee",
+    "recovered": "Some saved history could not be read. You can keep exploring; your bag is unchanged.",
+    "unavailable": "Browser storage is unavailable. History changes are kept only for this visit and may be lost on reload.",
+    "loadExamples": "Load example orders",
+    "clear": "Clear history",
+    "clearTitle": "Clear saved orders?",
+    "clearCopy": "This removes the demo receipts saved in this browser. Your current bag stays as it is.",
+    "cancel": "Cancel",
+    "delete": "Delete saved orders",
+    "orderCount_one": "{{count}} saved order",
+    "orderCount_other": "{{count}} saved orders"
+  },
+  "reorder": {
+    "entry": "Order again",
+    "eyebrow": "A NEW MOMENT / {{number}}",
+    "title": "A fresh start for your favourites.",
+    "intro": "Review today’s prices and what can be added to your current bag.",
+    "previous": "Previous unit price",
+    "current": "Current unit price",
+    "requested": "Requested: {{count}}",
+    "adding": "Adding: {{count}}",
+    "priceChanged": "The price has changed since this order.",
+    "reason": {
+      "missing": "This coffee is no longer in the collection.",
+      "unavailable": "Sold out. This item will not be added.",
+      "limit": "Your bag can hold up to 9 bags of this variant."
+    },
+    "cancel": "Back to the receipt",
+    "summaryCopy": "Your bag after adding this selection, including its current contents.",
+    "couponKept": "Your current BRUMA15 coupon stays applied.",
+    "couponNone": "The previous order’s discount is not applied to this bag.",
+    "empty": "Nothing can be added. Explore the collection or make room in your bag.",
+    "confirm": "Add to my bag"
   }
 }

@@ -5,6 +5,7 @@ export interface CartValue {
   lines: CartLine[];
   couponApplied: boolean;
   applyCoupon: (code: string) => boolean;
+  addMany: (requested: CartLine[]) => void;
   add: (
     coffeeId: string,
     weight: Weight,

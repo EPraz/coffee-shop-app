@@ -28,6 +28,10 @@ export function HomeScreen() {
             <span>{t("home.scroll")}</span>
             <ArrowDown size={17} />
           </div>
+          <Link to="/find-your-coffee" className="text-link hero-finder">
+            {t("finder.entry")}
+            <ArrowUpRight size={18} />
+          </Link>
         </div>
         <div className="hero-photo">
           <img

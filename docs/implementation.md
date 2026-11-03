@@ -8,7 +8,13 @@ The catalogue is a small, controlled demonstration dataset. A variant is identif
 
 Cart state belongs to a dedicated provider. Its browser adapter stores only versioned product identities, weights, preparation, quantities and the coupon; it validates restored content against available catalogue data. Language preferences have a separate brand-scoped key. Checkout field values remain in memory and are not part of cart persistence.
 
-The checkout hook owns validation, pending state, duplicate-submit prevention and the controlled payment result. Approval captures an independent order summary before clearing the cart and coupon. Rejection preserves form and purchase data. The confirmation receives the completed order through navigation state, without creating an order-history feature.
+The checkout hook owns validation, pending state, duplicate-submit prevention and the controlled payment result. Approval captures an independent order snapshot before clearing the cart and coupon. Rejection preserves form and purchase data. The confirmation receives the completed order through navigation state; V2 also saves its receipt in browser-local history.
+
+V2 keeps three distinct sets of rules outside presentation: deterministic preference matching, measured brewing recipes, and a cart-addition plan for reorders. The finder ranks only available coffees, explains actual matching preferences and labels approximate results. Recipes derive both dose and step quantities from validated water input, with primary reference links in the interface.
+
+The history provider stores at most twenty validated receipts under `bruma.orders.v1`. Product names, variants, unit prices and amounts are independent snapshots; customer checkout fields are excluded. Unreadable records are discarded with feedback, and failed writes preserve the current visit in memory with an explicit persistence notice. Examples are clearly marked and available only when history is empty. Deletion requires confirmation.
+
+Reorder review compares historical and current unit prices, shows requested and addable quantities, and excludes missing or sold-out coffees. Confirmation merges into the current bag with a combined limit of nine per variant, preserving its current coupon. Historical discounts are never restored and original receipts remain unchanged. Cancellation performs no mutation.
 
 ## Test boundary
 
@@ -24,8 +30,14 @@ No TypeScript or TSX source file exceeds 200 lines at the implementation checkpo
 
 The development dependency tree uses a minimatch override at 11.0.1 or newer to address the advisory reported by npm. Lint, typechecking, build and browser behavior are verified with the resulting lockfile. The full npm audit was clean after the override. The [upstream advisory](https://github.com/advisories/GHSA-g3hv-75wg-m249) identifies 11.0.1 as the patched release.
 
-## Delivery record
+## V1 delivery record
 
 The eight approved vertical slices are implemented and resolved, with all 97 acceptance criteria marked. The final browser suite passed all 32 tests, including 12 complete purchase scenarios across three languages and four widths. Typechecking, lint, formatting, production build and the full dependency audit passed.
 
 The independent Standards and Spec reviews identified three distinct P2 issues: search focus on query updates, repeated live announcements, and missing per-bag cart prices. Each was reproduced in a failing browser regression, corrected and re-checked by the reviewers. No actionable findings remain. See the delivery review in the project records.
+
+## V2 verification
+
+The approved [V2 specification](../.scratch/coffee-shop-v2/spec.md) and six [tickets](../.scratch/coffee-shop-v2/issues/) extend the same public browser test boundary. New coverage includes preference editing and language changes, approximate recommendations, measured recipes and validation, durable receipts without customer details, examples and deletion, corrupted/unavailable storage, retention after twenty-one purchases, and reorder pricing, limits, cancellation and coupon behavior.
+
+The new workflow matrix covers all three languages at 320, 768, 1024 and 1440 pixels. Automated WCAG checks cover questions, results, valid/invalid recipes, empty/populated history, deletion confirmation, receipts and reorder review. Keyboard checks exercise radio progression, result focus and safe focus restoration on cancellation. Compact shared functional headings belong to the base stylesheet. No TypeScript or TSX source exceeds 200 lines.

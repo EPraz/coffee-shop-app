@@ -4,27 +4,31 @@ import { findCoffee } from "../catalog/coffee";
 import { CoffeeVisual } from "../catalog/CoffeeVisual";
 import { Price } from "../../shared/Price";
 import { lineKey, type CartLine } from "../cart/cart-model";
+import type { CoffeeSnapshot } from "../orders/order-model";
 export function CheckoutSelection({
   lines,
 }: {
-  lines: (CartLine & { unitPrice?: number })[];
+  lines: (CartLine & { unitPrice?: number; coffee?: CoffeeSnapshot })[];
 }) {
   const { t } = useTranslation();
   return (
     <ul className="checkout-selection">
       {lines.map((line) => {
-        const coffee = findCoffee(line.coffeeId)!;
+        const current = findCoffee(line.coffeeId);
+        const coffee = line.coffee ?? current;
         return (
           <li key={lineKey(line)}>
-            <Link
-              className="selection-thumbnail"
-              to={"/coffees/" + coffee.id}
-              aria-label={t("common.discover") + ": " + coffee.name}
-            >
-              <CoffeeVisual coffee={coffee} small />
-            </Link>
+            {coffee && (
+              <Link
+                className="selection-thumbnail"
+                to={current ? "/coffees/" + coffee.id : "/coffees"}
+                aria-label={t("common.discover") + ": " + coffee.name}
+              >
+                <CoffeeVisual coffee={coffee} small />
+              </Link>
+            )}
             <div>
-              <p>{coffee.name}</p>
+              <p>{coffee?.name ?? t("history.unavailableCoffee")}</p>
               <span>
                 {line.weight} g · {t("product." + line.preparation)} · ×
                 {line.quantity}
@@ -32,7 +36,8 @@ export function CheckoutSelection({
             </div>
             <Price
               cents={
-                (line.unitPrice ?? coffee.prices[line.weight]) * line.quantity
+                (line.unitPrice ?? current?.prices[line.weight] ?? 0) *
+                line.quantity
               }
             />
           </li>

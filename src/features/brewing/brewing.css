@@ -1,0 +1,151 @@
+.brewing-screen {
+  padding-bottom: 5rem;
+}
+.brewing-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+.brew-controls {
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  align-self: start;
+}
+.brew-methods {
+  border: 0;
+  padding: 0;
+  margin: 0 0 2rem;
+  min-width: 0;
+}
+.brew-methods legend {
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+}
+.brew-methods > div {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.brew-methods label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  font-size: 0.8125rem;
+  flex: 1;
+  white-space: nowrap;
+}
+.brew-methods label:has(input:checked) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--bg);
+}
+.brew-methods input {
+  accent-color: var(--accent);
+  margin: 0;
+}
+.brew-controls .form-field input {
+  background: var(--bg);
+}
+.brew-dose {
+  padding-block: 2rem;
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+}
+.brew-dose svg {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.brew-dose > span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.brew-dose output {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+.brew-dose p {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.brew-recipe {
+  padding-block: 1rem;
+}
+.brew-recipe h2 {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--accent);
+  font-size: 2.5rem;
+  margin-top: 0.75rem;
+}
+.brew-steps {
+  padding: 0;
+  list-style: none;
+  margin: 2rem 0;
+}
+.brew-steps li {
+  display: flex;
+  gap: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-block: 1.25rem;
+}
+.brew-steps li > span {
+  color: var(--accent);
+  font-size: 0.6875rem;
+  padding-top: 0.25rem;
+}
+.brew-steps h3 {
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+}
+.brew-steps p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.brew-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-block: 0.75rem;
+}
+.brew-invalid {
+  align-self: center;
+}
+.brew-invalid > svg {
+  color: var(--accent);
+}
+.brew-invalid p {
+  color: var(--muted);
+  margin-top: 1rem;
+}
+.brew-entry {
+  display: inline-flex;
+  margin-top: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .brewing-layout {
+    gap: 2rem;
+  }
+  .brew-controls {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .brewing-layout {
+    grid-template-columns: 1fr;
+  }
+  .brew-methods label {
+    flex: none;
+  }
+  .brew-dose {
+    padding-block: 1.5rem;
+  }
+}

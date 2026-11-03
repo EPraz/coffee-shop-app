@@ -1,0 +1,100 @@
+.reorder-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.reorder-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.reorder-line {
+  display: flex;
+  gap: 1.25rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.reorder-thumbnail {
+  width: 5rem;
+  flex-shrink: 0;
+}
+.reorder-thumbnail .coffee-visual {
+  height: 6.25rem;
+}
+.reorder-line-body {
+  flex: 1;
+  min-width: 0;
+}
+.reorder-line-body h2 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+.reorder-line-body > p:first-of-type {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.reorder-prices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-block: 1rem;
+  font-size: 0.8125rem;
+}
+.reorder-prices dt {
+  color: var(--muted);
+  font-size: 0.6875rem;
+}
+.reorder-prices dd {
+  margin: 0.25rem 0 0;
+  white-space: nowrap;
+}
+.reorder-quantities {
+  font-size: 0.8125rem;
+}
+.reorder-quantities strong {
+  color: var(--accent);
+  font-weight: 400;
+}
+.reorder-notice {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+.reorder-summary-copy {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+}
+.reorder-coupon-note,
+.reorder-empty {
+  color: var(--accent);
+  font-size: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 1024px) {
+  .reorder-layout {
+    gap: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .reorder-layout {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .reorder-thumbnail {
+    width: 3.5rem;
+  }
+  .reorder-thumbnail .coffee-visual {
+    height: 4.5rem;
+  }
+  .reorder-line {
+    gap: 0.75rem;
+  }
+  .reorder-line-body h2 {
+    font-size: 1.125rem;
+  }
+}

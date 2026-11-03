@@ -131,6 +131,13 @@ function ProductScreen({ coffee }: { coffee: Coffee }) {
             <Package size={16} aria-hidden="true" />
             {t("product.shipping")}
           </p>
+          <Link
+            to={`/brew?coffee=${coffee.id}`}
+            className="text-link brew-entry"
+          >
+            {t("brew.entry")}
+            <ArrowUpRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

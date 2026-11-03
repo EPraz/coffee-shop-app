@@ -6,13 +6,15 @@ import {
   checkoutFields,
   emptyValues,
   validateField,
-  createOrder,
   type FormValues,
   type FormErrors,
   type CheckoutField,
 } from "./checkout-model";
+import { createOrder } from "../orders/order-model";
+import { useOrderHistory } from "../orders/history-context";
 export function useCheckout() {
   const cart = useCart();
+  const history = useOrderHistory();
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [values, setValues] = useState<FormValues>(emptyValues);
@@ -76,6 +78,7 @@ export function useCheckout() {
       return;
     }
     const order = createOrder(cart.lines, cart.couponApplied);
+    history.record(order);
     cart.clear();
     navigate("/confirmation", { state: { order } });
   };

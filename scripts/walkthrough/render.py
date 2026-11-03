@@ -1,4 +1,4 @@
-"""Render real Playwright recordings into the approved 72-second Bruma edit."""
+"""Render real Playwright recordings into the approved short Bruma edit."""
 import hashlib
 import json
 import math
@@ -59,7 +59,7 @@ def offset(take, source):
     raise ValueError("Recording synchronization marker missing")
 
 
-def overlay(file, scene, index):
+def overlay(file, scene, index, total):
     canvas = Image.new("RGBA", (WIDTH, HEIGHT))
     draw = ImageDraw.Draw(canvas)
     if scene["source"] == "mobile":
@@ -70,14 +70,14 @@ def overlay(file, scene, index):
             draw.text((130, 345 + number * 90), line, font=font(74), fill=TEXT)
         for number, line in enumerate(wrap(draw, scene["caption"], font(34), 810)):
             draw.text((134, 605 + number * 51), line, font=font(34), fill=MUTED)
-        draw.text((134, 855), f"{index + 1:02} / 08     MOBILE · 390 × 844", font=font(20), fill=ACCENT)
+        draw.text((134, 855), f"{index + 1:02} / {total:02}     MOBILE · 390 × 844", font=font(20), fill=ACCENT)
         draw.text((134, 945), "A portfolio experience. Simulated orders.", font=font(21), fill=MUTED)
         draw.rounded_rectangle((1210, 60, 1643, 993), radius=8, outline="#68735b", width=2)
     else:
         draw.text((194, 922), "bruma / " + scene["title"], font=font(30), fill=ACCENT)
         draw.text((194, 973), scene["caption"], font=font(25), fill=TEXT)
     draw.rectangle((0, 1076, WIDTH, 1079), fill="#3c4438")
-    draw.rectangle((0, 1076, WIDTH * (index + 1) // 8, 1079), fill=ACCENT)
+    draw.rectangle((0, 1076, WIDTH * (index + 1) // total, 1079), fill=ACCENT)
     canvas.save(file)
 
 
@@ -94,7 +94,7 @@ def render(take):
     for index, scene in enumerate(manifest["scenes"]):
         seconds = scene["seconds"]
         artwork = working / f"{index:02}.png"
-        overlay(artwork, scene, index)
+        overlay(artwork, scene, index, len(manifest["scenes"]))
         output = working / f"{index:02}.mp4"
         files.append(output)
         start = max(0, scene["start"] - offsets[scene["source"]])

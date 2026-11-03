@@ -24,6 +24,7 @@ function Navigation() {
         <nav className="desktop-nav" aria-label={t("nav.shop")}>
           <NavLink to="/coffees">{t("nav.shop")}</NavLink>
           <Link to="/#philosophy">{t("nav.philosophy")}</Link>
+          <NavLink to="/orders">{t("history.nav")}</NavLink>
         </nav>
         <div className="header-actions">
           <label className="language-control">
@@ -62,6 +63,10 @@ function Navigation() {
           </Link>
           <Link to="/#philosophy" onClick={() => setMenuOpen(false)}>
             {t("nav.philosophy")}
+            <ArrowUpRight size={20} />
+          </Link>
+          <Link to="/orders" onClick={() => setMenuOpen(false)}>
+            {t("history.nav")}
             <ArrowUpRight size={20} />
           </Link>
         </nav>

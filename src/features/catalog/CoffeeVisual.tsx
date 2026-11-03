@@ -6,7 +6,7 @@ export function CoffeeVisual({
   coffee,
   small = false,
 }: {
-  coffee: Coffee;
+  coffee: Pick<Coffee, "name" | "country" | "tone" | "edition">;
   small?: boolean;
 }) {
   const { t } = useTranslation();
