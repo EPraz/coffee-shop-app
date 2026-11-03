@@ -19,12 +19,13 @@
   min-height: 55vh;
   padding-bottom: 5rem;
 }
-.cart-screen .page-heading {
+.cart-heading {
   padding: 2rem 0 1.5rem;
 }
-.cart-screen .page-heading h1 {
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-  margin: 0.75rem 0 0;
+.cart-heading h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 .cart-layout {
   display: grid;
@@ -194,7 +195,7 @@
   }
 }
 @media (max-width: 600px) {
-  .cart-screen .page-heading {
+  .cart-heading {
     padding: 1.5rem 0 1.25rem;
   }
   .cart-line {

@@ -26,8 +26,7 @@ export function CartScreen() {
     );
   return (
     <section className="section-shell cart-screen">
-      <header className="page-heading">
-        <p className="eyebrow">{t("cart.eyebrow")}</p>
+      <header className="cart-heading">
         <h1>{t("cart.title")}</h1>
       </header>
       <div className="cart-layout">
