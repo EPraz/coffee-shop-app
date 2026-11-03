@@ -225,6 +225,8 @@ try {
         page.getByRole("link", { name: "Order again", exact: true }),
       );
       await expect(page.getByTestId("reorder-line")).toContainText("Adding: 1");
+      await c.reveal(page.getByTestId("reorder-line"));
+      await c.pause(600);
       await c.click(
         page.getByRole("button", { name: "Add to my bag", exact: true }),
       );

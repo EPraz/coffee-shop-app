@@ -2,11 +2,11 @@
 
 A complete, responsive coffee-store portfolio built with React and TypeScript. Find a coffee for your taste, prepare it with a measured guide, and revisit your demo orders. Five coffees, four origins and three languages.
 
-[Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the 72-second walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough) · [Download MP4](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough/bruma-walkthrough.mp4)
+[Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the 73-second walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough) · [Download MP4](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough/bruma-walkthrough.mp4)
 
-[![Bruma walkthrough: a real mobile shopping journey with English explanatory text](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+[![Bruma V2: coffee matching, purchase, brewing and reorder on mobile](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
-The silent, 1080p walkthrough follows a complete purchase on a real mobile viewport and ends with a brief desktop view. The player includes chapters, English captions and a transcript. [Recording and verification notes](docs/walkthrough.md).
+The silent, 1080p walkthrough follows coffee matching, a complete purchase, brewing guidance and reorder on a real mobile viewport, then ends with a brief desktop view. The player includes chapters, English captions and a transcript. [Recording and verification notes](docs/walkthrough.md).
 
 ## Run locally
 

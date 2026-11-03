@@ -50,7 +50,7 @@ export function WalkthroughScreen() {
         </a>
       </video>
       <div className="walkthrough-meta">
-        <p>{t("walkthrough.format")}</p>
+        <p>{t("walkthrough.format", { duration: content.durationLabel })}</p>
         <a href="/walkthrough/bruma-walkthrough.mp4" download>
           <Download size={16} /> {t("walkthrough.download")}
         </a>

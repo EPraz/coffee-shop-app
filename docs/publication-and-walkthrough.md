@@ -21,7 +21,7 @@ integration is connected, with `main` as the production branch.
   README. Link the poster to `/walkthrough`, with native playback, chapters,
   transcript and MP4 download.
 
-## Short edit
+## Original V1 edit
 
 Target: 60–75 seconds, mobile first with a short desktop ending.
 
@@ -47,7 +47,7 @@ USD prices. Its README already explains that no real payments or deliveries occu
 No new domain terms or architecture decisions have been established by this
 publication discussion so far.
 
-## Publication state
+## V1 publication record
 
 - Public repository: https://github.com/EPraz/coffee-shop-app.
 - Public production demo: https://coffee-shop-app-nine-lilac.vercel.app.
@@ -65,3 +65,17 @@ publication discussion so far.
 
 Deployment references: [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite)
 and [Vercel for GitHub](https://vercel.com/docs/git/vercel-for-github).
+
+## V2 publication
+
+The V2 application adds explained coffee matching, measured V60/French press
+guides, browser-local order history and reviewed reorder. The updated video is
+73 seconds: 66 seconds of real mobile interaction and a seven-second desktop
+ending. It retains a complete simulated purchase and adds the three new flows.
+
+The public application was recorded from reviewed commit `3b2767c`, automatically
+deployed from `main` by the existing GitHub integration. The new MP4, poster,
+chapters, captions and transcript are published through the same integration.
+See the [current timeline](walkthrough.md) and the
+[V2 delivery evidence](../.scratch/coffee-shop-v2/delivery.md) for the release,
+browser validation, media integrity and public playback results.

@@ -189,7 +189,7 @@
     "intro": "A short tour of Bruma, from your first coffee to a confirmed demo order.",
     "explore": "Explore the live demo",
     "download": "Download MP4",
-    "format": "1:12 · 1080p · Silent video · English text · Simulated purchase",
+    "format": "{{duration}} · 1080p · Silent video · English text · Simulated purchase",
     "chapters": "Chapters",
     "transcript": "Read the English transcript"
   },

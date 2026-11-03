@@ -18,7 +18,8 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
     .toBeGreaterThan(0);
   expect(
     await video.evaluate((element: HTMLVideoElement) => element.duration),
-  ).toBeCloseTo(72, 0);
+  ).toBeCloseTo(73, 0);
+  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
   await video.evaluate((element: HTMLVideoElement) => element.play());
   await expect
     .poll(() =>
@@ -27,13 +28,13 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
     .toBeGreaterThan(0.2);
   await video.evaluate((element: HTMLVideoElement) => element.pause());
   await page
-    .getByRole("button", { name: "0:40 One step closer to your ritual." })
+    .getByRole("button", { name: "0:34 One step closer to your ritual." })
     .click();
   await expect
     .poll(() =>
       video.evaluate((element: HTMLVideoElement) => element.currentTime),
     )
-    .toBeCloseTo(40, 0);
+    .toBeCloseTo(34, 0);
   await expect(video).toBeFocused();
   await page.getByText("Read the English transcript", { exact: true }).click();
   await expect(page.locator(".walkthrough-transcript")).toContainText(
@@ -78,12 +79,14 @@ test("walkthrough stays readable at supported widths and localizes navigation", 
     "Un ritual de café, en movimiento.",
   );
   await expect(page.getByRole("link", { name: "Descargar MP4" })).toBeVisible();
+  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
   await page
     .getByRole("combobox", { name: "Idioma", exact: true })
     .selectOption("pt");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Um ritual de café, em movimento.",
   );
+  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
   await page.getByRole("link", { name: "Explorar a demo" }).click();
   await expect(page).toHaveURL("/");
 });

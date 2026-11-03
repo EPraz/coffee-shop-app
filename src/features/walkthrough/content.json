@@ -1,6 +1,6 @@
 {
-  "duration": 72,
-  "durationLabel": "1:12",
+  "duration": 73,
+  "durationLabel": "1:13",
   "chapters": [
     {
       "id": "discover",
@@ -9,45 +9,51 @@
       "caption": "Meet Bruma: an origin-led coffee store, made for your everyday ritual."
     },
     {
-      "id": "collection",
-      "title": "Five coffees. Four origins.",
-      "start": 7,
-      "caption": "Explore the collection and find a coffee with a story."
+      "id": "finder",
+      "title": "A coffee that feels like you.",
+      "start": 5,
+      "caption": "Three preferences, two available coffees, and clear reasons for each match."
     },
     {
       "id": "variant",
       "title": "Your coffee. Your way.",
-      "start": 14,
+      "start": 18,
       "caption": "Choose Niebla Geisha from Panama, then 500 g and ground coffee."
     },
     {
       "id": "bag",
       "title": "A little something extra.",
-      "start": 28,
+      "start": 26,
       "caption": "Review your bag and apply BRUMA15 for 15% off the coffee subtotal."
     },
     {
       "id": "checkout",
       "title": "One step closer to your ritual.",
-      "start": 40,
-      "caption": "Fill fictional demo details and complete a fully simulated purchase."
+      "start": 34,
+      "caption": "Fill fictional details and confirm a demo order. No real payment or delivery."
     },
     {
-      "id": "confirmed",
-      "title": "A good moment, confirmed.",
-      "start": 52,
-      "caption": "A clear confirmation and receipt. No real payment or delivery."
+      "id": "brew",
+      "title": "Make the ritual yours.",
+      "start": 43,
+      "caption": "V60 or French press: adjust the water and get a measured, step-by-step recipe."
+    },
+    {
+      "id": "history",
+      "title": "Remember it. Enjoy it again.",
+      "start": 51,
+      "caption": "Open your browser-local receipt, review current prices, then confirm a reorder."
     },
     {
       "id": "languages",
       "title": "Three languages. One experience.",
-      "start": 58,
+      "start": 61,
       "caption": "English, Spanish and Portuguese, with prices in USD throughout."
     },
     {
       "id": "desktop",
       "title": "Made slowly. Enjoyed fully.",
-      "start": 65,
+      "start": 66,
       "caption": "The same considered experience on desktop. Explore the live demo."
     }
   ]
