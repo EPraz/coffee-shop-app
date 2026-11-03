@@ -6,6 +6,7 @@ export default tseslint.config(
   {
     ignores: [
       "dist/**",
+      "server/dist/**",
       "node_modules/**",
       ".scratch/**",
       "playwright-report/**",
@@ -15,7 +16,7 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ["scripts/walkthrough/*.mjs"],
+    files: ["scripts/**/*.mjs"],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
   {

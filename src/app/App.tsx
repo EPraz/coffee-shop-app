@@ -14,13 +14,27 @@ import { OrderHistoryProvider } from "../features/orders/OrderHistoryProvider";
 import { HistoryScreen } from "../features/orders/HistoryScreen";
 import { OrderReceiptScreen } from "../features/orders/OrderReceiptScreen";
 import { ReorderScreen } from "../features/orders/ReorderScreen";
+import { lazy, Suspense } from "react";
+import { useStoreCatalog } from "../features/catalog/catalog-store";
+import { StoreLoading } from "../shared/StoreLoading";
+const AdminScreen = lazy(() => import("../features/admin/AdminScreen"));
 export function App() {
+  const catalog = useStoreCatalog();
+  if (!catalog.data) return <StoreLoading error={catalog.status === "error"} />;
   return (
     <OrderHistoryProvider>
       <CartProvider>
         <BrowserRouter useTransitions={false}>
           <Routes>
             <Route element={<Layout />}>
+              <Route
+                path="admin/*"
+                element={
+                  <Suspense fallback={<StoreLoading error={false} />}>
+                    <AdminScreen />
+                  </Suspense>
+                }
+              />
               <Route index element={<HomeScreen />} />
               <Route path="coffees" element={<CatalogScreen />} />
               <Route path="coffees/:coffeeId" element={<ProductRoute />} />

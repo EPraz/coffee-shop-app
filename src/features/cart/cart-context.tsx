@@ -10,7 +10,7 @@ export interface CartValue {
     coffeeId: string,
     weight: Weight,
     preparation: Preparation,
-  ) => "added" | "limit" | "unavailable";
+  ) => "added" | "limit" | "unavailable" | "stock";
   changeQuantity: (key: string, delta: number) => boolean;
   remove: (key: string) => void;
   clear: () => void;

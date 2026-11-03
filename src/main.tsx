@@ -10,6 +10,7 @@ import "./styles/base.css";
 import "./styles/layout.css";
 import "./styles/catalog.css";
 import "./styles/home.css";
+import "./features/admin/admin.css";
 import { App } from "./app/App";
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

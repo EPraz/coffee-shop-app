@@ -6,6 +6,9 @@ test-results/
 *.tsbuildinfo
 .scratch/qa/
 .scratch/walkthrough/
+.scratch/postgres-v3/
+.scratch/runtime/
+server/dist/
 .vercel/
 .env*
 !.env.example

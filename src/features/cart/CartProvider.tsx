@@ -1,6 +1,6 @@
 import { persistCart, restoreCart } from "./cart-storage";
 import { useEffect, useState, type ReactNode } from "react";
-import { findCoffee, type Weight, type Preparation } from "../catalog/coffee";
+import { findCoffee, variantStock, type Weight, type Preparation } from "../catalog/coffee";
 import { CartContext } from "./cart-context";
 import { lineKey, planCartAddition, type CartLine } from "./cart-model";
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -19,16 +19,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
   useEffect(() => persistCart(lines, couponApplied), [lines, couponApplied]);
   const add = (coffeeId: string, weight: Weight, preparation: Preparation) => {
-    if (!findCoffee(coffeeId)?.available) return "unavailable" as const;
+    const stock = variantStock(findCoffee(coffeeId), weight, preparation);
+    if (stock === 0) return "unavailable" as const;
     const variant = { coffeeId, weight, preparation };
     const existing = lines.find((line) => lineKey(line) === lineKey(variant));
     if (existing && existing.quantity >= 9) return "limit" as const;
+    if (existing && existing.quantity >= stock) return "stock" as const;
     setLines((current) => {
       const match = current.find((line) => lineKey(line) === lineKey(variant));
       return match
         ? current.map((line) =>
             lineKey(line) === lineKey(variant)
-              ? { ...line, quantity: Math.min(9, line.quantity + 1) }
+              ? { ...line, quantity: Math.min(9, stock, line.quantity + 1) }
               : line,
           )
         : [...current, { ...variant, quantity: 1 }];
@@ -40,7 +42,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (
       !current ||
       current.quantity + delta < 1 ||
-      current.quantity + delta > 9
+      (delta > 0 && current.quantity + delta > Math.min(9, variantStock(findCoffee(current.coffeeId), current.weight, current.preparation)))
     )
       return false;
     setLines((previous) =>

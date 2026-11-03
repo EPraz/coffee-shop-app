@@ -1,4 +1,4 @@
-import { findCoffee, type Weight, type Preparation } from "../catalog/coffee";
+import { findCoffee, variantStock, type Weight, type Preparation } from "../catalog/coffee";
 export interface CartLine {
   coffeeId: string;
   weight: Weight;
@@ -36,7 +36,7 @@ export function planCartAddition(current: CartLine[], requested: CartLine[]) {
     const coffee = findCoffee(item.coffeeId);
     const existing = lines.find((line) => lineKey(line) === lineKey(item));
     const quantity = coffee?.available
-      ? Math.min(item.quantity, Math.max(0, 9 - (existing?.quantity ?? 0)))
+      ? Math.min(item.quantity, Math.max(0, Math.min(9, variantStock(coffee, item.weight, item.preparation)) - (existing?.quantity ?? 0)))
       : 0;
     const reason = !coffee
       ? "missing"

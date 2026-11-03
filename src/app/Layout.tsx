@@ -83,6 +83,10 @@ function Footer() {
           <Brand />
         </Link>
         <p>{t("home.footerLine")}</p>
+        <Link className="text-link" to="/admin">
+          {t("admin.nav")}
+          <ArrowUpRight size={18} />
+        </Link>
         <Link className="text-link" to="/coffees">
           {t("nav.shop")}
           <ArrowUpRight size={18} />

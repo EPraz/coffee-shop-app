@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight, Package, Leaf } from "lucide-react";
 import { CoffeeVisual } from "./CoffeeVisual";
 import {
   findCoffee,
+  variantStock,
   type Coffee,
   type Weight,
   type Preparation,
@@ -110,7 +111,7 @@ function ProductScreen({ coffee }: { coffee: Coffee }) {
             </p>
             <span>{t("product.priceNote")}</span>
           </div>
-          {coffee.available && (
+          {variantStock(coffee, weight, preparation) > 0 && (
             <AddToBag
               key={coffee.id + ":" + weight + ":" + preparation}
               coffee={coffee}
@@ -118,7 +119,7 @@ function ProductScreen({ coffee }: { coffee: Coffee }) {
               preparation={preparation}
             />
           )}
-          {!coffee.available && (
+          {variantStock(coffee, weight, preparation) === 0 && (
             <div className="sold-out-note">
               <p>{t("product.unavailable")}</p>
               <p>{t("product.unavailableCopy")}</p>

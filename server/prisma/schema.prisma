@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Store {
+  id         String @id
+  generation String
+}
+
+model Coffee {
+  id        String    @id
+  available Boolean
+  price250  Int
+  price500  Int
+  version   Int       @default(1)
+  variants  Variant[]
+}
+
+model Variant {
+  id          String @id
+  coffeeId    String
+  weight      Int
+  preparation String
+  stock       Int
+  coffee      Coffee @relation(fields: [coffeeId], references: [id])
+
+  @@unique([coffeeId, weight, preparation])
+}
