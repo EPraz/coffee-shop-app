@@ -62,8 +62,9 @@ tests and verify public playback and byte-range responses after deployment.
 - Public routes must serve the application's entry document for direct entry.
 - The player loads video metadata initially; the storefront does not request
   the video. The video is never autoplayed.
-- Automatic Git deployments still need the Vercel GitHub integration enabled
-  for this repository. Until then, production releases use the authenticated CLI.
+- The Vercel GitHub integration is connected to `EPraz/coffee-shop-app` with
+  `main` as the production branch. Pushes to `main` deploy automatically; the
+  authenticated CLI remains available for manual releases.
 
 ## Verification
 

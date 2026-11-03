@@ -65,4 +65,4 @@ The demo is hosted on Vercel. `vercel.json` configures the Vite build and direct
 npx vercel --prod
 ```
 
-Automatic deployments from `main` are pending authorization of the Vercel GitHub integration for this repository. [Publication record](docs/publication-and-walkthrough.md).
+The Vercel GitHub integration is connected to `EPraz/coffee-shop-app`. Pushes to `main` automatically deploy to production. [Publication record](docs/publication-and-walkthrough.md).

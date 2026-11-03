@@ -1,7 +1,7 @@
 # Publication and product walkthrough
 
-Status: demo, video, player and README published and verified. Automatic Git
-deployments need the repository's Vercel GitHub integration enabled by the owner.
+Status: demo, video, player and README published and verified. The Vercel GitHub
+integration is connected, with `main` as the production branch.
 
 ## Confirmed decisions
 
@@ -58,14 +58,10 @@ publication discussion so far.
 - Public playback, chapter seeking, transcript and actual MP4 download pass at
   390 px and 1440 px. HTTP 206 ranges pass and the downloaded video's SHA-256
   matches the reviewed local export. The README poster loads from public GitHub.
-- Vercel rejected Git linking with: “To link a GitHub repository, you need to
-  install the GitHub integration first.” Automatic deployment is pending, not
-  enabled. Existing GitHub CLI authentication cannot manage app installations.
-- Complete access at https://github.com/apps/vercel, selecting only
-  `EPraz/coffee-shop-app`, then connect it under the Vercel project's Git settings.
-- A browser automation attempt to select an unrelated existing Chrome window
-  was rejected by automatic approval review for possible exposure of private
-  content. No interaction with that window followed the rejection.
+- After the owner authorized the Vercel GitHub integration, Git linking
+  succeeded. The project API confirms `EPraz/coffee-shop-app` and the production
+  branch `main`. The documentation update is published through Git to verify
+  the automatic production deployment.
 
 Deployment references: [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite)
 and [Vercel for GitHub](https://vercel.com/docs/git/vercel-for-github).
