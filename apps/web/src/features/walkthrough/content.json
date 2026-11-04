@@ -1,6 +1,6 @@
 {
-  "duration": 73,
-  "durationLabel": "1:13",
+  "duration": 81,
+  "durationLabel": "1:21",
   "chapters": [
     {
       "id": "discover",
@@ -45,21 +45,27 @@
       "caption": "Real demo sales, order totals and average value. Filter seven or thirty days, then explore the trend."
     },
     {
+      "id": "catalog-stock",
+      "title": "The collection, kept in balance.",
+      "start": 51,
+      "caption": "Edit variant stock in The collection and save it to the connected store. Clear feedback confirms the change."
+    },
+    {
       "id": "manage-order",
       "title": "Every order, cared for.",
-      "start": 51,
+      "start": 59,
       "caption": "Open the new purchase, mark it as preparing, and see confirmation from the connected store."
     },
     {
       "id": "verify-buyer",
       "title": "One store. A connected journey.",
-      "start": 61,
+      "start": 69,
       "caption": "Return to the buyer\u2019s saved receipt: its live status now reads Preparing. Available in English, Spanish and Portuguese."
     },
     {
       "id": "desktop",
       "title": "Good coffee. Thoughtfully managed.",
-      "start": 66,
+      "start": 74,
       "caption": "The same connected studio on desktop. A shared portfolio demo, with simulated purchases."
     }
   ]

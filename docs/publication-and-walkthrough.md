@@ -83,3 +83,13 @@ chapters, captions and transcript are published through the same integration.
 See the [current timeline](walkthrough.md) and the
 [V2 delivery evidence](../.scratch/coffee-shop-v2/delivery.md) for the release,
 browser validation, media integrity and public playback results.
+
+## Current V3 walkthrough refresh
+
+After publishing V3 and completing the architecture refactor, the owner requested
+a new walkthrough. The current edit is 81 seconds: 74 seconds of real mobile
+interaction and seven seconds of desktop, silent at 1080p with English text.
+It shows a complete purchase, the shared dashboard, a saved stock edit, order
+preparation and the buyer's live receipt. The player, poster, chapters, transcript
+and subtitles are updated together. Capture provenance and verification are in
+the [refresh delivery log](../.scratch/walkthrough-refresh/delivery.md).

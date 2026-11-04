@@ -1,6 +1,6 @@
 # Bruma V3 product walkthrough
 
-Format: **73 seconds**, 1920 × 1080, 25 fps, H.264 MP4, no audio, with embedded English explanations. The first 66 seconds use a real 390 × 844 mobile viewport with touch interactions. The final seven seconds show the studio at 1440 × 800.
+Format: **81 seconds**, 1920 × 1080, 25 fps, H.264 MP4, no audio, with embedded English explanations. The first 74 seconds use a real 390 × 844 mobile viewport with touch interactions. The final seven seconds show the studio at 1440 × 800.
 
 The V3 recording uses the connected local application, a real NestJS API and local PostgreSQL. Its origin and application commit are recorded in the capture manifest. The same application and media are now published on Vercel, with Render Free and Neon Free. The footage was captured locally; public playback and the connected purchase/admin workflow were verified separately.
 
@@ -17,9 +17,10 @@ The V3 recording uses the connected local application, a real NestJS API and loc
 | 0:28 | Mobile  | Open the saved receipt and its live Confirmed status.                                  |
 | 0:33 | Mobile  | Enter the shared demo account through The studio.                                      |
 | 0:41 | Mobile  | Filter the connected dashboard to seven days and explore sales and trend.              |
-| 0:51 | Mobile  | Open the new order, mark it Preparing and see the success notification.                |
-| 1:01 | Mobile  | Return to the buyer’s receipt and verify its live Preparing state.                     |
-| 1:06 | Desktop | Brief closing view of the same connected studio.                                       |
+| 0:51 | Mobile  | Edit Niebla's 250 g whole-bean stock, save it and see the success notification.          |
+| 0:59 | Mobile  | Open the new order, mark it Preparing and see the success notification.                |
+| 1:09 | Mobile  | Return to the buyer’s receipt and verify its live Preparing state.                     |
+| 1:14 | Desktop | Brief closing view of the same connected studio.                                       |
 
 The buyer uses fictional Alex Rivera form details. Those fields are never sent to the API. Only the simulated purchase, commercial amounts, product snapshots and opaque buyer identifier are persisted. The local development store is explicitly reset through its public demo API before each take; recording refuses non-local origins to avoid silently resetting the public store.
 
@@ -36,7 +37,7 @@ npm run walkthrough:record
 npm run walkthrough:render
 ```
 
-The recorder asserts the actual order total, dashboard count and order state. The renderer reads `.scratch/walkthrough/latest.json`, aligns footage with a pre-roll marker, cuts ten scenes, exports fast-start MP4, poster and WebVTT, and updates the player’s chapter data. It decodes the complete export and creates chronological review sheets sampled every two seconds. On Windows it uses Segoe UI; set `BRUMA_VIDEO_FONT` to a local TTF on other platforms.
+The recorder asserts the actual order total, dashboard count, saved stock feedback and order state. The renderer reads `.scratch/walkthrough/latest.json`, aligns footage with a pre-roll marker, cuts eleven scenes, exports fast-start MP4, poster and WebVTT, and updates the player’s chapter data. It decodes the complete export and creates chronological review sheets sampled every two seconds. On Windows it uses Segoe UI; set `BRUMA_VIDEO_FONT` to a local TTF on other platforms.
 
 Raw takes, temporary rendering tools, screenshots and contact sheets remain ignored by Git. Keep the capture manifest and render report locally, inspect the chronological sheets and full-resolution frames, and record the export hash in the delivery log. Verify player controls, chapter seeking, transcript, download and byte-range responses after changing media, then repeat the public playback checks after deployment.
 
@@ -44,8 +45,8 @@ The player loads only metadata initially and never autoplays. The storefront doe
 
 ## Verification checkpoint
 
-The 73-second export decoded completely and its chronological review sheets were
-inspected. Both player browser tests passed, including playback, seeking,
-transcript, MP4 download, byte ranges, localization, widths and accessibility.
-The export hash and remaining public checks are recorded in the
-[V3 delivery log](../.scratch/coffee-shop-v3/delivery.md).
+The refreshed export and player are verified through full decoding, chronological
+review sheets, playback, chapter seeking, transcript, MP4 download, byte ranges,
+localization, widths and accessibility. The current capture provenance, export
+hash and verification results are recorded in the
+[refresh delivery log](../.scratch/walkthrough-refresh/delivery.md).

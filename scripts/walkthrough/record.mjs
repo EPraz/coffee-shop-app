@@ -9,9 +9,9 @@ const rehearsal = process.argv.includes("--rehearsal");
 const origin = process.env.BRUMA_DEMO_URL;
 if (!origin)
   throw new Error("Set BRUMA_DEMO_URL to the intended Bruma origin.");
-// Recording is intentionally local until the V3 API has been published.
+// Local-only capture keeps rehearsal resets away from the shared public store.
 if (!["localhost", "127.0.0.1"].includes(new URL(origin).hostname))
-  throw new Error("V3 recording currently requires a local connected store.");
+  throw new Error("Recording requires a local connected store.");
 const output = path.resolve(
   ".scratch/walkthrough",
   `${rehearsal ? "rehearsal" : "take"}-${Date.now()}`,
@@ -132,6 +132,7 @@ try {
       totalCents: 4240,
       approved: true,
       connectedOrderState: "preparing",
+      catalogStockSaved: true,
     },
   };
   await fs.writeFile(

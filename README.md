@@ -8,7 +8,7 @@ V3 is published on Vercel, with a NestJS API on Render Free and PostgreSQL on Ne
 
 [![Bruma: a mobile coffee store and connected studio](apps/web/public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
-The refreshed V3 walkthrough is a silent, 73-second, 1080p recording of the connected local application: a mobile purchase, the shared dashboard, order preparation and the buyer’s updated receipt, followed by seven seconds of desktop. The player provides English captions, chapters, a transcript and an MP4 download. [Recording and verification notes](docs/walkthrough.md).
+The refreshed V3 walkthrough is a silent, 81-second, 1080p recording of the current connected application: a mobile purchase, the shared dashboard, a saved stock edit, order preparation and the buyer’s updated receipt, followed by seven seconds of desktop. The player provides English captions, chapters, a transcript and an MP4 download. [Recording and verification notes](docs/walkthrough.md).
 
 ## Explore V3
 

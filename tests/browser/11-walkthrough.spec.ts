@@ -18,8 +18,8 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
     .toBeGreaterThan(0);
   expect(
     await video.evaluate((element: HTMLVideoElement) => element.duration),
-  ).toBeCloseTo(73, 0);
-  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
+  ).toBeCloseTo(81, 0);
+  await expect(page.getByText(/^1:21 · 1080p ·/)).toBeVisible();
   await video.evaluate((element: HTMLVideoElement) => element.play());
   await expect
     .poll(() =>
@@ -36,9 +36,20 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
     )
     .toBeCloseTo(20, 0);
   await expect(video).toBeFocused();
+  await page
+    .getByRole("button", { name: "0:51 The collection, kept in balance." })
+    .click();
+  await expect
+    .poll(() =>
+      video.evaluate((element: HTMLVideoElement) => element.currentTime),
+    )
+    .toBeCloseTo(51, 0);
   await page.getByText("Read the English transcript", { exact: true }).click();
   await expect(page.locator(".walkthrough-transcript")).toContainText(
     "No real payment or delivery.",
+  );
+  await expect(page.locator(".walkthrough-transcript")).toContainText(
+    "Edit variant stock in The collection and save it to the connected store.",
   );
   const response = await page.request.get(
     "/walkthrough/bruma-walkthrough.mp4",
@@ -85,14 +96,14 @@ test("walkthrough stays readable at supported widths and localizes navigation", 
     "Un ritual de café, en movimiento.",
   );
   await expect(page.getByRole("link", { name: "Descargar MP4" })).toBeVisible();
-  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
+  await expect(page.getByText(/^1:21 · 1080p ·/)).toBeVisible();
   await page
     .getByRole("combobox", { name: "Idioma", exact: true })
     .selectOption("pt");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Um ritual de café, em movimento.",
   );
-  await expect(page.getByText(/^1:13 · 1080p ·/)).toBeVisible();
+  await expect(page.getByText(/^1:21 · 1080p ·/)).toBeVisible();
   await page.getByRole("link", { name: "Explorar a demo" }).click();
   await expect(page).toHaveURL("/");
 });

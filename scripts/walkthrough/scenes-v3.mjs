@@ -129,6 +129,35 @@ export async function mobileStory({ page, c, scene }) {
     },
   );
   await scene(
+    "catalog-stock",
+    "The collection,\nkept in balance.",
+    8,
+    "Edit variant stock in The collection and save it to the connected store. Clear feedback confirms the change.",
+    async () => {
+      await c.click(
+        page.getByRole("link", { name: "The collection", exact: true }),
+      );
+      const coffee = page
+        .getByTestId("admin-coffee")
+        .filter({ hasText: "Niebla Geisha" });
+      await c.click(
+        coffee.getByRole("button", { name: "Edit Niebla Geisha", exact: true }),
+      );
+      const stock = coffee.getByRole("spinbutton", {
+        name: "250 g · Whole bean stock",
+        exact: true,
+      });
+      await c.reveal(stock);
+      await stock.fill("12");
+      await c.click(
+        coffee.getByRole("button", { name: "Save changes", exact: true }),
+      );
+      await expect(
+        page.getByRole("status").filter({ hasText: "Changes saved." }),
+      ).toBeVisible();
+    },
+  );
+  await scene(
     "manage-order",
     "Every order,\ncared for.",
     10,
@@ -156,10 +185,18 @@ export async function mobileStory({ page, c, scene }) {
     5,
     "Return to the buyer’s saved receipt: its live status now reads Preparing. Available in English, Spanish and Portuguese.",
     async () => {
-      await page.goto(`/orders/${number}`);
+      await c.click(
+        page.getByRole("button", { name: "Open menu", exact: true }),
+      );
+      await c.click(
+        page
+          .locator("#mobile-navigation")
+          .getByRole("link", { name: "My orders", exact: true }),
+      );
+      await c.click(page.getByTestId("history-order").getByRole("link"));
       await expect(page.getByTestId("order-state")).toHaveText("Preparing");
       await c.reveal(page.getByTestId("order-state"));
-      await c.pause(1200);
+      await c.pause(400);
     },
   );
 }
