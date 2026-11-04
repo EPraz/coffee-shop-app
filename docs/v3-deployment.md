@@ -56,9 +56,14 @@ checked-in Blueprint creates only the API; PostgreSQL stays on Neon Free.
 
 ## Current publication checkpoint
 
-The published application remains V2 until the V3 API and database are ready.
-No V3 changes have been pushed or deployed at this checkpoint. No Render/Neon
-credentials are present in the process environment or repository secrets.
-The browser access host was unavailable, and the native Chrome tool request
-expired waiting for app authorization. Complete account access before creating
-cloud resources or activating the API rewrite; no paid fallback is authorized.
+The published application remains V2 until the V3 API is ready. V3 source has
+been pushed to `release/v3-connected-store` so Render can build it without
+activating the production frontend. The user created Neon Free and supplied its
+connection through an ignored local file; SSL connectivity, three migrations
+and the initial sample seed succeeded. No V2 data was imported.
+
+The API region is Ohio, matching the supplied Neon database region. Render
+still needs repository access and API authentication. GitHub's Render app
+installation page was opened for the user to authorize `coffee-shop-app`.
+The browser control tool remains unavailable; use the official Render API with
+an explicitly supplied key to finish service setup. No paid fallback is authorized.

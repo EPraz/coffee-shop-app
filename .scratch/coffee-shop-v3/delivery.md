@@ -58,22 +58,28 @@ Real connected local capture at `http://127.0.0.1:43174`, implementation commit
 ## Remaining publication work
 
 The public application remains V2 at
-`https://coffee-shop-app-nine-lilac.vercel.app`. No V3 push, cloud resource,
-database migration or API rewrite has been performed against production.
+`https://coffee-shop-app-nine-lilac.vercel.app`. V3 source is available on
+`release/v3-connected-store`; production `main` remains unchanged. No frontend
+API rewrite has been activated yet.
 
 The configured stack is **Render Free API + Neon Free PostgreSQL + Vercel**.
 `render.yaml` explicitly creates a free API only. The frontend rewrite is kept
 unchanged until an actual ready API URL exists. No paid fallback is authorized.
 
-Render/Neon CLI credentials are absent from standard configuration and the
-repository has no configured secrets. Browser inventory reports that its access
-host is unavailable; selecting the observed Chrome window twice expired waiting
-for Computer Use app authorization. These were tool authorization timeouts,
-not rejections by automatic shell approval review. Account access is the concrete
-external dependency for the remaining work.
+The user created Neon Free and supplied its connection in ignored
+`server/.env.deploy`. SSL connectivity succeeded and the database was empty.
+All three existing migrations were applied successfully, followed by the
+non-destructive initial sample seed. The API will be in Ohio to match Neon.
 
-Next: establish user-provided account access, provision only free resources,
-deploy migrations and initial data, verify API health, activate the real Vercel
+Render authentication is still pending. The official GitHub Render installation
+page was opened for the user to grant repository access. A Render API key is
+also required for service administration through the official API. Browser
+inventory reported an unavailable access host, and Computer Use later stopped
+because it could not verify the current browser URL on Windows. These are tool
+limitations, not rejections by automatic shell approval review.
+
+Next: establish Render access, provision only the free API,
+verify API health, activate the real Vercel
 rewrite, push/deploy, then test public routes, cookies, purchase, administration,
 reset, video playback, downloads and byte ranges. Follow
 [the deployment checklist](../../docs/v3-deployment.md).
