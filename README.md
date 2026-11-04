@@ -84,6 +84,7 @@ An executable architecture audit checks imports, cycles and provider ownership. 
 
 - [Approved V3 specification](.scratch/coffee-shop-v3/spec.md) and [delivery tickets](.scratch/coffee-shop-v3/issues/)
 - [V3 deployment](docs/v3-deployment.md)
+- [Architecture refactor and verification](.scratch/architecture-refactor/delivery.md)
 - [Walkthrough production notes](docs/walkthrough.md)
 - [Domain glossary](GLOSSARY.md)
 - [V2 specification](.scratch/coffee-shop-v2/spec.md) and [original MVP](.scratch/coffee-shop-mvp/spec.md)

@@ -38,6 +38,7 @@ the approved behavior. Schema, images and video hashes match the baseline.
   Real Chromium checks force an initial catalogue failure, use Try again and
   reach Niebla Geisha without browser errors, against the local API.
 
-Deployed verification is recorded in the delivery record once completed.
-No schema migration or public demo reset is authorized
-by this structural refactor.
+Deployed verification also passes: both providers serve `4d9956b`; public HTTP
+and real Chromium checks preserve the purchase/admin workflows and media.
+Three pre-existing test orders and catalogue generation survive the restart.
+See [delivery](delivery.md). No schema migration or public demo reset was run.
