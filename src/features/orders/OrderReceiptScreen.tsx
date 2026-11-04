@@ -6,6 +6,7 @@ import { CheckoutSelection } from "../checkout/CheckoutSelection";
 import { OrderSummary } from "../cart/OrderSummary";
 import { HistoryStorageNotice } from "./HistoryStorageNotice";
 import { OrderDate } from "./OrderDate";
+import { OrderStatus } from "./OrderStatus";
 import "./orders.css";
 
 export function OrderReceiptScreen() {
@@ -29,6 +30,7 @@ export function OrderReceiptScreen() {
         )}
       </header>
       <HistoryStorageNotice />
+      {order && <OrderStatus order={order} />}
       {order && (
         <div className="confirmation-layout">
           <div>

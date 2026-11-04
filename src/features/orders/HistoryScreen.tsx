@@ -5,6 +5,7 @@ import { ArrowUpRight, History } from "lucide-react";
 import { useOrderHistory } from "./history-context";
 import { HistoryStorageNotice } from "./HistoryStorageNotice";
 import { OrderDate } from "./OrderDate";
+import { OrderStatus } from "./OrderStatus";
 import { Price } from "../../shared/Price";
 import { HistoryClearConfirmation } from "./HistoryClearConfirmation";
 import "./orders.css";
@@ -66,6 +67,7 @@ export function HistoryScreen() {
                 )}
               </div>
               <div className="history-order-products">
+                <OrderStatus order={order} />
                 <h2>
                   {order.items.map((item) => item.coffee.name).join(" · ")}
                 </h2>

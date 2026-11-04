@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCart } from "../cart/cart-context";
 import {
@@ -10,12 +9,10 @@ import {
   type FormErrors,
   type CheckoutField,
 } from "./checkout-model";
-import { createOrder } from "../orders/order-model";
-import { useOrderHistory } from "../orders/history-context";
+import { usePurchase } from "./usePurchase";
 export function useCheckout() {
   const cart = useCart();
-  const history = useOrderHistory();
-  const navigate = useNavigate();
+  const purchase = usePurchase();
   const { t } = useTranslation();
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [errors, setErrors] = useState<FormErrors>({});
@@ -71,16 +68,12 @@ export function useCheckout() {
     setPaymentError(false);
     await new Promise((resolve) => setTimeout(resolve, 800));
     if (!mounted.current) return;
-    if (outcome === "rejected") {
-      setPending(false);
-      setPaymentError(true);
+    try {
+      await purchase.purchase(outcome, () => mounted.current);
+    } finally {
+      if (mounted.current) setPending(false);
       locked.current = false;
-      return;
     }
-    const order = createOrder(cart.lines, cart.couponApplied);
-    history.record(order);
-    cart.clear();
-    navigate("/confirmation", { state: { order } });
   };
   return {
     values,
@@ -92,6 +85,7 @@ export function useCheckout() {
     outcome,
     chooseOutcome,
     paymentError,
+    ...purchase,
   };
 }
 export type CheckoutController = ReturnType<typeof useCheckout>;

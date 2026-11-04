@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("guest validates fields, fills demo details and completes an order with a preserved receipt", async ({
   page,

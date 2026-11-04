@@ -10,7 +10,7 @@ let state: {
   status: "loading" | "ready" | "error";
   data: CatalogResponse | null;
 } = { status: "loading", data: null };
-let pending: Promise<void> | null = null;
+let pending: Promise<boolean> | null = null;
 const listeners = new Set<() => void>();
 const subscribe = (listener: () => void) => {
   listeners.add(listener);
@@ -19,15 +19,17 @@ const subscribe = (listener: () => void) => {
   };
 };
 const snapshot = () => state;
-export function refreshCatalog(): Promise<void> {
+export function refreshCatalog(): Promise<boolean> {
   if (pending) return pending;
   pending = api<CatalogResponse>("/catalog")
     .then((data) => {
       replaceCatalog(data.coffees);
       state = { status: "ready", data };
+      return true;
     })
     .catch(() => {
       state = { ...state, status: "error" };
+      return false;
     })
     .finally(() => {
       pending = null;

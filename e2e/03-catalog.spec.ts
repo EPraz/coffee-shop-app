@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("visitor combines origin search and roast filter, then recovers from no results", async ({
   page,

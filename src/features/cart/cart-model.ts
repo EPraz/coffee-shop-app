@@ -1,4 +1,9 @@
-import { findCoffee, variantStock, type Weight, type Preparation } from "../catalog/coffee";
+import {
+  findCoffee,
+  variantStock,
+  type Weight,
+  type Preparation,
+} from "../catalog/coffee";
 export interface CartLine {
   coffeeId: string;
   weight: Weight;
@@ -28,22 +33,28 @@ export function cartAmounts(lines: CartLine[], couponApplied = false) {
 export interface CartAddition {
   quantity: number;
   currentPrice?: number;
-  reason: "missing" | "unavailable" | "limit" | null;
+  reason: "missing" | "unavailable" | "limit" | "stock" | null;
 }
 export function planCartAddition(current: CartLine[], requested: CartLine[]) {
   const lines = current.map((line) => ({ ...line }));
   const additions: CartAddition[] = requested.map((item) => {
     const coffee = findCoffee(item.coffeeId);
+    const stock = variantStock(coffee, item.weight, item.preparation);
     const existing = lines.find((line) => lineKey(line) === lineKey(item));
     const quantity = coffee?.available
-      ? Math.min(item.quantity, Math.max(0, Math.min(9, variantStock(coffee, item.weight, item.preparation)) - (existing?.quantity ?? 0)))
+      ? Math.min(
+          item.quantity,
+          Math.max(0, Math.min(9, stock) - (existing?.quantity ?? 0)),
+        )
       : 0;
     const reason = !coffee
       ? "missing"
-      : !coffee.available
+      : !coffee.available || stock === 0
         ? "unavailable"
         : quantity < item.quantity
-          ? "limit"
+          ? stock < 9
+            ? "stock"
+            : "limit"
           : null;
     if (quantity > 0) {
       if (existing) existing.quantity += quantity;

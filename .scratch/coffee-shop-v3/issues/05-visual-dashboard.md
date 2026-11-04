@@ -4,7 +4,7 @@
 
 **Blocked by:** 03 — Comprar como invitado y consultar el pedido persistido.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 - [ ] Sembrar ejemplos sintéticos de los últimos treinta días con cafés y estados variados, sin datos personales y sin reseed destructivo al arrancar.
 - [ ] Alternar siete/treinta días con criterios temporales consistentes y visibles.
@@ -20,3 +20,6 @@
 No depende de 04: los ejemplos y contratos de pedidos de 03 permiten probar estados cancelados sin esperar los controles de atención. La actualización tras una cancelación desde el panel se verifica en el recorrido integrado.
 
 Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
+
+
+Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.

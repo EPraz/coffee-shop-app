@@ -6,7 +6,7 @@ export interface HistoryState {
   orders: Order[];
   status: HistoryStatus;
 }
-export const historyStorageKey = "bruma.orders.v1";
+export const historyStorageKey = "bruma.orders.v3";
 export function recentOrders(orders: Order[]) {
   const seen = new Set<string>();
   return [...orders]
@@ -32,7 +32,7 @@ export function restoreHistory(): HistoryState {
       typeof saved !== "object" ||
       saved === null ||
       !("version" in saved) ||
-      saved.version !== 1 ||
+      saved.version !== 3 ||
       !("orders" in saved) ||
       !Array.isArray(saved.orders)
     )
@@ -53,7 +53,7 @@ export function persistHistory(orders: Order[]) {
   try {
     localStorage.setItem(
       historyStorageKey,
-      JSON.stringify({ version: 1, orders }),
+      JSON.stringify({ version: 3, orders }),
     );
     return true;
   } catch {

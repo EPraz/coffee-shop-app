@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 import AxeBuilder from "@axe-core/playwright";
 
 test("walkthrough plays, seeks by chapter and provides a transcript and byte ranges", async ({

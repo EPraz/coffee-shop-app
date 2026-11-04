@@ -17,6 +17,7 @@ import { ReorderScreen } from "../features/orders/ReorderScreen";
 import { lazy, Suspense } from "react";
 import { useStoreCatalog } from "../features/catalog/catalog-store";
 import { StoreLoading } from "../shared/StoreLoading";
+import { CatalogConnectionNotice } from "../shared/CatalogConnectionNotice";
 const AdminScreen = lazy(() => import("../features/admin/AdminScreen"));
 export function App() {
   const catalog = useStoreCatalog();
@@ -24,6 +25,7 @@ export function App() {
   return (
     <OrderHistoryProvider>
       <CartProvider>
+        {catalog.status === "error" && <CatalogConnectionNotice />}
         <BrowserRouter useTransitions={false}>
           <Routes>
             <Route element={<Layout />}>

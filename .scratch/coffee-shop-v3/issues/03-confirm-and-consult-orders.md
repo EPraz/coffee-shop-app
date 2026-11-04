@@ -4,7 +4,7 @@
 
 **Blocked by:** 01 — Explorar la tienda persistida y entrar al panel demo.
 
-**Status:** claimed
+**Status:** resolved
 
 - [ ] Conservar validación del formulario, Llenar demo y modos aprobado/rechazado; no persistir ni registrar datos personales del formulario.
 - [ ] La API calcula precios, BRUMA15 y envío; no acepta importes del cliente como autoridad.
@@ -23,3 +23,6 @@
 Puede empezar tras 01 sin esperar 02: utiliza el contrato de catálogo y existencias de 01. La demostración de precios editados desde el panel se verifica al integrar ambos recorridos.
 
 Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
+
+
+Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.

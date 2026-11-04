@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("cart and coupon survive reload and reopening in the same browser", async ({
   page,

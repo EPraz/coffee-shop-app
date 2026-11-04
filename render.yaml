@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: bruma-cafe-api
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    autoDeployTrigger: commit
+    buildCommand: npm ci && npm run api:build
+    startCommand: npm run db:migrate && npm run db:seed && npm start --workspace server
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 24.13.0
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: https://coffee-shop-app-nine-lilac.vercel.app

@@ -11,7 +11,7 @@ import { OrderSummary } from "./OrderSummary";
 export function CartScreen() {
   const { t } = useTranslation();
   const cart = useCart();
-  const [limit, setLimit] = useState(false);
+  const [limit, setLimit] = useState<"stock" | "limit" | null>(null);
   if (!cart.lines.length)
     return (
       <div className="section-shell cart-screen empty-state">
@@ -40,18 +40,26 @@ export function CartScreen() {
                   line={line}
                   coffee={coffee}
                   onChange={(delta) =>
-                    setLimit(!cart.changeQuantity(lineKey(line), delta))
+                    setLimit(
+                      cart.changeQuantity(lineKey(line), delta)
+                        ? null
+                        : line.quantity >= 9
+                          ? "limit"
+                          : "stock",
+                    )
                   }
                   onRemove={() => {
                     cart.remove(lineKey(line));
-                    setLimit(false);
+                    setLimit(null);
                   }}
                 />
               );
             })}
           </ul>
           <p role="status" className="inline-message">
-            {limit ? t("cart.limit") : ""}
+            {limit
+              ? t(limit === "stock" ? "admin.stockLimit" : "cart.limit")
+              : ""}
           </p>
           <Link to="/coffees" className="text-link">
             {t("cart.continue")}

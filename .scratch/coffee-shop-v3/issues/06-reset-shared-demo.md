@@ -4,7 +4,7 @@
 
 **Blocked by:** 03 — Comprar como invitado y consultar el pedido persistido.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 - [ ] Restablecer demo informa que afecta a todos y abre un modal; cancelar no modifica datos.
 - [ ] La API exige sesión administrativa y restaura precios, disponibilidad, existencias y pedidos como una operación coherente.
@@ -19,3 +19,6 @@
 Depende del modelo persistido de catálogo y pedidos, no del diseño de métricas ni de los controles de atención. El comportamiento con todas las pantallas se verifica al integrar.
 
 Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
+
+
+Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.

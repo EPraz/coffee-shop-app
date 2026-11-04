@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("rapid origin typing preserves every character and URL on a constrained device", async ({
   page,

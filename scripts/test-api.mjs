@@ -1,5 +1,5 @@
 import { spawn, spawnSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -24,12 +24,23 @@ const run = (args) => {
   });
   if (result.status !== 0) process.exit(result.status ?? 1);
 };
-run([
-  "node_modules/prisma/build/index.js",
-  "generate",
-  "--schema",
-  "server/prisma/schema.prisma",
-]);
+const schema = resolve(root, "server/prisma/schema.prisma");
+const generatedSchema = resolve(
+  root,
+  "node_modules/.prisma/client/schema.prisma",
+);
+// Windows cannot replace an engine DLL in use by the development API.
+if (
+  !existsSync(generatedSchema) ||
+  readFileSync(schema, "utf8") !== readFileSync(generatedSchema, "utf8")
+) {
+  run([
+    "node_modules/prisma/build/index.js",
+    "generate",
+    "--schema",
+    "server/prisma/schema.prisma",
+  ]);
+}
 run(["node_modules/typescript/bin/tsc", "-p", "server/tsconfig.json"]);
 run([
   "node_modules/prisma/build/index.js",
@@ -41,7 +52,7 @@ run([
   "--schema",
   "server/prisma/schema.prisma",
 ]);
-run(["node_modules/tsx/dist/cli.mjs", "server/prisma/seed.ts"]);
+run(["server/dist/server/prisma/seed.js"]);
 const child = spawn(process.execPath, ["server/dist/server/src/main.js"], {
   cwd: root,
   env: process.env,

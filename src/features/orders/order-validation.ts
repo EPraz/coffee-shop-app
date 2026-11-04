@@ -1,6 +1,7 @@
 import type { Coffee } from "../catalog/coffee";
 import { lineKey } from "../cart/cart-model";
 import type { CoffeeSnapshot, Order, OrderItem } from "./order-model";
+import { orderStates, type OrderState } from "../../../shared/orders";
 
 const record = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
@@ -103,5 +104,9 @@ export function readOrder(value: unknown): Order | null {
     example: value.example,
     items: validItems,
     amounts: { subtotal, discount, shipping, total },
+    state: orderStates.includes(value.state as OrderState)
+      ? (value.state as OrderState)
+      : undefined,
+    version: typeof value.version === "number" ? value.version : undefined,
   };
 }

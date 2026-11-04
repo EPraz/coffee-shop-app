@@ -8,11 +8,34 @@ import { Database } from "./database";
 import { AccessController, AdminGuard } from "./access";
 import { CatalogController, CatalogService } from "./catalog";
 import { CatalogEditor } from "./catalog-edit";
+import { OrderController } from "./order-controller";
+import { OrderService } from "./orders";
+import { OrderStateService } from "./order-state";
+import { DashboardController, DashboardService } from "./dashboard";
+import { ResetController, ResetService } from "./reset";
+import { demoTrafficBudget } from "./traffic";
+import { PurchaseService } from "./purchase";
 import { ApiErrors } from "./errors";
 
 @Module({
-  controllers: [AccessController, CatalogController],
-  providers: [Database, CatalogService, CatalogEditor, AdminGuard],
+  controllers: [
+    AccessController,
+    CatalogController,
+    OrderController,
+    DashboardController,
+    ResetController,
+  ],
+  providers: [
+    Database,
+    CatalogService,
+    CatalogEditor,
+    AdminGuard,
+    OrderService,
+    PurchaseService,
+    OrderStateService,
+    DashboardService,
+    ResetService,
+  ],
 })
 class AppModule {}
 
@@ -23,6 +46,7 @@ async function main() {
     logger: ["error", "warn", "log"],
   });
   app.use(helmet());
+  app.use(demoTrafficBudget());
   const origins = new Set(
     (
       process.env.ALLOWED_ORIGINS ??

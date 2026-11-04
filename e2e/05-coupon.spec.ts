@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("BRUMA15 rounds once, excludes shipping and never stacks", async ({
   page,

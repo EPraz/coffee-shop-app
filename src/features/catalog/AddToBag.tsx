@@ -32,7 +32,9 @@ export function AddToBag({
         {message === "added" ? <Check size={18} /> : <Plus size={18} />}
       </button>
       <p className="inline-message" role="status">
-        {message ? t(message === "stock" ? "admin.stockLimit" : "cart." + message) : ""}
+        {message
+          ? t(message === "stock" ? "admin.stockLimit" : "cart." + message)
+          : ""}
         {message === "added"
           ? " " + t("cart.count", { count: quantity }) + "."
           : ""}

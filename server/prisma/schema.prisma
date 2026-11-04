@@ -31,3 +31,35 @@ model Variant {
 
   @@unique([coffeeId, weight, preparation])
 }
+
+model Order {
+  number      String      @id
+  createdAt   DateTime    @default(now())
+  example     Boolean     @default(false)
+  state       String      @default("confirmed")
+  version     Int         @default(1)
+  buyerHash   String
+  requestKey  String
+  requestHash String
+  subtotal    Int
+  discount    Int
+  shipping    Int
+  total       Int
+  items       OrderItem[]
+
+  @@unique([buyerHash, requestKey])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id          String @id @default(uuid())
+  orderNumber String
+  coffeeId    String
+  weight      Int
+  preparation String
+  quantity    Int
+  unitPrice   Int
+  discount    Int
+  coffee      Json
+  order       Order  @relation(fields: [orderNumber], references: [number], onDelete: Cascade)
+}

@@ -15,6 +15,8 @@ export interface Order {
   example: boolean;
   items: OrderItem[];
   amounts: ReturnType<typeof cartAmounts>;
+  state?: import("../../../shared/orders").OrderState;
+  version?: number;
 }
 export function snapshotCoffee(coffee: Coffee): CoffeeSnapshot {
   const { id, name, country, region, roast, tone, edition } = coffee;

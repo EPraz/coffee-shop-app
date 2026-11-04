@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("same variant groups, different variants separate and the cart respects its quantity limit", async ({
   page,

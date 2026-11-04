@@ -5,10 +5,11 @@
   "type": "module",
   "workspaces": ["server"],
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --port 43174 --strictPort",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "vite --host 127.0.0.1 --port 43174 --strictPort",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "typecheck": "tsc -b --pretty false",
+    "typecheck": "tsc -b --pretty false && npm run typecheck --workspace server",
     "lint": "eslint .",
     "test": "playwright test",
     "test:api": "playwright test --config playwright.api.config.ts",
@@ -17,8 +18,8 @@
     "db:migrate": "npm run db:migrate --workspace server",
     "db:seed": "npm run db:seed --workspace server",
     "test:ui": "playwright test --ui",
-    "format": "prettier --write src e2e",
-    "format:check": "prettier --check src e2e",
+    "format": "prettier --write src e2e e2e-api shared test-support server/src server/prisma/seed.ts",
+    "format:check": "prettier --check src e2e e2e-api shared test-support server/src server/prisma/seed.ts",
     "walkthrough:rehearse": "node scripts/walkthrough/record.mjs --rehearsal",
     "walkthrough:record": "node scripts/walkthrough/record.mjs",
     "walkthrough:render": "python scripts/walkthrough/render.py"
@@ -51,7 +52,8 @@
     "vite": "^8.3.5"
   },
   "overrides": {
-    "minimatch": "^11.0.1"
+    "minimatch": "^11.0.1",
+    "@prisma/config": { "deepmerge-ts": "8.0.0" }
   },
   "engines": {
     "node": ">=24.13.0"

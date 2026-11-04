@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("an approved purchase becomes a durable receipt without customer details", async ({
   page,

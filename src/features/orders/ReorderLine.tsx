@@ -52,7 +52,11 @@ export function ReorderLine({
         )}
         {addition.reason && (
           <p className="reorder-notice">
-            {t(`reorder.reason.${addition.reason}`)}
+            {t(
+              addition.reason === "stock"
+                ? "admin.reorderStockLimit"
+                : `reorder.reason.${addition.reason}`,
+            )}
           </p>
         )}
       </div>

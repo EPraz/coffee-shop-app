@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "../test-support/fixtures";
 
 test("editing a coffee changes the public offer and rejects stale or invalid writes", async ({
   request,

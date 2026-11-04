@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("rejected payment preserves the form and variants before an approved retry", async ({
   page,

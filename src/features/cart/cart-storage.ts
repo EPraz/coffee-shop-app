@@ -20,7 +20,7 @@ export function restoreCart(): SavedCart {
       if (
         !isRecord(item) ||
         typeof item.coffeeId !== "string" ||
-        !findCoffee(item.coffeeId)?.available
+        !findCoffee(item.coffeeId)
       )
         continue;
       if (item.weight !== 250 && item.weight !== 500) continue;

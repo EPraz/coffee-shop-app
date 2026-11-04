@@ -1,6 +1,11 @@
 import { persistCart, restoreCart } from "./cart-storage";
 import { useEffect, useState, type ReactNode } from "react";
-import { findCoffee, variantStock, type Weight, type Preparation } from "../catalog/coffee";
+import {
+  findCoffee,
+  variantStock,
+  type Weight,
+  type Preparation,
+} from "../catalog/coffee";
 import { CartContext } from "./cart-context";
 import { lineKey, planCartAddition, type CartLine } from "./cart-model";
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -42,7 +47,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (
       !current ||
       current.quantity + delta < 1 ||
-      (delta > 0 && current.quantity + delta > Math.min(9, variantStock(findCoffee(current.coffeeId), current.weight, current.preparation)))
+      (delta > 0 &&
+        current.quantity + delta >
+          Math.min(
+            9,
+            variantStock(
+              findCoffee(current.coffeeId),
+              current.weight,
+              current.preparation,
+            ),
+          ))
     )
       return false;
     setLines((previous) =>
@@ -72,6 +86,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         changeQuantity,
         remove,
         clear,
+        replace: setLines,
       }}
     >
       {children}

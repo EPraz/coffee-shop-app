@@ -1,9 +1,9 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "../test-support/fixtures";
 
 test("an administrator saves a price and stock and the buyer sees the change", async ({
   page,
 }) => {
-  await page.goto("/admin");
+  await page.goto("/admin/catalog");
   await page
     .getByRole("button", { name: "Enter demo account", exact: true })
     .click();

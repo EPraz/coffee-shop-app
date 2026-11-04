@@ -1,9 +1,9 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "../test-support/fixtures";
 
 test("a visitor enters the shared demo panel and retains access on reload", async ({
   page,
 }) => {
-  await page.goto("/admin");
+  await page.goto("/admin/catalog");
   await expect(
     page.getByRole("heading", { name: "Behind the brew." }),
   ).toBeVisible();

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Pencil, Check, ArrowUpRight } from "lucide-react";
 import { api } from "../../shared/api";
 import { Price } from "../../shared/Price";
-import { type Coffee } from "../catalog/coffee";
+import { findCoffee, type Coffee } from "../catalog/coffee";
 import { CoffeeVisual } from "../catalog/CoffeeVisual";
 import { currentGeneration, refreshCatalog } from "../catalog/catalog-store";
 import { useToast, actionError } from "./Toast";
@@ -13,6 +13,7 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
   const notify = useToast();
   const [editing, setEditing] = useState(false);
   const [pending, setPending] = useState(false);
+  const [conflict, setConflict] = useState(false);
   const [values, setValues] = useState(() => ({
     generation: currentGeneration(),
     version: coffee.version,
@@ -28,6 +29,7 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
   }));
   const editButton = useRef<HTMLButtonElement>(null);
   const open = () => {
+    setConflict(false);
     setValues({
       generation: currentGeneration(),
       version: coffee.version,
@@ -79,7 +81,15 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
         expired: code === "session_expired",
       });
       if (code === "edit_conflict" || code === "store_reset") {
-        await refreshCatalog();
+        if (await refreshCatalog()) {
+          const latest = findCoffee(coffee.id)!;
+          setValues((draft) => ({
+            ...draft,
+            version: latest.version,
+            generation: currentGeneration(),
+          }));
+          setConflict(true);
+        }
       }
     } finally {
       setPending(false);
@@ -121,12 +131,23 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
           aria-label={t("admin.edit", { name: coffee.name })}
           aria-busy={pending}
         >
+          {conflict && (
+            <p className="admin-conflict" role="alert">
+              {t("admin.reviewDraft")}
+            </p>
+          )}
           <div className="admin-price-fields">
             {([250, 500] as const).map((weight) => (
               <label key={weight}>
                 {t("admin.priceLabel", { weight })}
                 <input
                   autoFocus={weight === 250}
+                  aria-label={t("admin.priceLabel", { weight })}
+                  aria-describedby={
+                    conflict
+                      ? `${coffee.id}-current-price-${weight}`
+                      : undefined
+                  }
                   type="number"
                   required
                   min="0.01"
@@ -143,6 +164,12 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
                     })
                   }
                 />
+                {conflict && (
+                  <small id={`${coffee.id}-current-price-${weight}`}>
+                    {t("admin.current")}:{" "}
+                    <Price cents={coffee.prices[weight]} />
+                  </small>
+                )}
               </label>
             ))}
           </div>
@@ -166,6 +193,15 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
                     preparation: t("product." + variant.preparation),
                   })}
                   <input
+                    aria-label={t("admin.stockLabel", {
+                      weight: variant.weight,
+                      preparation: t("product." + variant.preparation),
+                    })}
+                    aria-describedby={
+                      conflict
+                        ? `${coffee.id}-current-stock-${index}`
+                        : undefined
+                    }
                     type="number"
                     min="0"
                     max="9999"
@@ -183,6 +219,18 @@ export function CoffeeEditor({ coffee }: { coffee: Coffee }) {
                       })
                     }
                   />
+                  {conflict && (
+                    <small id={`${coffee.id}-current-stock-${index}`}>
+                      {t("admin.current")}:{" "}
+                      {
+                        coffee.variants?.find(
+                          (item) =>
+                            item.weight === variant.weight &&
+                            item.preparation === variant.preparation,
+                        )?.stock
+                      }
+                    </small>
+                  )}
                 </label>
               ))}
             </div>

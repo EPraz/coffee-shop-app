@@ -9,6 +9,7 @@ import { OrderSummary } from "../cart/OrderSummary";
 import { useCheckout } from "./useCheckout";
 import { CheckoutFields } from "./CheckoutFields";
 import { CheckoutSelection } from "./CheckoutSelection";
+import { CheckoutChanges } from "./CheckoutChanges";
 export function CheckoutScreen() {
   const { t } = useTranslation();
   const cart = useCart();
@@ -64,9 +65,13 @@ export function CheckoutScreen() {
           </div>
         </div>
         <OrderSummary {...cartAmounts(cart.lines, cart.couponApplied)}>
-          {form.paymentError && (
+          {(form.paymentError || form.purchaseError) && (
             <p className="payment-error" role="alert">
-              {t("checkout.retryMessage")}
+              {form.purchaseError === "payment_rejected"
+                ? t("checkout.retryMessage")
+                : t(`admin.errors.${form.purchaseError}`, {
+                    defaultValue: t("admin.connectionCopy"),
+                  })}
             </p>
           )}
           <button
@@ -84,6 +89,13 @@ export function CheckoutScreen() {
           </button>
         </OrderSummary>
       </div>
+      {form.review && (
+        <CheckoutChanges
+          quote={form.review}
+          onApply={form.applyReview}
+          onClose={form.closeReview}
+        />
+      )}
     </section>
   );
 }

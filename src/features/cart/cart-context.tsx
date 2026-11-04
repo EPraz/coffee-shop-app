@@ -14,6 +14,7 @@ export interface CartValue {
   changeQuantity: (key: string, delta: number) => boolean;
   remove: (key: string) => void;
   clear: () => void;
+  replace: (lines: CartLine[]) => void;
 }
 export const CartContext = createContext<CartValue | null>(null);
 export function useCart() {

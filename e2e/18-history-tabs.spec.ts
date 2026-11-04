@@ -1,4 +1,4 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, type Page } from "../test-support/fixtures";
 
 test("recovering a failed write does not restore durable receipts deleted from another tab", async ({
   page,
@@ -11,7 +11,7 @@ test("recovering a failed write does not restore durable receipts deleted from a
     const original = Storage.prototype.setItem;
     Storage.prototype.setItem = function (key, value) {
       if (
-        key === "bruma.orders.v1" &&
+        key === "bruma.orders.v3" &&
         sessionStorage.getItem("allowHistoryWrites") !== "yes"
       )
         throw new DOMException("Quota exceeded", "QuotaExceededError");

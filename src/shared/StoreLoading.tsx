@@ -11,12 +11,14 @@ export function StoreLoading({ error }: { error: boolean }) {
       <p role={error ? "alert" : "status"}>
         {t(error ? "admin.connectionCopy" : "admin.loadingCopy")}
       </p>
-      <button
-        className="button button-primary"
-        onClick={() => void refreshCatalog()}
-      >
-        {t("admin.retry")}
-      </button>
+      {error && (
+        <button
+          className="button button-primary"
+          onClick={() => void refreshCatalog()}
+        >
+          {t("admin.retry")}
+        </button>
+      )}
     </main>
   );
 }

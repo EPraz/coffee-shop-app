@@ -4,7 +4,7 @@
 
 **Blocked by:** 02 — Editar precios y existencias; 04 — Atender y cancelar pedidos; 05 — Explorar métricas; 06 — Restablecer la demo compartida.
 
-**Status:** ready-for-agent
+**Status:** claimed
 
 - [ ] Recorrer edición administrativa → compra/revisión → pedido → cambio de estado/cancelación → recibo y métricas actualizados.
 - [ ] Verificar que reset restaura también las pantallas ya visitadas y presenta recuperación útil para recibos eliminados.

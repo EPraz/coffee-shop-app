@@ -4,7 +4,7 @@
 
 **Blocked by:** 03 — Comprar como invitado y consultar el pedido persistido.
 
-**Status:** ready-for-agent
+**Status:** resolved
 
 - [ ] Mostrar lista y detalle de pedidos con fecha, número, líneas, importes históricos y estado, sin datos personales del formulario.
 - [ ] Permitir únicamente confirmado → en preparación → enviado → entregado; impedir saltos y retrocesos.
@@ -17,3 +17,6 @@
 ## Comments
 
 Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
+
+
+Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.

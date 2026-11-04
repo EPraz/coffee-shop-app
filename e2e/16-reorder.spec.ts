@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("reorder keeps the current coupon and cancelling does not change the bag", async ({
   page,

@@ -1,10 +1,10 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../test-support/fixtures";
 
 test("damaged saved history recovers without blocking the example journey", async ({
   page,
 }) => {
   await page.addInitScript(() =>
-    localStorage.setItem("bruma.orders.v1", "{damaged"),
+    localStorage.setItem("bruma.orders.v3", "{damaged"),
   );
   await page.goto("/orders");
   await expect(page.getByRole("status")).toContainText(

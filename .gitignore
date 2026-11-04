@@ -3,6 +3,7 @@ dist/
 .playwright/
 playwright-report/
 test-results/
+test-results-api/
 *.tsbuildinfo
 .scratch/qa/
 .scratch/walkthrough/
@@ -12,3 +13,4 @@ server/dist/
 .vercel/
 .env*
 !.env.example
+!.env.test.example

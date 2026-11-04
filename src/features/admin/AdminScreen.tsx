@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowUpRight, Leaf, LogOut, Package } from "lucide-react";
+import { ArrowUpRight, Leaf, LogOut } from "lucide-react";
+import { NavLink, Routes, Route } from "react-router-dom";
 import { api } from "../../shared/api";
-import { coffees } from "../catalog/coffee";
-import { CoffeeEditor } from "./CoffeeEditor";
+import { AdminCatalog } from "./AdminCatalog";
+import { AdminDashboard } from "./AdminDashboard";
+import { ResetDemo } from "./ResetDemo";
+import { AdminOrders, AdminOrderDetail } from "./AdminOrders";
 import { ToastProvider } from "./Toast";
 import "./admin.css";
 
@@ -90,24 +93,27 @@ export default function AdminScreen() {
             {t("admin.signOut")}
           </button>
         </header>
-        <div className="admin-page-heading">
-          <div>
-            <p className="eyebrow">{t("admin.sharedLabel")}</p>
-            <h1>{t("admin.collection")}</h1>
-            <p>{t("admin.collectionCopy")}</p>
-          </div>
-          <Package size={36} strokeWidth={1} />
+        <div className="admin-tools">
+          <nav className="admin-tabs" aria-label={t("admin.studio")}>
+            <NavLink to="/admin" end>
+              {t("admin.overview")}
+            </NavLink>
+            <NavLink to="/admin/catalog">{t("admin.collection")}</NavLink>
+            <NavLink to="/admin/orders">{t("admin.orders")}</NavLink>
+          </nav>
+          <ResetDemo />
         </div>
         <p className="admin-shared-note">
           <Leaf size={15} />
           {t("admin.shared")}
         </p>
         {error && <p role="alert">{t("admin.connectionError")}</p>}
-        <div className="admin-collection">
-          {coffees.map((coffee) => (
-            <CoffeeEditor key={coffee.id} coffee={coffee} />
-          ))}
-        </div>
+        <Routes>
+          <Route index element={<AdminDashboard />} />
+          <Route path="catalog" element={<AdminCatalog />} />
+          <Route path="orders" element={<AdminOrders />} />
+          <Route path="orders/:number" element={<AdminOrderDetail />} />
+        </Routes>
       </section>
     </ToastProvider>
   );
