@@ -6,7 +6,7 @@ services:
     region: ohio
     branch: main
     autoDeployTrigger: commit
-    buildCommand: npm ci && npm run api:build
+    buildCommand: npm ci --include=dev && npm run api:build
     startCommand: npm run db:migrate && npm run db:seed && npm start --workspace server
     healthCheckPath: /health
     envVars:

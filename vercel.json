@@ -3,5 +3,16 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/health",
+      "destination": "https://bruma-cafe-api.onrender.com/health"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://bruma-cafe-api.onrender.com/api/:path*"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
