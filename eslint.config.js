@@ -6,7 +6,8 @@ export default tseslint.config(
   {
     ignores: [
       "dist/**",
-      "server/dist/**",
+      "apps/*/dist/**",
+      "packages/*/dist/**",
       "node_modules/**",
       ".scratch/**",
       "playwright-report/**",

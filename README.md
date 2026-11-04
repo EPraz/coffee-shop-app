@@ -6,7 +6,7 @@ V3 is published on Vercel, with a NestJS API on Render Free and PostgreSQL on Ne
 
 [Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
-[![Bruma: a mobile coffee store and connected studio](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+[![Bruma: a mobile coffee store and connected studio](apps/web/public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
 The refreshed V3 walkthrough is a silent, 73-second, 1080p recording of the connected local application: a mobile purchase, the shared dashboard, order preparation and the buyer’s updated receipt, followed by seven seconds of desktop. The player provides English captions, chapters, a transcript and an MP4 download. [Recording and verification notes](docs/walkthrough.md).
 
@@ -31,15 +31,15 @@ Requires Node.js 24.13 or newer and PostgreSQL. Create separate development and 
 
 ```sh
 npm ci
-cp server/.env.example server/.env
-cp server/.env.test.example server/.env.test
+cp apps/api/.env.example apps/api/.env
+cp apps/api/.env.test.example apps/api/.env.test
 npm run api:build
 npm run db:migrate
 npm run db:seed
 npm run dev
 ```
 
-Open **http://127.0.0.1:43174**. The development runner starts both Vite and the API on port 43175. The sample URLs use a local PostgreSQL instance on port 55437; adjust them to your installation. Seeding initializes only an empty store.
+Open **http://127.0.0.1:43174**. The development runner starts Vite, the API on port 43175 and a contracts compiler watcher. The sample URLs use a local PostgreSQL instance on port 55437; adjust them to your installation. Seeding initializes only an empty store. Existing local environment files moved to `apps/api/`, including the ignored `.env.deploy` file; their contents are unchanged.
 
 ## Verify
 
@@ -47,8 +47,9 @@ Open **http://127.0.0.1:43174**. The development runner starts both Vite and the
 npx playwright install chromium
 npm run typecheck
 npm run lint
+npm run check:architecture
 npm run format:check
-npm run build
+npm run build:all
 npm run test:api
 npm test
 ```
@@ -57,7 +58,29 @@ Tests exercise browser journeys and the public HTTP API against real, isolated P
 
 ## Architecture and project records
 
-`src/features` owns storefront and studio workflows. `server` contains the NestJS API, Prisma schema and migrations. `shared` defines catalogue, order and dashboard contracts. PostgreSQL transactions serialize stock, purchase, cancellation and reset operations; signed HttpOnly cookies authorize demo administration and guest receipt access. The frontend calls `/api` on its own origin.
+The npm workspaces form a modular monolith:
+
+```text
+apps/
+  web/src/
+    app/                 Router, layout and composition
+    features/            Storefront workflows and admin surfaces
+    shared/ui/           Reused visual primitives
+    shared/api/          HTTP transport
+    i18n/                EN, ES and PT dictionaries
+  api/src/
+    modules/             Access, catalog, checkout, orders, dashboard, demo, health
+    infrastructure/      Database and token-signing primitives
+    common/              HTTP errors and traffic budget
+packages/contracts/      Shared wire types and order-state vocabulary
+tests/
+  browser/               Public browser workflows
+  api/                   Public HTTP with isolated PostgreSQL
+```
+
+Each NestJS feature declares its own module, controllers and providers. Styles live with their owning React feature or UI primitive. Contracts are built before either app; application code imports them through the workspace's public exports. PostgreSQL transactions and the database schema are preserved. The frontend continues to call `/api` on its own origin.
+
+An executable architecture audit checks imports, cycles and provider ownership. [ADR 0001](docs/adr/0001-feature-modules-and-app-workspaces.md) records the responsibilities and trade-offs; the [architecture checkpoint](docs/agents/architecture.md) explains when to revisit them.
 
 - [Approved V3 specification](.scratch/coffee-shop-v3/spec.md) and [delivery tickets](.scratch/coffee-shop-v3/issues/)
 - [V3 deployment](docs/v3-deployment.md)

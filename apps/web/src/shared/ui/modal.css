@@ -1,0 +1,28 @@
+.bruma-modal {
+  width: min(36rem, calc(100% - 2rem));
+  max-height: 90dvh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  padding: var(--space-8);
+}
+.bruma-modal::backdrop {
+  background: #080e0bd9;
+  backdrop-filter: blur(4px);
+}
+.bruma-modal h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-4);
+}
+.bruma-modal > p {
+  color: var(--muted);
+}
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  margin-top: var(--space-8);
+}

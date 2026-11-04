@@ -9,7 +9,8 @@ test-results-api/
 .scratch/walkthrough/
 .scratch/postgres-v3/
 .scratch/runtime/
-server/dist/
+apps/api/dist/
+packages/contracts/dist/
 .vercel/
 .env*
 !.env.example

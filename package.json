@@ -3,57 +3,52 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "workspaces": ["server"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "dev:web": "vite --host 127.0.0.1 --port 43174 --strictPort",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview --host 127.0.0.1",
-    "typecheck": "tsc -b --pretty false && npm run typecheck --workspace server",
+    "dev:web": "npm run dev --workspace @bruma/web",
+    "build": "npm run contracts:build && npm run build --workspace @bruma/web",
+    "preview": "npm run preview --workspace @bruma/web",
+    "typecheck": "npm run contracts:build && tsc -p tsconfig.json --noEmit && npm run typecheck --workspaces --if-present",
     "lint": "eslint .",
     "test": "playwright test",
     "test:api": "playwright test --config playwright.api.config.ts",
-    "api:dev": "npm run dev --workspace server",
-    "api:build": "npm run build --workspace server",
-    "db:migrate": "npm run db:migrate --workspace server",
-    "db:seed": "npm run db:seed --workspace server",
+    "api:dev": "npm run contracts:build && npm run dev --workspace @bruma/api",
+    "api:build": "npm run contracts:build && npm run build --workspace @bruma/api",
+    "db:migrate": "npm run db:migrate --workspace @bruma/api",
+    "db:seed": "npm run db:seed --workspace @bruma/api",
     "test:ui": "playwright test --ui",
-    "format": "prettier --write src e2e e2e-api shared test-support server/src server/prisma/seed.ts",
-    "format:check": "prettier --check src e2e e2e-api shared test-support server/src server/prisma/seed.ts",
+    "format": "prettier --write apps/web/src apps/api/src apps/api/prisma/seed.ts packages/contracts/src tests scripts/**/*.mjs",
+    "format:check": "prettier --check apps/web/src apps/api/src apps/api/prisma/seed.ts packages/contracts/src tests scripts/**/*.mjs",
     "walkthrough:rehearse": "node scripts/walkthrough/record.mjs --rehearsal",
     "walkthrough:record": "node scripts/walkthrough/record.mjs",
-    "walkthrough:render": "python scripts/walkthrough/render.py"
+    "walkthrough:render": "python scripts/walkthrough/render.py",
+    "contracts:build": "npm run build --workspace @bruma/contracts",
+    "build:all": "npm run build && npm run build --workspace @bruma/api",
+    "check:architecture": "node scripts/check-architecture.mjs"
   },
-  "dependencies": {
-    "@fontsource/cormorant-garamond": "^5.3.0",
-    "@fontsource/dm-sans": "^5.3.0",
-    "i18next": "^26.7.1",
-    "lucide-react": "^1.67.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-i18next": "^17.1.12",
-    "react-router-dom": "^7.18.5"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.6",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.2.1",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.14.0",
     "prettier": "^3.9.10",
     "sharp": "^0.35.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.5"
+    "typescript-eslint": "^8.72.1"
   },
   "overrides": {
     "minimatch": "^11.0.1",
-    "@prisma/config": { "deepmerge-ts": "8.0.0" }
+    "@prisma/config": {
+      "deepmerge-ts": "8.0.0"
+    }
   },
   "engines": {
     "node": ">=24.13.0"

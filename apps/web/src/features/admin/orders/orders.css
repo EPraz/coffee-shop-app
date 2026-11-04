@@ -1,0 +1,49 @@
+.admin-order-list {
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--line);
+}
+.admin-order-row {
+  display: grid;
+  grid-template-columns: 1.15fr 1.5fr auto 7rem 1rem;
+  gap: var(--space-6);
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--space-6);
+}
+.admin-order-row > div {
+  display: grid;
+  gap: var(--space-1);
+}
+.admin-order-row > div > span,
+.admin-order-row > p {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.admin-order-row strong {
+  font-weight: 500;
+}
+.admin-order-row:hover {
+  background: var(--surface);
+}
+.admin-back {
+  margin-block: var(--space-8);
+}
+@media (max-width: 767px) {
+  .admin-order-row {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3);
+  }
+  .admin-order-row > p {
+    grid-row: 2;
+  }
+  .admin-order-row > svg {
+    display: none;
+  }
+}
+.admin-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block: var(--space-6);
+}

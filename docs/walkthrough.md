@@ -4,7 +4,7 @@ Format: **73 seconds**, 1920 × 1080, 25 fps, H.264 MP4, no audio, with embedded
 
 The V3 recording uses the connected local application, a real NestJS API and local PostgreSQL. Its origin and application commit are recorded in the capture manifest. The same application and media are now published on Vercel, with Render Free and Neon Free. The footage was captured locally; public playback and the connected purchase/admin workflow were verified separately.
 
-[MP4](../public/walkthrough/bruma-walkthrough.mp4) · [English captions](../public/walkthrough/bruma-walkthrough.vtt) · [Publication checklist](v3-deployment.md)
+[MP4](../apps/web/public/walkthrough/bruma-walkthrough.mp4) · [English captions](../apps/web/public/walkthrough/bruma-walkthrough.vtt) · [Publication checklist](v3-deployment.md)
 
 ## Sequence
 

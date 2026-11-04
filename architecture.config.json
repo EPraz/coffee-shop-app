@@ -1,0 +1,9 @@
+{
+  "webRoot": "apps/web/src",
+  "apiRoot": "apps/api/src",
+  "contractsRoot": "packages/contracts/src",
+  "contractsPackage": "@bruma/contracts",
+  "testRoots": ["tests/browser", "tests/api", "tests/support"],
+  "maxSourceLines": 200,
+  "requiredWorkspaces": ["apps/web", "apps/api", "packages/contracts"]
+}

@@ -1,0 +1,17 @@
+.checkout-change-lines {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0;
+}
+.checkout-change-lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--space-3);
+}
+.checkout-change-total {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}

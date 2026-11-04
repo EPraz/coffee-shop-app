@@ -1,0 +1,11 @@
+.store-loading {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-6);
+}
+.store-loading h1 {
+  font-size: 2rem;
+}

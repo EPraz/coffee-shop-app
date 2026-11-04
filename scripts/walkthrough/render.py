@@ -87,7 +87,7 @@ def render(take):
         raise ValueError("A rehearsal is not recorded footage")
     working = take / "edit"
     working.mkdir(exist_ok=True)
-    destination = ROOT / "public/walkthrough"
+    destination = ROOT / "apps/web/public/walkthrough"
     destination.mkdir(parents=True, exist_ok=True)
     offsets = {name: offset(take, source) for name, source in manifest["sources"].items()}
     chapters, files, vtt, elapsed = [], [], ["WEBVTT", ""], 0
@@ -116,7 +116,7 @@ def render(take):
     run(["-ss", "3", "-i", final, "-frames:v", "1", "-q:v", "2", destination / "poster.jpg"])
     (destination / "bruma-walkthrough.vtt").write_text("\n".join(vtt))
     content = {"duration": elapsed, "durationLabel": f"{elapsed // 60}:{elapsed % 60:02}", "chapters": chapters}
-    feature = ROOT / "src/features/walkthrough"
+    feature = ROOT / "apps/web/src/features/walkthrough"
     feature.mkdir(parents=True, exist_ok=True)
     (feature / "content.json").write_text(json.dumps(content, indent=2) + "\n")
     review = take / "review"

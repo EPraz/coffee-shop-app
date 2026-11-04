@@ -2,6 +2,12 @@
 
 ## V3 connected store
 
+The published V3 was subsequently reorganized into `apps/web`, `apps/api` and
+`packages/contracts`, following [ADR 0001](adr/0001-feature-modules-and-app-workspaces.md).
+The behavior and data rules below are preserved; the README describes current
+paths and scripts. Functional regression evidence remains separate from the
+new import/module architecture audit.
+
 V3 extends the historical V1/V2 architecture below with a NestJS API, Prisma
 migrations and PostgreSQL. The database owns commercial prices, availability,
 variant stock, orders and dashboard metrics. Fixed product identity, editorial

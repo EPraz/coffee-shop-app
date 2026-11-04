@@ -8,6 +8,13 @@ scope and concrete-result convention; preserve existing history.
 
 ## Agent skills
 
+### Architecture
+
+Before adding an application, backend, authentication, administration, persistence
+integration, or changing module responsibilities, read `docs/agents/architecture.md`.
+Before closing implementation or refactoring, run `npm run check:architecture`
+and review structural coherence against the accepted architecture decisions.
+
 ### Issue tracker
 
 Issues and specs live in local Markdown under `.scratch/<feature>/`.

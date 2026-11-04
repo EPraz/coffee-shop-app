@@ -1,7 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./e2e-api",
+  testDir: "./tests/api",
   outputDir: "./test-results-api",
   workers: 1,
   fullyParallel: false,

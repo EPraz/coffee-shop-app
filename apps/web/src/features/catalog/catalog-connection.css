@@ -1,0 +1,15 @@
+.catalog-connection-notice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8125rem;
+}
+.catalog-connection-notice strong {
+  font-weight: 500;
+  color: var(--danger);
+}

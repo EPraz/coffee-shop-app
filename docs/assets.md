@@ -2,8 +2,8 @@
 
 Generated using the built-in image_gen tool. The selected images are hosted locally by the app, with WebP encoding for delivery; their composition has not been changed.
 
-- Hero: `public/images/roasting-hero.webp`
-- Product photograph: `public/images/coffee-bag.webp`
+- Hero: `apps/web/public/images/roasting-hero.webp`
+- Product photograph: `apps/web/public/images/coffee-bag.webp`
 
 The product photograph is a deliberately unbranded kraft bag. Accessible HTML labels provide each coffee's name and origin over the photograph, allowing translated product information without embedding translations in raster images. Five label colours distinguish the five coffees.
 
