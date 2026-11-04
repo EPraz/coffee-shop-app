@@ -1,23 +1,45 @@
 # Bruma Café
 
-A complete, responsive coffee-store portfolio built with React and TypeScript. Find a coffee for your taste, prepare it with a measured guide, and revisit your demo orders. Five coffees, four origins and three languages.
+A responsive coffee-store portfolio built with React, TypeScript, NestJS and PostgreSQL. Discover five coffees, make a simulated purchase, then follow the same order through a shared store dashboard. English, Spanish and Portuguese; USD throughout.
 
-[Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the 73-second walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough) · [Download MP4](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough/bruma-walkthrough.mp4)
+**Release status:** V3 is implemented locally. The public deployment below still runs V2 while the free Render API and Neon database await account access. [V3 deployment checklist](docs/v3-deployment.md).
 
-[![Bruma V2: coffee matching, purchase, brewing and reorder on mobile](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+[Public demo — currently V2](https://coffee-shop-app-nine-lilac.vercel.app) · [Published walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
-The silent, 1080p walkthrough follows coffee matching, a complete purchase, brewing guidance and reorder on a real mobile viewport, then ends with a brief desktop view. The player includes chapters, English captions and a transcript. [Recording and verification notes](docs/walkthrough.md).
+[![Bruma: a mobile coffee store and connected studio](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+
+The refreshed V3 walkthrough is a silent, 73-second, 1080p recording of the connected local application: a mobile purchase, the shared dashboard, order preparation and the buyer’s updated receipt, followed by seven seconds of desktop. The player provides English captions, chapters, a transcript and an MP4 download. [Recording and verification notes](docs/walkthrough.md).
+
+## Explore V3
+
+- Two coffees from Panama, one from Brazil, one from Colombia and one from Ethiopia. Choose 250 g or 500 g, whole bean or ground.
+- Search by origin, filter by roast, or answer three questions in **Find your coffee** for explained recommendations.
+- Apply **BRUMA15** for 15% off coffee. Simulated shipping is USD 5. Checkout offers **Fill demo details** and approved/rejected outcomes.
+- The API calculates prices, confirms the order and reserves stock in one transaction. A changed offer returns to review before purchase; retrying an uncertain request cannot create a duplicate order.
+- **My orders** keeps the last twenty receipts in the current browser. Receipts show the current backend status. **Order again** reviews current prices and stock before adding items.
+- **Brew this coffee** offers measured V60 and French press recipes.
+- Open **The studio** in the footer, or `/admin`, and choose **Enter demo account**. No password is needed.
+- Explore real demo sales, average order value, trends, leading coffees, recent orders and low-stock alerts over seven or thirty days.
+- Edit prices, availability and variant stock for the five fixed coffees. Advance orders from confirmed to preparing, shipped and delivered; cancellation is available before shipping and restores stock once.
+- **Reset demo** asks for confirmation and restores the shared sample catalogue, stock and orders for everyone. Restarting the service preserves existing data.
+
+This fictional portfolio store does not process payments or arrange deliveries. The demo account and all commercial data are shared. Checkout names, email addresses and delivery fields stay in the form and are never sent to the API or stored in the database. Guest receipt access is tied to an opaque browser cookie; there are no customer accounts or cross-device recovery. Clearing browser history does not delete the store’s orders. V2 receipts are not imported into V3.
 
 ## Run locally
 
-Requires Node.js 24.13 or newer.
+Requires Node.js 24.13 or newer and PostgreSQL. Create separate development and test databases, then copy the examples into ignored files and supply their connection strings and distinct random session secrets of at least 32 characters:
 
 ```sh
 npm ci
+cp server/.env.example server/.env
+cp server/.env.test.example server/.env.test
+npm run api:build
+npm run db:migrate
+npm run db:seed
 npm run dev
 ```
 
-Open **http://127.0.0.1:43174**.
+Open **http://127.0.0.1:43174**. The development runner starts both Vite and the API on port 43175. The sample URLs use a local PostgreSQL instance on port 55437; adjust them to your installation. Seeding initializes only an empty store.
 
 ## Verify
 
@@ -27,49 +49,21 @@ npm run typecheck
 npm run lint
 npm run format:check
 npm run build
+npm run test:api
 npm test
 ```
 
-Browser tests start an isolated server on port 43173. They cover public user journeys, monetary calculations, persistence, all three languages, four viewport widths, keyboard navigation, and automated accessibility checks.
+Tests exercise browser journeys and the public HTTP API against real, isolated PostgreSQL. The test runner refuses database URLs outside localhost or whose database name does not end in `_test`, then resets that test database. Run suites sequentially: they share the test API on port 43176. Browser tests use port 43173 and cover three languages, four widths, keyboard use, accessibility, failures, conflicts and connected order recovery.
 
-## Explore the demo
+## Architecture and project records
 
-- English, Latin American Spanish and Brazilian Portuguese; USD in every language.
-- Two coffees from Panama, one from Brazil, one from Colombia and one from Ethiopia.
-- Choose 250 g or 500 g, whole bean or ground. Volcán is intentionally sold out.
-- Search by coffee or origin, filter by roast, and compare 250 g prices.
-- Group identical variants in the bag, edit quantities (maximum nine) and return later in the same browser.
-- Apply **BRUMA15** for 15% off products. Demo shipping is USD 5.
-- Use **Fill demo details / Llenar demo / Preencher demo** at checkout.
-- Select **Rejected** to test recovery, then **Approved** to complete the demo order.
-- Answer three questions in **Find your coffee** for an available recommendation and an alternative, with clear matching reasons.
-- Open **Brew this coffee** from a product or confirmation. Choose V60 or French press and 250–500 ml of water for measured doses and steps, with reference sources.
-- Open **My orders** for the last twenty demo receipts. With empty history, load two clearly marked examples to explore historical prices and unavailable products.
-- Use **Order again** to review current prices and addable quantities before merging into your bag. Its current coupon is preserved; old discounts are not restored.
+`src/features` owns storefront and studio workflows. `server` contains the NestJS API, Prisma schema and migrations. `shared` defines catalogue, order and dashboard contracts. PostgreSQL transactions serialize stock, purchase, cancellation and reset operations; signed HttpOnly cookies authorize demo administration and guest receipt access. The frontend calls `/api` on its own origin.
 
-This is a fictional portfolio brand. No payments, card collection, actual orders or deliveries are involved. Checkout details are not sent to a service.
-
-Order history is saved only in this browser and can be cleared with confirmation. It contains product snapshots and amounts, without customer names, email or addresses. There are no accounts, remote database or cross-device synchronization. If browser storage fails, the interface reports that changes last only for the current visit.
-
-## Structure and project records
-
-Feature-owned screens, UI and workflow hooks live together. Domain calculations and browser persistence stay outside presentation components. Route composition stays in the application shell.
-
-- [Approved V2 specification](.scratch/coffee-shop-v2/spec.md)
-- [V2 implementation tickets](.scratch/coffee-shop-v2/issues/)
-- [Original MVP specification](.scratch/coffee-shop-mvp/spec.md)
+- [Approved V3 specification](.scratch/coffee-shop-v3/spec.md) and [delivery tickets](.scratch/coffee-shop-v3/issues/)
+- [V3 deployment](docs/v3-deployment.md)
+- [Walkthrough production notes](docs/walkthrough.md)
 - [Domain glossary](GLOSSARY.md)
-- [Architecture and verification notes](docs/implementation.md)
+- [V2 specification](.scratch/coffee-shop-v2/spec.md) and [original MVP](.scratch/coffee-shop-mvp/spec.md)
 - [Original image assets and prompts](docs/assets.md)
 
-For a production preview, run `npm run build` and `npm run preview`. A hosting service must route application URLs to the entry document for client-side navigation.
-
-## Deployment
-
-The demo is hosted on Vercel. `vercel.json` configures the Vite build and direct-entry routing. To publish manually from a linked checkout:
-
-```sh
-npx vercel --prod
-```
-
-The Vercel GitHub integration is connected to `EPraz/coffee-shop-app`. Pushes to `main` automatically deploy to production. [Publication record](docs/publication-and-walkthrough.md).
+The approved hosting stack is Vercel for the frontend, Render Free for the API and Neon Free for PostgreSQL. `render.yaml` explicitly selects a free API service. The existing GitHub–Vercel integration deploys `main`; the production API rewrite will be activated only after the actual backend is ready. No secrets belong in Git or the React bundle.

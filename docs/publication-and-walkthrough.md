@@ -1,4 +1,8 @@
-# Publication and product walkthrough
+# V1 publication and product walkthrough
+
+Historical V1 publication record. For the current connected store and its
+pending deployment, use [V3 deployment](v3-deployment.md) and the refreshed
+[walkthrough notes](walkthrough.md).
 
 Status: demo, video, player and README published and verified. The Vercel GitHub
 integration is connected, with `main` as the production branch.

@@ -1,6 +1,10 @@
 # Bruma V3: tienda compartida y administración de demostración
 
-**Status:** ready-for-agent
+**Status:** claimed
+
+Implementación y revisión funcional completas (tickets 01–07). Publicación y
+verificación pública pendientes de acceso a Render/Neon en el ticket 08.
+Estado y evidencia: [delivery.md](delivery.md).
 
 ## Problem Statement
 

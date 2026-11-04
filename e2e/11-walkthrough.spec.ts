@@ -28,13 +28,13 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
     .toBeGreaterThan(0.2);
   await video.evaluate((element: HTMLVideoElement) => element.pause());
   await page
-    .getByRole("button", { name: "0:34 One step closer to your ritual." })
+    .getByRole("button", { name: "0:20 One step closer to your ritual." })
     .click();
   await expect
     .poll(() =>
       video.evaluate((element: HTMLVideoElement) => element.currentTime),
     )
-    .toBeCloseTo(34, 0);
+    .toBeCloseTo(20, 0);
   await expect(video).toBeFocused();
   await page.getByText("Read the English transcript", { exact: true }).click();
   await expect(page.locator(".walkthrough-transcript")).toContainText(
@@ -47,6 +47,12 @@ test("walkthrough plays, seeks by chapter and provides a transcript and byte ran
   expect(response.status()).toBe(206);
   expect(response.headers()["content-type"]).toContain("video/mp4");
   expect((await response.body()).length).toBe(1024);
+  const [download] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("link", { name: "Download MP4", exact: true }).click(),
+  ]);
+  expect(download.suggestedFilename()).toBe("bruma-walkthrough.mp4");
+  expect(await download.failure()).toBeNull();
   const accessibility = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();

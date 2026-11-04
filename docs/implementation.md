@@ -1,5 +1,36 @@
 # Bruma Café implementation
 
+## V3 connected store
+
+V3 extends the historical V1/V2 architecture below with a NestJS API, Prisma
+migrations and PostgreSQL. The database owns commercial prices, availability,
+variant stock, orders and dashboard metrics. Fixed product identity, editorial
+content and original images remain in the shared catalogue definition.
+
+The storefront fetches the real catalogue before restoring its cart. Later
+refresh failures preserve mounted screens and drafts with a retry notice.
+Purchases use signed five-minute quotes, server-calculated amounts and a
+buyer-scoped idempotency key. A PostgreSQL store-row lock serializes purchases,
+edits, cancellation and reset. An outdated generation rejects pre-reset edits
+and offers; version checks protect stock from stale administrative forms.
+
+Signed HttpOnly cookies provide one-hour shared demo access and an opaque guest
+receipt identity. Checkout personal fields never enter API payloads. Browser
+history uses `bruma.orders.v3`, preserves at most twenty independent snapshots
+and ignores V2 history. Local examples remain separate from backend sales.
+
+The two approved test boundaries are browser workflows and public HTTP with a
+real isolated PostgreSQL database. Test setup refuses remote or non-`_test`
+databases. Each case restores samples through the public reset endpoint. The
+complete suite passed 83 browser tests and 11 API tests before the final review
+corrections; [the review record](../.scratch/coffee-shop-v3/review.md) tracks the
+additional regressions and follow-up checks.
+
+The free hosting plan, account-access checkpoint and activation order are in
+[V3 deployment](v3-deployment.md). The existing public deployment remains V2
+until the actual API and database are ready. Sections below describe earlier
+releases and should not be read as V3 persistence or deployment instructions.
+
 ## Architecture
 
 The agreed stack is React, TypeScript, Vite, React Router and react-i18next. Styling uses semantic CSS custom properties and styles owned by each screen or feature. Typography is locally hosted DM Sans and Cormorant Garamond.

@@ -1,28 +1,31 @@
 WEBVTT
 
 00:00:00.000 --> 00:00:05.000
-Meet Bruma: an origin-led coffee store, made for your everyday ritual.
+Meet Bruma: five coffees, four origins, and a store connected from bag to studio.
 
-00:00:05.000 --> 00:00:18.000
-Three preferences, two available coffees, and clear reasons for each match.
-
-00:00:18.000 --> 00:00:26.000
+00:00:05.000 --> 00:00:13.000
 Choose Niebla Geisha from Panama, then 500 g and ground coffee.
 
-00:00:26.000 --> 00:00:34.000
-Review your bag and apply BRUMA15 for 15% off the coffee subtotal.
+00:00:13.000 --> 00:00:20.000
+Apply BRUMA15: USD 44.00 in coffee, 15% off, USD 5 shipping. Total: USD 42.40.
 
-00:00:34.000 --> 00:00:43.000
-Fill fictional details and confirm a demo order. No real payment or delivery.
+00:00:20.000 --> 00:00:28.000
+Fill fictional details and confirm a server-priced demo order. No real payment or delivery.
 
-00:00:43.000 --> 00:00:51.000
-V60 or French press: adjust the water and get a measured, step-by-step recipe.
+00:00:28.000 --> 00:00:33.000
+The order and its stock changes are saved together in PostgreSQL. Customer details stay out of the API.
+
+00:00:33.000 --> 00:00:41.000
+Enter the shared demo account. Explore the same store every visitor sees, without a password.
+
+00:00:41.000 --> 00:00:51.000
+Real demo sales, order totals and average value. Filter seven or thirty days, then explore the trend.
 
 00:00:51.000 --> 00:01:01.000
-Open your browser-local receipt, review current prices, then confirm a reorder.
+Open the new purchase, mark it as preparing, and see confirmation from the connected store.
 
 00:01:01.000 --> 00:01:06.000
-English, Spanish and Portuguese, with prices in USD throughout.
+Return to the buyer’s saved receipt: its live status now reads Preparing. Available in English, Spanish and Portuguese.
 
 00:01:06.000 --> 00:01:13.000
-The same considered experience on desktop. Explore the live demo.
+The same connected studio on desktop. A shared portfolio demo, with simulated purchases.

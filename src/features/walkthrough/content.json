@@ -6,55 +6,61 @@
       "id": "discover",
       "title": "Good coffee. A sense of place.",
       "start": 0,
-      "caption": "Meet Bruma: an origin-led coffee store, made for your everyday ritual."
-    },
-    {
-      "id": "finder",
-      "title": "A coffee that feels like you.",
-      "start": 5,
-      "caption": "Three preferences, two available coffees, and clear reasons for each match."
+      "caption": "Meet Bruma: five coffees, four origins, and a store connected from bag to studio."
     },
     {
       "id": "variant",
       "title": "Your coffee. Your way.",
-      "start": 18,
+      "start": 5,
       "caption": "Choose Niebla Geisha from Panama, then 500 g and ground coffee."
     },
     {
       "id": "bag",
       "title": "A little something extra.",
-      "start": 26,
-      "caption": "Review your bag and apply BRUMA15 for 15% off the coffee subtotal."
+      "start": 13,
+      "caption": "Apply BRUMA15: USD 44.00 in coffee, 15% off, USD 5 shipping. Total: USD 42.40."
     },
     {
       "id": "checkout",
       "title": "One step closer to your ritual.",
-      "start": 34,
-      "caption": "Fill fictional details and confirm a demo order. No real payment or delivery."
+      "start": 20,
+      "caption": "Fill fictional details and confirm a server-priced demo order. No real payment or delivery."
     },
     {
-      "id": "brew",
-      "title": "Make the ritual yours.",
-      "start": 43,
-      "caption": "V60 or French press: adjust the water and get a measured, step-by-step recipe."
+      "id": "receipt",
+      "title": "A good moment, confirmed.",
+      "start": 28,
+      "caption": "The order and its stock changes are saved together in PostgreSQL. Customer details stay out of the API."
     },
     {
-      "id": "history",
-      "title": "Remember it. Enjoy it again.",
+      "id": "admin-entry",
+      "title": "Behind the brew.",
+      "start": 33,
+      "caption": "Enter the shared demo account. Explore the same store every visitor sees, without a password."
+    },
+    {
+      "id": "dashboard",
+      "title": "A little perspective.",
+      "start": 41,
+      "caption": "Real demo sales, order totals and average value. Filter seven or thirty days, then explore the trend."
+    },
+    {
+      "id": "manage-order",
+      "title": "Every order, cared for.",
       "start": 51,
-      "caption": "Open your browser-local receipt, review current prices, then confirm a reorder."
+      "caption": "Open the new purchase, mark it as preparing, and see confirmation from the connected store."
     },
     {
-      "id": "languages",
-      "title": "Three languages. One experience.",
+      "id": "verify-buyer",
+      "title": "One store. A connected journey.",
       "start": 61,
-      "caption": "English, Spanish and Portuguese, with prices in USD throughout."
+      "caption": "Return to the buyer\u2019s saved receipt: its live status now reads Preparing. Available in English, Spanish and Portuguese."
     },
     {
       "id": "desktop",
-      "title": "Made slowly. Enjoyed fully.",
+      "title": "Good coffee. Thoughtfully managed.",
       "start": 66,
-      "caption": "The same considered experience on desktop. Explore the live demo."
+      "caption": "The same connected studio on desktop. A shared portfolio demo, with simulated purchases."
     }
   ]
 }

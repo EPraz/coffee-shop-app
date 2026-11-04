@@ -1,13 +1,17 @@
-import { chromium, expect } from "@playwright/test";
+import { chromium, expect, request } from "@playwright/test";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { controls, installAnnotations } from "./controls.mjs";
+import { mobileStory, desktopStory } from "./scenes-v3.mjs";
 
 const rehearsal = process.argv.includes("--rehearsal");
 const origin = process.env.BRUMA_DEMO_URL;
 if (!origin)
   throw new Error("Set BRUMA_DEMO_URL to the intended Bruma origin.");
+// Recording is intentionally local until the V3 API has been published.
+if (!["localhost", "127.0.0.1"].includes(new URL(origin).hostname))
+  throw new Error("V3 recording currently requires a local connected store.");
 const output = path.resolve(
   ".scratch/walkthrough",
   `${rehearsal ? "rehearsal" : "take"}-${Date.now()}`,
@@ -16,11 +20,33 @@ await fs.mkdir(output, { recursive: true });
 const browser = await chromium.launch();
 const scenes = [],
   sources = {},
-  errors = [];
-const contexts = [];
+  errors = [],
+  contexts = [];
+
+async function prepareStore() {
+  const client = await request.newContext({ baseURL: origin });
+  try {
+    const response = await client.get("/api/catalog");
+    expect(response.ok()).toBeTruthy();
+    const catalog = await response.json();
+    expect(
+      (await client.post("/api/access/demo", { data: {} })).ok(),
+    ).toBeTruthy();
+    expect(
+      (
+        await client.post("/api/admin/reset", {
+          data: { generation: catalog.generation },
+        })
+      ).ok(),
+    ).toBeTruthy();
+  } finally {
+    await client.dispose();
+  }
+}
 
 async function capture(name, viewport) {
   const context = await browser.newContext({
+    baseURL: origin,
     viewport,
     locale: "en-US",
     hasTouch: name === "mobile",
@@ -37,12 +63,19 @@ async function capture(name, viewport) {
   const page = await context.newPage();
   page.on("pageerror", (error) => errors.push(error.message));
   const c = controls(page, rehearsal);
-  await page.goto(origin);
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Good coffee.",
-  );
+  await page.goto(name === "mobile" ? "/" : "/admin");
+  if (name === "desktop") {
+    await page
+      .getByRole("button", { name: "Enter demo account", exact: true })
+      .click();
+    await expect(page.getByTestId("dashboard-sales")).toBeVisible();
+  } else {
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      "Good coffee.",
+    );
+    await page.locator(".hero-photo img").evaluate((image) => image.decode());
+  }
   await page.evaluate(() => document.fonts.ready);
-  await page.locator(".hero-photo img").evaluate((image) => image.decode());
   const before = performance.now();
   await page.evaluate(() => window.syncRecording());
   sources[name] = {
@@ -77,193 +110,12 @@ async function capture(name, viewport) {
 }
 
 try {
+  await prepareStore();
   const mobile = await capture("mobile", { width: 390, height: 844 });
-  const { page, c, scene } = mobile;
-  await scene(
-    "discover",
-    "Good coffee.\nA sense of place.",
-    5,
-    "Meet Bruma: an origin-led coffee store, made for your everyday ritual.",
-    async () => {
-      await c.pause(500);
-      await c.click(
-        page.getByRole("link", { name: "Explore the coffees", exact: true }),
-      );
-      await c.click(
-        page.getByRole("link", { name: "Find your coffee", exact: true }),
-      );
-    },
-  );
-  await scene(
-    "finder",
-    "A coffee that\nfeels like you.",
-    13,
-    "Three preferences, two available coffees, and clear reasons for each match.",
-    async () => {
-      for (const choice of ["Floral", "Gentle", "Black"]) {
-        await c.click(page.getByRole("radio", { name: choice, exact: true }));
-        await c.click(
-          page.getByRole("button", {
-            name: choice === "Black" ? "Find my coffee" : "Continue",
-            exact: true,
-          }),
-        );
-      }
-      const match = page.getByRole("region", {
-        name: "Your match",
-        exact: true,
-      });
-      await expect(match).toContainText("Niebla Geisha");
-      await c.reveal(match.getByRole("link"));
-    },
-  );
-  await scene(
-    "variant",
-    "Your coffee.\nYour way.",
-    8,
-    "Choose Niebla Geisha from Panama, then 500 g and ground coffee.",
-    async () => {
-      await c.click(
-        page.getByRole("link", {
-          name: "Discover this coffee: Niebla Geisha",
-          exact: true,
-        }),
-      );
-      await c.click(page.getByRole("button", { name: "500 g", exact: true }));
-      await c.click(page.getByRole("button", { name: "Ground", exact: true }));
-      await c.click(
-        page.getByRole("button", { name: "Add to bag", exact: true }),
-      );
-      await expect(page.getByTestId("variant-price")).toContainText("44.00");
-      await c.scroll(0);
-    },
-  );
-  await scene(
-    "bag",
-    "A little\nsomething extra.",
-    8,
-    "Review your bag and apply BRUMA15 for 15% off the coffee subtotal.",
-    async () => {
-      await c.click(page.getByRole("link", { name: "Your bag", exact: true }));
-      await expect(
-        page.getByRole("heading", { name: "Your bag.", exact: true }),
-      ).toBeVisible();
-      const input = page.getByRole("textbox", {
-        name: "Promo code",
-        exact: true,
-      });
-      await c.reveal(input);
-      await input.pressSequentially("BRUMA15", { delay: rehearsal ? 0 : 70 });
-      await c.click(page.getByRole("button", { name: "Apply", exact: true }));
-      await expect(
-        page.getByText("BRUMA15 applied. A little thank-you."),
-      ).toBeVisible();
-      await c.reveal(page.getByTestId("cart-total"));
-      await expect(page.getByTestId("cart-total")).toContainText("42.40");
-    },
-  );
-  await scene(
-    "checkout",
-    "One step closer\nto your ritual.",
-    9,
-    "Fill fictional details and confirm a demo order. No real payment or delivery.",
-    async () => {
-      await c.click(
-        page.getByRole("link", { name: "Continue to checkout", exact: true }),
-      );
-      await c.click(
-        page.getByRole("button", { name: "Fill demo details", exact: true }),
-      );
-      await expect(
-        page.getByRole("textbox", { name: "Full name", exact: true }),
-      ).toHaveValue("Alex Rivera");
-      await c.reveal(page.getByRole("textbox", { name: "City", exact: true }));
-      await c.click(
-        page.getByRole("button", { name: "Place demo order", exact: true }),
-      );
-      await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-        "A good moment, confirmed.",
-      );
-    },
-  );
-  await scene(
-    "brew",
-    "Make the\nritual yours.",
-    8,
-    "V60 or French press: adjust the water and get a measured, step-by-step recipe.",
-    async () => {
-      await expect(page.getByTestId("order-number")).toContainText("BR-");
-      await c.click(
-        page.getByRole("link", { name: "Brew this coffee", exact: true }),
-      );
-      await expect(page.getByTestId("coffee-dose")).toContainText("30.0 g");
-      await c.click(
-        page.getByRole("radio", { name: "French press", exact: true }),
-      );
-      await c.reveal(page.getByRole("spinbutton"));
-      await page.getByRole("spinbutton").fill("250");
-      await expect(page.getByTestId("coffee-dose")).toContainText("16.7 g");
-      await c.reveal(page.getByTestId("brew-steps"));
-    },
-  );
-  await scene(
-    "history",
-    "Remember it.\nEnjoy it again.",
-    10,
-    "Open your browser-local receipt, review current prices, then confirm a reorder.",
-    async () => {
-      await c.scroll(0);
-      await c.click(page.locator(".mobile-menu-toggle"));
-      await c.click(
-        page
-          .locator("#mobile-navigation")
-          .getByRole("link", { name: "My orders", exact: true }),
-      );
-      await expect(page.getByTestId("history-order")).toHaveCount(1);
-      await c.click(page.getByTestId("history-order").getByRole("link"));
-      await c.click(
-        page.getByRole("link", { name: "Order again", exact: true }),
-      );
-      await expect(page.getByTestId("reorder-line")).toContainText("Adding: 1");
-      await c.reveal(page.getByTestId("reorder-line"));
-      await c.pause(600);
-      await c.click(
-        page.getByRole("button", { name: "Add to my bag", exact: true }),
-      );
-      await expect(page.getByTestId("cart-total")).toContainText("49.00");
-    },
-  );
-  await scene(
-    "languages",
-    "Three languages.\nOne experience.",
-    5,
-    "English, Spanish and Portuguese, with prices in USD throughout.",
-    async () => {
-      await c.scroll(0);
-      await c.click(
-        page.getByRole("link", { name: "Bruma Café", exact: true }).first(),
-      );
-      await page.locator(".language-control select").selectOption("es");
-      await c.pause(500);
-      await page.locator(".language-control select").selectOption("pt");
-      await c.pause(500);
-      await page.locator(".language-control select").selectOption("en");
-    },
-  );
+  await mobileStory(mobile);
   await mobile.close();
   const desktop = await capture("desktop", { width: 1440, height: 800 });
-  await desktop.scene(
-    "desktop",
-    "Made slowly. Enjoyed fully.",
-    7,
-    "The same considered experience on desktop. Explore the live demo.",
-    async () => {
-      await desktop.c.pause(1800);
-      await desktop.c.scroll(230);
-      await desktop.c.pause(1000);
-      await desktop.c.scroll(0);
-    },
-  );
+  await desktopStory(desktop);
   await desktop.close();
   expect(errors).toEqual([]);
   const manifest = {
@@ -279,6 +131,7 @@ try {
       mobile: "390 × 844; real touch-enabled viewport",
       totalCents: 4240,
       approved: true,
+      connectedOrderState: "preparing",
     },
   };
   await fs.writeFile(

@@ -113,7 +113,7 @@ def render(take):
     final = destination / "bruma-walkthrough.mp4"
     run(["-f", "concat", "-safe", "0", "-i", shots, "-c", "copy", "-movflags", "+faststart", final])
     run(["-i", final, "-f", "null", "-"])
-    run(["-ss", "14", "-i", final, "-frames:v", "1", "-q:v", "2", destination / "poster.jpg"])
+    run(["-ss", "3", "-i", final, "-frames:v", "1", "-q:v", "2", destination / "poster.jpg"])
     (destination / "bruma-walkthrough.vtt").write_text("\n".join(vtt))
     content = {"duration": elapsed, "durationLabel": f"{elapsed // 60}:{elapsed % 60:02}", "chapters": chapters}
     feature = ROOT / "src/features/walkthrough"
