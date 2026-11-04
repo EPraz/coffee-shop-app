@@ -101,13 +101,17 @@
   "reviewDraft": "Revisa los valores actuales debajo y vuelve a guardar tu borrador.",
   "current": "Actual",
   "reorderStockLimit": "Solo se pueden añadir las bolsas disponibles.",
+  "disabledBadge": "Temporalmente no disponible",
+  "disabledCoffee": "Este café no está disponible temporalmente.",
+  "exhaustedVariant": "Esta variante está agotada.",
+  "exhaustedCopy": "Prueba otro peso o preparación, o explora la colección.",
   "errors": {
     "rate_limited": "La demo compartida está ocupada. Vuelve a intentarlo en un momento.",
     "order_conflict": "Otro visitante cambió este pedido o este paso ya no está disponible. Revisa su estado actual.",
     "validation": "Revisa los valores y vuelve a intentarlo.",
     "edit_conflict": "Otro visitante cambió este café. Conservamos tu borrador; compara los valores actuales antes de volver a guardar.",
     "store_reset": "La demo compartida se restableció. Revisa la selección actual antes de reintentar.",
-    "session_expired": "Tu acceso demo caducó. Entra de nuevo abajo y vuelve a guardar tus cambios.",
+    "session_expired": "Tu acceso demo caducó. Entra de nuevo para continuar. Conservamos lo que escribiste.",
     "server_error": "No se guardaron los cambios. Conservamos lo que escribiste; vuelve a intentarlo."
   }
 }

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, ShoppingBag, Coffee, Package } from "lucide-react";
 import { useAdminResource } from "./useAdminResource";
+import { AdminResourceError } from "./AdminResourceError";
 import { SalesTrend } from "./SalesTrend";
 import { DashboardActivity, LeadingCoffees } from "./DashboardActivity";
 import { Price } from "../../shared/Price";
@@ -38,14 +39,7 @@ export function AdminDashboard() {
           ))}
         </div>
       </header>
-      {error && (
-        <p role="alert">
-          {t("admin.connectionError")}{" "}
-          <button className="text-link" onClick={() => void refresh()}>
-            {t("admin.retry")}
-          </button>
-        </p>
-      )}
+      {error && <AdminResourceError code={error} onRetry={refresh} />}
       {loading && !data && <p role="status">{t("admin.loading")}</p>}
       {data && (
         <>

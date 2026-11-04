@@ -101,13 +101,17 @@
   "reviewDraft": "Revise os valores atuais abaixo e salve seu rascunho novamente.",
   "current": "Atual",
   "reorderStockLimit": "Só é possível adicionar os pacotes disponíveis.",
+  "disabledBadge": "Temporariamente indisponível",
+  "disabledCoffee": "Este café está temporariamente indisponível.",
+  "exhaustedVariant": "Esta variante está esgotada.",
+  "exhaustedCopy": "Experimente outro peso ou preparo, ou explore a coleção.",
   "errors": {
     "rate_limited": "A demo compartilhada está ocupada. Tente novamente em um momento.",
     "order_conflict": "Outro visitante alterou este pedido ou esta etapa não está mais disponível. Revise o estado atual.",
     "validation": "Revise os valores e tente novamente.",
     "edit_conflict": "Outro visitante alterou este café. Seu rascunho foi mantido; compare os valores atuais antes de salvar novamente.",
     "store_reset": "A demo compartilhada foi restaurada. Revise a seleção atual antes de tentar novamente.",
-    "session_expired": "Seu acesso demo expirou. Entre novamente abaixo e tente salvar suas alterações.",
+    "session_expired": "Seu acesso demo expirou. Entre novamente para continuar. Suas entradas foram mantidas.",
     "server_error": "Não foi possível salvar as alterações. Suas entradas foram mantidas; tente novamente."
   }
 }

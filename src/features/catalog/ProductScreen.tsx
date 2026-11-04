@@ -121,10 +121,26 @@ function ProductScreen({ coffee }: { coffee: Coffee }) {
           )}
           {variantStock(coffee, weight, preparation) === 0 && (
             <div className="sold-out-note">
-              <p>{t("product.unavailable")}</p>
-              <p>{t("product.unavailableCopy")}</p>
+              <p>
+                {t(
+                  coffee.enabled === false
+                    ? "admin.disabledCoffee"
+                    : "admin.exhaustedVariant",
+                )}
+              </p>
+              <p>
+                {t(
+                  coffee.enabled === false
+                    ? "product.unavailableCopy"
+                    : "admin.exhaustedCopy",
+                )}
+              </p>
               <button className="button button-secondary button-full" disabled>
-                {t("common.soldOut")}
+                {t(
+                  coffee.enabled === false
+                    ? "admin.disabledBadge"
+                    : "common.soldOut",
+                )}
               </button>
             </div>
           )}

@@ -12,6 +12,10 @@
   "collectionCopy": "Five origins. Every detail, considered.",
   "active": "Available",
   "inactive": "Unavailable",
+  "disabledBadge": "Temporarily unavailable",
+  "disabledCoffee": "This coffee is temporarily unavailable.",
+  "exhaustedVariant": "This variant is sold out.",
+  "exhaustedCopy": "Try another weight or preparation, or explore the collection.",
   "loading": "Preparing the store…",
   "loadingCopy": "The demo service may take a moment to wake up. Your next ritual is on its way.",
   "connectionError": "We couldn’t reach the store.",
@@ -107,7 +111,7 @@
     "validation": "Check the entered values and try again.",
     "edit_conflict": "Another visitor changed this coffee. Your draft is kept; compare the current values before saving again.",
     "store_reset": "The shared demo was reset. Review the latest selection before trying again.",
-    "session_expired": "Your demo access expired. Enter again below, then retry your changes.",
+    "session_expired": "Your demo access expired. Enter again to continue. Your entries are kept.",
     "server_error": "The changes could not be saved. Your entries are kept; please try again."
   }
 }

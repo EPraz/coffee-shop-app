@@ -6,14 +6,14 @@
 
 **Status:** resolved
 
-- [ ] Editar precios por peso en USD conserva el mismo precio para en grano y molido; editar existencias distingue las cuatro variantes.
-- [ ] Activar/desactivar un café modifica su disponibilidad comercial sin crear, archivar ni borrar productos.
-- [ ] Validar precios, existencias e identificadores tanto en el formulario como en la API; rechazar campos no permitidos.
-- [ ] Guardar muestra un toast con el resultado real; fallo conserva entradas; pendientes impiden envíos duplicados.
-- [ ] Una edición administrativa desactualizada informa el conflicto en lugar de sobrescribir silenciosamente otro cambio.
-- [ ] Catálogo, ficha, carrito, recomendador y recompra usan disponibilidad/precios persistidos; respetar existencias y máximo nueve bolsas por variante.
-- [ ] No mostrar controles de creación de cafés ni carga de imágenes.
-- [ ] Verificar guardado, error, conflicto y reflejo en la tienda mediante navegador y API, conservando comportamiento previo de cupones y recompra.
+- [x] Editar precios por peso en USD conserva el mismo precio para en grano y molido; editar existencias distingue las cuatro variantes.
+- [x] Activar/desactivar un café modifica su disponibilidad comercial sin crear, archivar ni borrar productos.
+- [x] Validar precios, existencias e identificadores tanto en el formulario como en la API; rechazar campos no permitidos.
+- [x] Guardar muestra un toast con el resultado real; fallo conserva entradas; pendientes impiden envíos duplicados.
+- [x] Una edición administrativa desactualizada informa el conflicto en lugar de sobrescribir silenciosamente otro cambio.
+- [x] Catálogo, ficha, carrito, recomendador y recompra usan disponibilidad/precios persistidos; respetar existencias y máximo nueve bolsas por variante.
+- [x] No mostrar controles de creación de cafés ni carga de imágenes.
+- [x] Verificar guardado, error, conflicto y reflejo en la tienda mediante navegador y API, conservando comportamiento previo de cupones y recompra.
 
 ## Comments
 
@@ -21,3 +21,5 @@ Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
 
 
 Validación: typecheck correcto; pruebas focalizadas HTTP con PostgreSQL real y recorrido Playwright del ticket correctos. Revisión global pendiente del ticket 07.
+
+Validación integrada cerrada: suite completa 83/83 navegador y 11/11 API; regresiones de revisión y 16 recorridos afectados correctos tras la limpieza. Ambos revisores cerraron sus hallazgos. Véase ../review.md.

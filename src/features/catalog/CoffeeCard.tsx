@@ -18,7 +18,13 @@ export function CoffeeCard({ coffee }: { coffee: Coffee }) {
             {t("country." + coffee.country)} / {coffee.region}
           </span>
           {!coffee.available && (
-            <span className="stock-badge">{t("common.soldOut")}</span>
+            <span className="stock-badge">
+              {t(
+                coffee.enabled === false
+                  ? "admin.disabledBadge"
+                  : "common.soldOut",
+              )}
+            </span>
           )}
         </div>
         <div className="coffee-card-heading">

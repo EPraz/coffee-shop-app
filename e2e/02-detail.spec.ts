@@ -25,7 +25,7 @@ test("sold-out detail and unknown product remain navigable", async ({
   await page.goto("/coffees/volcan");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Volcán");
   await expect(
-    page.getByText("This lot is taking a little break."),
+    page.getByText("This coffee is temporarily unavailable."),
   ).toBeVisible();
   await page.goto("/coffees/not-a-coffee");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(

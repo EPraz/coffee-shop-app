@@ -1,20 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api } from "../../shared/api";
+import { actionError } from "./Toast";
 
 export function useAdminResource<T>(path: string) {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const latestRequest = useRef({ version: 0 });
   const refresh = useCallback(async () => {
     const request = ++latestRequest.current.version;
     setLoading(true);
-    setError(false);
+    setError(null);
     try {
       const result = await api<T>(path);
       if (request === latestRequest.current.version) setData(result);
-    } catch {
-      if (request === latestRequest.current.version) setError(true);
+    } catch (failure) {
+      if (request === latestRequest.current.version)
+        setError(actionError(failure));
     } finally {
       if (request === latestRequest.current.version) setLoading(false);
     }

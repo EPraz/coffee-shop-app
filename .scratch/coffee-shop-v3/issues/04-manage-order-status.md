@@ -6,13 +6,13 @@
 
 **Status:** resolved
 
-- [ ] Mostrar lista y detalle de pedidos con fecha, número, líneas, importes históricos y estado, sin datos personales del formulario.
-- [ ] Permitir únicamente confirmado → en preparación → enviado → entregado; impedir saltos y retrocesos.
-- [ ] Permitir cancelación solo en confirmado o en preparación; no cancelar enviados, entregados o cancelados.
-- [ ] Cancelación y reposición son atómicas; acciones repetidas o simultáneas no reponen más de una vez.
-- [ ] Toasts reflejan el resultado real y los conflictos de estado muestran el dato vigente.
-- [ ] El recibo del comprador obtiene el estado actualizado al consultar de nuevo, sin modificar importes históricos.
-- [ ] Probar permisos, progresión, conflictos, cancelación repetida/concurrente y recuperación ante fallo mediante las fronteras aprobadas.
+- [x] Mostrar lista y detalle de pedidos con fecha, número, líneas, importes históricos y estado, sin datos personales del formulario.
+- [x] Permitir únicamente confirmado → en preparación → enviado → entregado; impedir saltos y retrocesos.
+- [x] Permitir cancelación solo en confirmado o en preparación; no cancelar enviados, entregados o cancelados.
+- [x] Cancelación y reposición son atómicas; acciones repetidas o simultáneas no reponen más de una vez.
+- [x] Toasts reflejan el resultado real y los conflictos de estado muestran el dato vigente.
+- [x] El recibo del comprador obtiene el estado actualizado al consultar de nuevo, sin modificar importes históricos.
+- [x] Probar permisos, progresión, conflictos, cancelación repetida/concurrente y recuperación ante fallo mediante las fronteras aprobadas.
 
 ## Comments
 
@@ -20,3 +20,5 @@ Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
 
 
 Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.
+
+Validación integrada cerrada: suite completa 83/83 navegador y 11/11 API; regresiones de revisión y 16 recorridos afectados correctos tras la limpieza. Ambos revisores cerraron sus hallazgos. Véase ../review.md.

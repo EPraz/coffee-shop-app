@@ -6,17 +6,17 @@
 
 **Status:** resolved
 
-- [ ] Conservar validación del formulario, Llenar demo y modos aprobado/rechazado; no persistir ni registrar datos personales del formulario.
-- [ ] La API calcula precios, BRUMA15 y envío; no acepta importes del cliente como autoridad.
-- [ ] Un cambio entre revisión y confirmación abre el modal sencillo; Aplicar cambios actualiza y devuelve a revisión sin comprar; Volver a la bolsa preserva la selección.
-- [ ] Confirmar pedido y descontar existencias es atómico; una carrera por la última unidad produce un solo pedido confirmado.
-- [ ] Doble clic y reintento de la misma solicitud devuelven el mismo pedido sin descontar dos veces; reutilización incompatible se rechaza.
-- [ ] Rechazo, falta de stock o fallo no vacían el carrito ni crean una falsa confirmación.
-- [ ] Recibo y lista administrativa muestran líneas e importes históricos y estado inicial confirmado.
-- [ ] Mis pedidos conserva hasta veinte referencias/snapshots de este navegador, permite consultar estado vigente y no enumera compras ajenas por conocer su número.
-- [ ] Borrar historial local no borra pedidos administrativos; conservar ejemplos locales claramente marcados y la recompra revisada.
-- [ ] Usar una nueva persistencia de historial sin leer ni migrar recibos de V2; errores de almacenamiento tienen recuperación útil.
-- [ ] Verificar importes conocidos, compra aprobada/rechazada, aislamiento del historial, reintento y última unidad concurrente mediante navegador/API.
+- [x] Conservar validación del formulario, Llenar demo y modos aprobado/rechazado; no persistir ni registrar datos personales del formulario.
+- [x] La API calcula precios, BRUMA15 y envío; no acepta importes del cliente como autoridad.
+- [x] Un cambio entre revisión y confirmación abre el modal sencillo; Aplicar cambios actualiza y devuelve a revisión sin comprar; Volver a la bolsa preserva la selección.
+- [x] Confirmar pedido y descontar existencias es atómico; una carrera por la última unidad produce un solo pedido confirmado.
+- [x] Doble clic y reintento de la misma solicitud devuelven el mismo pedido sin descontar dos veces; reutilización incompatible se rechaza.
+- [x] Rechazo, falta de stock o fallo no vacían el carrito ni crean una falsa confirmación.
+- [x] Recibo y lista administrativa muestran líneas e importes históricos y estado inicial confirmado.
+- [x] Mis pedidos conserva hasta veinte referencias/snapshots de este navegador, permite consultar estado vigente y no enumera compras ajenas por conocer su número.
+- [x] Borrar historial local no borra pedidos administrativos; conservar ejemplos locales claramente marcados y la recompra revisada.
+- [x] Usar una nueva persistencia de historial sin leer ni migrar recibos de V2; errores de almacenamiento tienen recuperación útil.
+- [x] Verificar importes conocidos, compra aprobada/rechazada, aislamiento del historial, reintento y última unidad concurrente mediante navegador/API.
 
 ## Comments
 
@@ -26,3 +26,5 @@ Desglose y fronteras de pruebas aprobados por el usuario el 2026-11-03.
 
 
 Validación: pruebas focalizadas de API con PostgreSQL y recorrido Playwright del ticket correctos; typecheck de frontend y backend correcto. Revisión integrada pendiente en 07.
+
+Validación integrada cerrada: suite completa 83/83 navegador y 11/11 API; regresiones de revisión y 16 recorridos afectados correctos tras la limpieza. Ambos revisores cerraron sus hallazgos. Véase ../review.md.

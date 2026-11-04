@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { useAdminResource } from "./useAdminResource";
+import { AdminResourceError } from "./AdminResourceError";
 import { OrderDate } from "../orders/OrderDate";
 import { Price } from "../../shared/Price";
 import { CheckoutSelection } from "../checkout/CheckoutSelection";
@@ -23,14 +24,7 @@ export function AdminOrders() {
           <p>{t("admin.ordersCopy")}</p>
         </div>
       </div>
-      {error && (
-        <p role="alert">
-          {t("admin.connectionError")}{" "}
-          <button className="text-link" onClick={() => void refresh()}>
-            {t("admin.retry")}
-          </button>
-        </p>
-      )}
+      {error && <AdminResourceError code={error} onRetry={refresh} />}
       {loading && !data && <p role="status">{t("admin.loading")}</p>}
       {data && !data.orders.length && (
         <p className="admin-empty">{t("admin.noOrders")}</p>
@@ -89,14 +83,7 @@ export function AdminOrderDetail() {
           )}
         </div>
       </div>
-      {error && (
-        <p role="alert">
-          {t("admin.connectionError")}{" "}
-          <button className="text-link" onClick={() => void refresh()}>
-            {t("admin.retry")}
-          </button>
-        </p>
-      )}
+      {error && <AdminResourceError code={error} onRetry={refresh} />}
       {loading && !order && <p role="status">{t("admin.loading")}</p>}
       {order && (
         <>

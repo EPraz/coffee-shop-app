@@ -51,10 +51,10 @@ export class PurchaseService {
           throw new DomainError("review_required");
         const current = await priceSelection(
           tx,
-          {
+          reviewSchema.parse({
             lines: quote.lines.map(
               ({ coffeeId, weight, preparation, quantity }) => ({
-                coffeeId: coffeeId as "niebla",
+                coffeeId,
                 weight,
                 preparation,
                 quantity,
@@ -62,7 +62,7 @@ export class PurchaseService {
             ),
             couponApplied: quote.couponApplied,
             generation: quote.generation,
-          },
+          }),
           quote.generation,
         );
         if (

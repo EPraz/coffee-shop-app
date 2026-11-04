@@ -5,6 +5,7 @@ import { DomainError } from "./errors";
 import { lockStore } from "./store-lock";
 import { orderDto } from "./order-dto";
 import { variantId } from "../../shared/catalog";
+import { nextOrderState, type OrderState } from "../../shared/orders";
 
 const stateChange = z.strictObject({
   state: z.enum([
@@ -17,11 +18,6 @@ const stateChange = z.strictObject({
   version: z.int().positive(),
   generation: z.uuid(),
 });
-const nextState: Record<string, string | undefined> = {
-  confirmed: "preparing",
-  preparing: "shipped",
-  shipped: "delivered",
-};
 
 @Injectable()
 export class OrderStateService {
@@ -40,7 +36,10 @@ export class OrderStateService {
       const cancelling =
         command.state === "cancelled" &&
         ["confirmed", "preparing"].includes(order.state);
-      if (!cancelling && nextState[order.state] !== command.state)
+      if (
+        !cancelling &&
+        nextOrderState[order.state as OrderState] !== command.state
+      )
         throw new DomainError("order_conflict");
       if (cancelling) {
         for (const item of order.items)
