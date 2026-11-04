@@ -54,16 +54,23 @@ See [Render Free](https://render.com/docs/free),
 Render's Free PostgreSQL service is not used for the durable database. The
 checked-in Blueprint creates only the API; PostgreSQL stays on Neon Free.
 
-## Current publication checkpoint
+## Published V3
 
-The published application remains V2 until the V3 API is ready. V3 source has
-been pushed to `release/v3-connected-store` so Render can build it without
-activating the production frontend. The user created Neon Free and supplied its
-connection through an ignored local file; SSL connectivity, three migrations
-and the initial sample seed succeeded. No V2 data was imported.
+- Frontend: https://coffee-shop-app-nine-lilac.vercel.app
+- API: https://bruma-cafe-api.onrender.com
+- API health: https://bruma-cafe-api.onrender.com/health
+- Same-origin health: https://coffee-shop-app-nine-lilac.vercel.app/api/health
+- Render service: `srv-dbll07ei0phs73b1m85g`, explicitly Free, Ohio.
+- Vercel project: `prj_JnB0HSipURlXElc2tWItYb9zgCqZ`.
 
-The API region is Ohio, matching the supplied Neon database region. Render
-still needs repository access and API authentication. GitHub's Render app
-installation page was opened for the user to authorize `coffee-shop-app`.
-The browser control tool remains unavailable; use the official Render API with
-an explicitly supplied key to finish service setup. No paid fallback is authorized.
+The user created Neon Free and supplied its connection through an ignored local
+file. SSL connectivity, three migrations and the initial seed succeeded. Ohio
+matches the database region. No V2 data was imported. The release branch enabled
+the first API build while production remained on V2; both providers now follow
+`main` with automatic deployments.
+
+The existing Render CLI session used by sibling projects was discovered and
+successfully reused. A new API key was unnecessary. For future deployments,
+check installed provider clients and their standard authenticated sessions before
+asking the user to create credentials. See [the delivery record](../.scratch/coffee-shop-v3/delivery.md)
+for public HTTP/browser checks and actual deployment revisions.

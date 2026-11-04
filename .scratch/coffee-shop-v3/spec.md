@@ -1,9 +1,9 @@
 # Bruma V3: tienda compartida y administración de demostración
 
-**Status:** claimed
+**Status:** resolved
 
-Implementación y revisión funcional completas (tickets 01–07). Publicación y
-verificación pública pendientes de acceso a Render/Neon en el ticket 08.
+Implementación, revisión y publicación completas (tickets 01–08). La compra y
+administración conectadas y el video se verificaron desde la URL pública.
 Estado y evidencia: [delivery.md](delivery.md).
 
 ## Problem Statement

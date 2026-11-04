@@ -2,7 +2,7 @@
 
 Format: **73 seconds**, 1920 × 1080, 25 fps, H.264 MP4, no audio, with embedded English explanations. The first 66 seconds use a real 390 × 844 mobile viewport with touch interactions. The final seven seconds show the studio at 1440 × 800.
 
-The V3 recording uses the connected local application, a real NestJS API and local PostgreSQL. Its origin and application commit are recorded in the capture manifest. The public site still serves V2 until the free V3 backend is provisioned and verified. No production recording or V3 publication is claimed at this checkpoint.
+The V3 recording uses the connected local application, a real NestJS API and local PostgreSQL. Its origin and application commit are recorded in the capture manifest. The same application and media are now published on Vercel, with Render Free and Neon Free. The footage was captured locally; public playback and the connected purchase/admin workflow were verified separately.
 
 [MP4](../public/walkthrough/bruma-walkthrough.mp4) · [English captions](../public/walkthrough/bruma-walkthrough.vtt) · [Publication checklist](v3-deployment.md)
 

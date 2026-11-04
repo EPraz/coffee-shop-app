@@ -2,9 +2,9 @@
 
 A responsive coffee-store portfolio built with React, TypeScript, NestJS and PostgreSQL. Discover five coffees, make a simulated purchase, then follow the same order through a shared store dashboard. English, Spanish and Portuguese; USD throughout.
 
-**Release status:** V3 is implemented locally. The public deployment below still runs V2 while the free Render API and Neon database await account access. [V3 deployment checklist](docs/v3-deployment.md).
+V3 is published on Vercel, with a NestJS API on Render Free and PostgreSQL on Neon Free. [Deployment details](docs/v3-deployment.md).
 
-[Public demo — currently V2](https://coffee-shop-app-nine-lilac.vercel.app) · [Published walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
+[Explore the live demo](https://coffee-shop-app-nine-lilac.vercel.app) · [Watch the walkthrough](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
 [![Bruma: a mobile coffee store and connected studio](public/walkthrough/poster.jpg)](https://coffee-shop-app-nine-lilac.vercel.app/walkthrough)
 
@@ -66,4 +66,4 @@ Tests exercise browser journeys and the public HTTP API against real, isolated P
 - [V2 specification](.scratch/coffee-shop-v2/spec.md) and [original MVP](.scratch/coffee-shop-mvp/spec.md)
 - [Original image assets and prompts](docs/assets.md)
 
-The approved hosting stack is Vercel for the frontend, Render Free for the API and Neon Free for PostgreSQL. `render.yaml` explicitly selects a free API service. The existing GitHub–Vercel integration deploys `main`; the production API rewrite will be activated only after the actual backend is ready. No secrets belong in Git or the React bundle.
+The hosting stack is Vercel for the frontend, Render Free for the API and Neon Free for PostgreSQL. `render.yaml` explicitly selects a free API service. Both Vercel and Render follow `main`; the frontend proxies `/api` to `https://bruma-cafe-api.onrender.com`. No secrets belong in Git or the React bundle.

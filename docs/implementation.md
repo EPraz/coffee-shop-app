@@ -26,9 +26,9 @@ complete suite passed 83 browser tests and 11 API tests before the final review
 corrections; [the review record](../.scratch/coffee-shop-v3/review.md) tracks the
 additional regressions and follow-up checks.
 
-The free hosting plan, account-access checkpoint and activation order are in
-[V3 deployment](v3-deployment.md). The existing public deployment remains V2
-until the actual API and database are ready. Sections below describe earlier
+The free hosting plan and activation order are in
+[V3 deployment](v3-deployment.md). V3 is publicly deployed and its connected
+purchase/admin workflow has been verified. Sections below describe earlier
 releases and should not be read as V3 persistence or deployment instructions.
 
 ## Architecture

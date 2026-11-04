@@ -1,7 +1,7 @@
 # Bruma V3 delivery checkpoint
 
 Implementation and functional review are complete. Tickets 01–07 are resolved.
-Ticket 08 remains open for cloud publication and public verification.
+Ticket 08 is resolved after cloud publication and public verification.
 
 ## Implemented
 
@@ -55,31 +55,37 @@ Real connected local capture at `http://127.0.0.1:43174`, implementation commit
   EN/ES/PT navigation, supported widths and automated WCAG checks. Typecheck,
   lint, format and production build passed again with the final media.
 
-## Remaining publication work
+## Published V3 — 2026-11-04
 
-The public application remains V2 at
-`https://coffee-shop-app-nine-lilac.vercel.app`. V3 source is available on
-`release/v3-connected-store`; production `main` remains unchanged. No frontend
-API rewrite has been activated yet.
+- Frontend: https://coffee-shop-app-nine-lilac.vercel.app
+- API: https://bruma-cafe-api.onrender.com
+- Render Free service: `srv-dbll07ei0phs73b1m85g`, Ohio, auto-deploy from main.
+- Initial live API deploy: `dep-dbll07ui0phs73b1m9n0` at `a34dbc1`.
+- Vercel production: `coffee-shop-1c2i1as89-eprazs-projects.vercel.app`, READY,
+  GitHub main revision `a415a312f1e9a639ed8f4194775936f154ef87de`.
+- Frontend source and media were deployed automatically by GitHub integration.
+- Existing authenticated Render CLI session was successfully reused. No new API
+  key was needed. No paid resource or unrelated service was changed.
+- Neon was initially empty: all three migrations and the guarded sample seed
+  succeeded. Existing V2 receipts were not imported.
 
-The configured stack is **Render Free API + Neon Free PostgreSQL + Vercel**.
-`render.yaml` explicitly creates a free API only. The frontend rewrite is kept
-unchanged until an actual ready API URL exists. No paid fallback is authorized.
+Public HTTP checks passed both directly and through the Vercel proxy: anonymous
+admin denial, buyer-owned receipts, server-priced/idempotent purchase, order
+progression, cancellation restoring stock, dashboard, secure HttpOnly/Lax cookies
+and logout. Three synthetic QA orders were cancelled; no global reset was run.
 
-The user created Neon Free and supplied its connection in ignored
-`server/.env.deploy`. SSL connectivity succeeded and the database was empty.
-All three existing migrations were applied successfully, followed by the
-non-destructive initial sample seed. The API will be in Ohio to match Neon.
+Actual Chromium production checks passed: 390px purchase with BRUMA15 for USD
+42.40, admin progression to Preparing, buyer receipt reload, cancellation,
+reset-modal cancellation, EN/ES/PT at 320/768/1024/1440 without overflow, and no
+browser exceptions. Mobile/desktop screenshots were visually inspected.
 
-Render authentication is still pending. The official GitHub Render installation
-page was opened for the user to grant repository access. A Render API key is
-also required for service administration through the official API. Browser
-inventory reported an unavailable access host, and Computer Use later stopped
-because it could not verify the current browser URL on Windows. These are tool
-limitations, not rejections by automatic shell approval review.
+Public video: 73 seconds, real playback, chapter seek, transcript, actual MP4
+download and byte-range requests passed. The downloaded SHA-256 exactly matches
+the reviewed local export. Evidence remains in ignored
+`.scratch/runtime/cloud-api-{direct,proxy}.json`, `cloud-browser.json` and
+`.scratch/qa/v3-public-admin-*.png`.
 
-Next: establish Render access, provision only the free API,
-verify API health, activate the real Vercel
-rewrite, push/deploy, then test public routes, cookies, purchase, administration,
-reset, video playback, downloads and byte ranges. Follow
-[the deployment checklist](../../docs/v3-deployment.md).
+The captured footage remains honestly identified as a local connected recording.
+The publication verification was performed against the actual public V3.
+Free-service idle recovery was not separately timed; existing loading/retry UX
+and the documented free-tier limits remain applicable.
