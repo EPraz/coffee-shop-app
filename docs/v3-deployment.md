@@ -74,3 +74,18 @@ successfully reused. A new API key was unnecessary. For future deployments,
 check installed provider clients and their standard authenticated sessions before
 asking the user to create credentials. See [the delivery record](../.scratch/coffee-shop-v3/delivery.md)
 for public HTTP/browser checks and actual deployment revisions.
+
+## Workspace deployment paths
+
+The architecture refactor keeps the existing Render service, Vercel project,
+Neon database and public origins. Both providers build from the repository root.
+Render uses `npm ci --include=dev && npm run api:build`; the root script compiles
+contracts before the API. Its saved start command is
+`npm run db:migrate && npm run db:seed && npm start --workspace @bruma/api`.
+The named workspace works with both the original and reorganized layouts, so
+the service command was updated before publishing the refactor.
+
+Vercel uses `npm run build` and the checked-in `vercel.json` output directory
+`apps/web/dist`. API rewrites and SPA routes are unchanged. The ignored local
+deployment connection file now lives at `apps/api/.env.deploy`; it is never
+included in a commit or frontend build. There are no new migrations or resets.

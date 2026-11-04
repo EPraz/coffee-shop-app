@@ -27,9 +27,10 @@ The refactor preserves behavior, public routes, data, original visuals and hosti
   modules. Each module owns its controllers, validation and services, with explicit
   imports/exports. Database infrastructure has one provider owner. HTTP/security
   plumbing is separated from commercial workflows.
-- `packages/contracts` owns wire types, state vocabulary and stable identity
-  encoding. Fixed product definitions and samples are owned by API modules;
-  browser stock-selection helpers are owned by the catalogue feature.
+- `packages/contracts` owns wire types and state vocabulary. Database variant
+  identity encoding belongs to the API catalogue module, alongside fixed product
+  definitions; samples belong to API modules. Browser stock-selection helpers
+  are owned by the catalogue feature.
 - Keep real browser and public HTTP tests under `tests/browser` and `tests/api`.
   Their isolated local database guard and public test seams remain unchanged.
 - Record architecture checkpoints in agent instructions and run a deterministic

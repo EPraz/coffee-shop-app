@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "dev:web": "npm run dev --workspace @bruma/web",
+    "dev:web": "npm run contracts:build && npm run dev --workspace @bruma/web",
     "build": "npm run contracts:build && npm run build --workspace @bruma/web",
     "preview": "npm run preview --workspace @bruma/web",
     "typecheck": "npm run contracts:build && tsc -p tsconfig.json --noEmit && npm run typecheck --workspaces --if-present",
