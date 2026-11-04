@@ -46,7 +46,17 @@ or verify this media update.
 
 ## Publication
 
-Publish through the existing automatic GitHub–Vercel integration on `main`.
-Final public playback and hash verification are pending deployment.
+Published through the existing automatic GitHub–Vercel integration on `main`.
+Media commit: `3f8b2b2d042578ffb7c6435970a19da818a6e2f6`.
+Vercel deployment: `coffee-shop-u0ilgxfx9-eprazs-projects.vercel.app`, READY.
+
+The canonical public player passes real Chromium verification: duration 81s,
+eleven chapters, playback, stock/receipt/desktop chapter seeking, transcript,
+captions, actual MP4 download and HTTP 206 byte ranges. Download SHA-256 matches
+the reviewed export exactly, and the public poster matches the local file.
+English, Spanish and Portuguese fit 320, 768, 1024 and 1440px without overflow.
+No browser page errors were recorded. Public screenshots at 390px and 1440px
+were visually inspected. Runtime reports and screenshots remain ignored under
+`.scratch/runtime/` and `.scratch/qa/`. Verification did not mutate public data.
 
 Player: https://coffee-shop-app-nine-lilac.vercel.app/walkthrough
